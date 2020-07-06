@@ -28,71 +28,85 @@ export interface TokenPayload {
 
 @Injectable()
 export class AuthenticationService {
-  private token: string
+  private token: string;
+  baseUrl = 'http://localhost:3000';
+ /// baseUrl = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   private saveToken(token: string): void {
-    localStorage.setItem('usertoken', token)
-    this.token = token
+    localStorage.setItem('usertoken', token);
+    this.token = token;
   }
 
   private getToken(): string {
     if (!this.token) {
-      this.token = localStorage.getItem('usertoken')
+      this.token = localStorage.getItem('usertoken');
     }
-    return this.token
+    return this.token;
   }
 
   public getUserDetails(): UserDetails {
-    const token = this.getToken()
-    let payload
+    const token = this.getToken();
+    let payload;
     if (token) {
-      payload = token.split('.')[1]
-      payload = window.atob(payload)
-      return JSON.parse(payload)
+      payload = token.split('.')[1];
+      payload = window.atob(payload);
+      return JSON.parse(payload);
     } else {
-      return null
+      return null;
+    }
+  }
+
+  IsAdmin(): number {
+    const user = this.getUserDetails();
+    if (user) {
+      return user.user_type === 'admin' ? 1 : 2; // si es admin regresa 1 , si no 2
+    } else {
+      return 0;
     }
   }
 
   public isLoggedIn(): boolean {
-    const user = this.getUserDetails()
+    const user = this.getUserDetails();
     if (user) {
-      return user.exp > Date.now() / 1000
+      return user.exp > Date.now() / 1000;
     } else {
-      return false
+      return false;
     }
   }
 
   public register(user: TokenPayload): Observable<any> {
-    return this.http.post(`/usuarios/register`, user)
+    return this.http.post(this.baseUrl + `/api/user/register`, user);
   }
 
   public login(user: TokenPayload): Observable<any> {
-    const base = this.http.post(`/usuarios/login`, user)
+    const base = this.http.post(this.baseUrl + `/api/user/login`, user);
 
+    console.log(base);
     const request = base.pipe(
       map((data: TokenResponse) => {
         if (data.token) {
-          this.saveToken(data.token)
+          this.saveToken(data.token);
         }
-        return data
+        console.log(data);
+        return data;
       })
-    )
+    );
 
-    return request
+    return request;
   }
 
   public profile(): Observable<any> {
-    return this.http.get(`/usuarios/profile`, {
+    console.log(this.getToken());
+    return this.http.get(this.baseUrl + `/api/user/profile`, {
       headers: { Authorization: ` ${this.getToken()}` }
-    })
+    });
   }
 
   public logout(): void {
-    this.token = ''
-    window.localStorage.removeItem('usertoken')
-    this.router.navigateByUrl('/')
+    this.token = '';
+    window.localStorage.removeItem('usertoken');
+    this.router.navigateByUrl('/');
   }
 }
