@@ -29,19 +29,19 @@ export interface TokenPayload {
 @Injectable()
 export class AuthenticationService {
   private token: string;
-  baseUrl = 'http://localhost:3000';
- /// baseUrl = '';
+  baseUrl = "http://localhost:3000";
+  /// baseUrl = '';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   private saveToken(token: string): void {
-    localStorage.setItem('usertoken', token);
+    localStorage.setItem("usertoken", token);
     this.token = token;
   }
 
   private getToken(): string {
     if (!this.token) {
-      this.token = localStorage.getItem('usertoken');
+      this.token = localStorage.getItem("usertoken");
     }
     return this.token;
   }
@@ -50,7 +50,7 @@ export class AuthenticationService {
     const token = this.getToken();
     let payload;
     if (token) {
-      payload = token.split('.')[1];
+      payload = token.split(".")[1];
       payload = window.atob(payload);
       return JSON.parse(payload);
     } else {
@@ -61,9 +61,27 @@ export class AuthenticationService {
   IsAdmin(): number {
     const user = this.getUserDetails();
     if (user) {
-      return user.user_type === 'admin' ? 1 : 2; // si es admin regresa 1 , si no 2
+      return user.user_type === "admin" ? 1 : 7; // si es admin regresa 1 , si no 7
     } else {
       return 0;
+    }
+  }
+
+  IsSupervisor(): number {
+    const user = this.getUserDetails();
+    if (user) {
+      return user.user_type == "supervisor" ? 2 : 7; // si es supervisor regresa 2 , si no 7
+    } else {
+      return 2;
+    }
+  }
+
+  IsVendedor(): number {
+    const user = this.getUserDetails();
+    if (user) {
+      return user.user_type == "vendedor" ? 3 : 7; // si es supervisor regresa 3 , si no 7
+    } else {
+      return 3;
     }
   }
 
@@ -100,13 +118,13 @@ export class AuthenticationService {
   public profile(): Observable<any> {
     console.log(this.getToken());
     return this.http.get(this.baseUrl + `/api/user/profile`, {
-      headers: { Authorization: ` ${this.getToken()}` }
+      headers: { Authorization: ` ${this.getToken()}` },
     });
   }
 
   public logout(): void {
-    this.token = '';
-    window.localStorage.removeItem('usertoken');
-    this.router.navigateByUrl('/');
+    this.token = "";
+    window.localStorage.removeItem("usertoken");
+    this.router.navigateByUrl("/");
   }
 }

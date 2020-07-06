@@ -24,14 +24,13 @@ export class LogInSWComponent implements OnInit {
   login() {
     this.auth.login(this.credentials).subscribe(
       () => {
-        this.router.navigateByUrl('/AdminProfile')
+        this.router.navigateByUrl("/AdminProfile");
       },
-      err => {
-        console.error(err)
+      (err) => {
+        console.error(err);
       }
-    )
+    );
   }
 
   ngOnInit(): void {}
-
 }
