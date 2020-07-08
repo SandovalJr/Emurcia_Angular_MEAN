@@ -4,12 +4,13 @@ import {
   TokenPayload,
 } from "../../../../services/authentication.service";
 import { Router } from "@angular/router";
-import { FormControl, Validators } from "@angular/forms";
+import { FormControl, Validators, FormGroup } from "@angular/forms";
 import {
   RxwebValidators,
   ReactiveFormConfig,
   NumericValueType,
 } from "@rxweb/reactive-form-validators";
+
 // servicio
 import { MessageErrorsService } from "../../../../services/messageError.service";
 
@@ -26,10 +27,33 @@ export class LogInSWComponent implements OnInit {
     user_type: "",
     region: "",
   };
+  public formulario: FormGroup;
 
-  constructor(private auth: AuthenticationService, private router: Router) {}
+  constructor(
+    private auth: AuthenticationService,
+    private router: Router,
+    private MessageErrorSvr: MessageErrorsService
+  ) {}
 
-  passFormControl = new FormControl("", [Validators.required]);
+  ngOnInit(): void {
+    this.createForm();
+  }
+
+  public createForm() {
+    this.formulario = new FormGroup({
+      usuario: new FormControl(null, [RxwebValidators.required()]),
+      password: new FormControl(null, [RxwebValidators.required()]),
+    });
+  }
+
+  public ValidateForm(control: string) {
+    console.log(this.formulario.controls[control].errors);
+    if (!this.formulario.controls[control].touched) return { error: undefined };
+
+    return this.MessageErrorSvr.errorMessage(
+      this.formulario.controls[control].errors
+    );
+  }
 
   login() {
     this.auth.login(this.credentials).subscribe(
@@ -41,6 +65,4 @@ export class LogInSWComponent implements OnInit {
       }
     );
   }
-
-  ngOnInit(): void {}
 }

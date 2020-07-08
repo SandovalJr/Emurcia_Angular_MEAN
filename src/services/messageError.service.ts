@@ -15,11 +15,7 @@ export class MessageErrorsService {
 
     switch (true) {
       case errorRecibido.hasOwnProperty("required"):
-        message: "Es necesario este campo";
-        break;
-
-      case errorRecibido.hasOwnProperty("onlyAlpha"):
-        message = "Este campo tiene caracteres innecesarios";
+        message = "Este campo es necesario";
         break;
 
       case errorRecibido.hasOwnProperty("minLength"):

@@ -31,7 +31,11 @@ import { VendedorComponent } from "./components/sw/user_types/vendedor/vendedor.
 // Servicios
 import { AuthGuardService } from "../services/auth-guard.service";
 import { AuthenticationService } from "../services/authentication.service";
-import { LogInErrorComponent } from './components/sw/log-in-error/log-in-error.component';
+import { LogInErrorComponent } from "./components/sw/log-in-error/log-in-error.component";
+
+// validator RXJS
+import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -57,6 +61,8 @@ import { LogInErrorComponent } from './components/sw/log-in-error/log-in-error.c
     APP_ROUTES,
     HttpClientModule,
     RouterModule,
+    ReactiveFormsModule,
+    RxReactiveFormsModule,
   ],
   providers: [AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent],
