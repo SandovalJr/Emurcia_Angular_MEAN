@@ -31,6 +31,7 @@ import { VendedorComponent } from "./components/sw/user_types/vendedor/vendedor.
 // Servicios
 import { AuthGuardService } from "../services/auth-guard.service";
 import { AuthenticationService } from "../services/authentication.service";
+import { LogInErrorComponent } from './components/sw/log-in-error/log-in-error.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AuthenticationService } from "../services/authentication.service";
     AdministradorComponent,
     SupervisorComponent,
     VendedorComponent,
+    LogInErrorComponent,
   ],
   imports: [
     BrowserModule,
