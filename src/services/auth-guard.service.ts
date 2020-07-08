@@ -33,11 +33,6 @@ export class AuthGuardService implements CanActivate {
       }
     }
 
-    // if (!this.auth.IsAdmin()) {
-    //   this.router.navigateByUrl('/');
-    //   return false;
-    // }
-
     return true;
   }
 }

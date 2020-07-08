@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable, of } from "rxjs";
 import { map } from "rxjs/operators";
 import { Router } from "@angular/router";
+// import { userInfo } from 'os';
 
 export interface UserDetails {
   id: number;
@@ -84,6 +85,8 @@ export class AuthenticationService {
       return 3;
     }
   }
+
+
 
   public isLoggedIn(): boolean {
     const user = this.getUserDetails();
