@@ -11,7 +11,6 @@ import { SupervisorComponent } from "../components/sw/user_types/supervisor/supe
 import { VendedorComponent } from "../components/sw/user_types/vendedor/vendedor.component";
 // SERVICIOS
 import { AuthGuardService } from "../../services/auth-guard.service";
-import { ServiciosComponent } from "../components/pw/servicios/servicios.component";
 
 const routes: Routes = [
   { path: "", component: PwComponent },
@@ -32,11 +31,7 @@ const routes: Routes = [
     component: VendedorComponent,
     canActivate: [AuthGuardService],
   },
-  {
-    path: "services",
-    component: ServiciosComponent,
-    canActivate: [AuthGuardService],
-  },
+
   { path: "**", component: PwComponent },
 ];
 

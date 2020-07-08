@@ -14,13 +14,7 @@ import { NavbarComponent } from "./components/pw/partials/navbar/navbar.componen
 import { FooterComponent } from "./components/pw/partials/footer/footer.component";
 import { InicioComponent } from "./components/pw/inicio/inicio.component";
 import { NosotrosComponent } from "./components/pw/nosotros/nosotros.component";
-import { AliadosComponent } from "./components/pw/aliados/aliados.component";
-import { AlfagasComponent } from "./components/pw/aliados/alfagas/alfagas.component";
-import { AuregasComponent } from "./components/pw/aliados/auregas/auregas.component";
-import { GasCanonComponent } from "./components/pw/aliados/gas-canon/gas-canon.component";
-import { GasLuxComponent } from "./components/pw/aliados/gas-lux/gas-lux.component";
-import { HaciendaNuevaComponent } from "./components/pw/aliados/hacienda-nueva/hacienda-nueva.component";
-import { ServiciosComponent } from "./components/pw/servicios/servicios.component";
+
 import { ContactoComponent } from "./components/pw/contacto/contacto.component";
 import { LogInSWComponent } from "./components/sw/log-in-sw/log-in-sw.component";
 import { SwComponent } from "./components/sw/sw.component";
@@ -46,13 +40,6 @@ import { AuthenticationService } from "../services/authentication.service";
     FooterComponent,
     InicioComponent,
     NosotrosComponent,
-    AliadosComponent,
-    AlfagasComponent,
-    AuregasComponent,
-    GasCanonComponent,
-    GasLuxComponent,
-    HaciendaNuevaComponent,
-    ServiciosComponent,
     ContactoComponent,
     LogInSWComponent,
     SwComponent,
@@ -70,6 +57,6 @@ import { AuthenticationService } from "../services/authentication.service";
     RouterModule,
   ],
   providers: [AuthenticationService, AuthGuardService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
