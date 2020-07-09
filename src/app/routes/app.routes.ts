@@ -13,21 +13,38 @@ import { VendedorComponent } from "../components/sw/user_types/vendedor/vendedor
 // SERVICIOS
 import { AuthGuardService } from "../../services/auth-guard.service";
 
+// ADMIN
+import { InicioAdminComponent } from "../components/sw/user_types/administrador/inicio-admin/inicio-admin.component";
+import { Component } from "@angular/core";
 const routes: Routes = [
   { path: "", component: PwComponent },
   { path: "login", component: LogInSWComponent },
-  {path:'loginError',component: LogInErrorComponent},
+  { path: "loginError", component: LogInErrorComponent },
   { path: "Home", component: PwComponent },
+  // ADMINISTRADOR
   {
     path: "AdminProfile",
     component: AdministradorComponent,
     canActivate: [AuthGuardService],
+    children: [
+      {
+        path: "inicio",
+        component: InicioAdminComponent,
+      },
+    ],
   },
+  {
+    path: "InicioAdmin",
+    component: InicioAdminComponent,
+    canActivate: [AuthGuardService],
+  },
+  // SUPERVISOR
   {
     path: "SupervisorProfile",
     component: SupervisorComponent,
     canActivate: [AuthGuardService],
   },
+  // VENDEDOR
   {
     path: "VendedorProfile",
     component: VendedorComponent,

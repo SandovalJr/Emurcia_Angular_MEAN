@@ -45,11 +45,12 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 // import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatMenuModule} from '@angular/material/menu';
-
-
 import { MatListModule } from  '@angular/material/list';
+
+// ADMIN
 import { SideNavComponent } from './components/sw/user_types/administrador/side-nav/side-nav.component';
 import { ToolsBarComponent } from './components/sw/user_types/administrador/tools-bar/tools-bar.component';
+import { InicioAdminComponent } from './components/sw/user_types/administrador/inicio-admin/inicio-admin.component';
 
 
 
@@ -70,6 +71,7 @@ import { ToolsBarComponent } from './components/sw/user_types/administrador/tool
     LogInErrorComponent,
     SideNavComponent,
     ToolsBarComponent,
+    InicioAdminComponent,
   ],
   imports: [
     BrowserModule,
