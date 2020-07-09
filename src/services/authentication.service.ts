@@ -59,6 +59,7 @@ export class AuthenticationService {
     }
   }
 
+
   IsAdmin(): number {
     const user = this.getUserDetails();
     if (user) {
@@ -80,13 +81,13 @@ export class AuthenticationService {
   IsVendedor(): number {
     const user = this.getUserDetails();
     if (user) {
+      console.log(user.password);
+
       return user.user_type == "vendedor" ? 3 : 7; // si es supervisor regresa 3 , si no 7
     } else {
       return 3;
     }
   }
-
-
 
   public isLoggedIn(): boolean {
     const user = this.getUserDetails();
@@ -97,9 +98,11 @@ export class AuthenticationService {
     }
   }
 
+
   public register(user: TokenPayload): Observable<any> {
     return this.http.post(this.baseUrl + `/api/user/register`, user);
   }
+
 
   public login(user: TokenPayload): Observable<any> {
     const base = this.http.post(this.baseUrl + `/api/user/login`, user);

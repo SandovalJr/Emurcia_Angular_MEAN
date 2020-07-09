@@ -13,7 +13,6 @@ import {
 
 // servicio
 import { MessageErrorsService } from "../../../../services/messageError.service";
-
 @Component({
   selector: "app-log-in-sw",
   templateUrl: "./log-in-sw.component.html",
@@ -38,7 +37,6 @@ export class LogInSWComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
   }
-
   public createForm() {
     this.formulario = new FormGroup({
       usuario: new FormControl(null, [RxwebValidators.required()]),
@@ -47,7 +45,7 @@ export class LogInSWComponent implements OnInit {
   }
 
   public ValidateForm(control: string) {
-    console.log(this.formulario.controls[control].errors);
+    // console.log(this.formulario.controls[control].errors);
     if (!this.formulario.controls[control].touched) return { error: undefined };
 
     return this.MessageErrorSvr.errorMessage(
@@ -61,6 +59,8 @@ export class LogInSWComponent implements OnInit {
         this.router.navigateByUrl("/AdminProfile");
       },
       (err) => {
+        this.router.navigateByUrl("/loginError");
+
         console.error(err);
       }
     );
