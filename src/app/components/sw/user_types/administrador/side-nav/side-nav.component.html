@@ -25,6 +25,17 @@
           <mat-icon class="icono">{{ nav.icon }}</mat-icon>
           {{ nav.name }}</a
         >
+
+        <!-- LogOut -->
+        <a
+          mat-list-item
+          *ngIf="auths.isLoggedIn()"
+          routerLink="Home"
+          (click)="auths.logout()"
+        >
+          <mat-icon class="icono">logout </mat-icon>
+          <span>Log Out</span>
+        </a>
       </mat-nav-list>
     </mat-sidenav>
 

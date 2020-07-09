@@ -33,11 +33,7 @@ const routes: Routes = [
       },
     ],
   },
-  {
-    path: "InicioAdmin",
-    component: InicioAdminComponent,
-    canActivate: [AuthGuardService],
-  },
+
   // SUPERVISOR
   {
     path: "SupervisorProfile",

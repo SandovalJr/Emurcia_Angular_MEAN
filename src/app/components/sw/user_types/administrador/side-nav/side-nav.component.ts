@@ -1,5 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 import { MediaMatcher } from "@angular/cdk/layout";
+import {
+  AuthenticationService,
+  UserDetails,
+} from "../../../../../../services/authentication.service";
 
 @Component({
   selector: "app-side-nav",
@@ -12,11 +16,18 @@ export class SideNavComponent implements OnInit {
 
   // fillerNav = Array(50).fill(0).map((_, i) => `Nav Item ${i + 1}`);
 
-  fillerNav = [{ name: "HomeAdmin", route: "/AdminProfile/inicio", icon: "home" }];
+  fillerNav = [
+    { name: "HomeAdmin", route: "/AdminProfile/inicio", icon: "home" },
+    // { name: "Salir", route: "Home", icon: "logout" },
+  ];
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher,
+    public auths: AuthenticationService
+  ) {
     this.mobileQuery = media.matchMedia("(max-width: 600px)");
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
