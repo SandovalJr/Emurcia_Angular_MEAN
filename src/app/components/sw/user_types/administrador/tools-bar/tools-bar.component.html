@@ -28,9 +28,9 @@
     </button>
     <button
       mat-menu-item
-      *ngIf="auth.isLoggedIn()"
+      *ngIf="auths.isLoggedIn()"
       routerLink="Home"
-      (click)="auth.logout()"
+      (click)="auths.logout()"
     >
       <mat-icon>logout </mat-icon>
       <span>Log Out</span>

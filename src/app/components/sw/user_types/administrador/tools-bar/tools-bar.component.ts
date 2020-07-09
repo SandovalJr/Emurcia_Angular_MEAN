@@ -8,10 +8,10 @@ import { AuthenticationService, UserDetails } from '../../../../../../services/a
 })
 export class ToolsBarComponent implements OnInit {
   details: UserDetails
-  constructor(private auth: AuthenticationService) { }
+  constructor(private auths: AuthenticationService) { }
 
   ngOnInit() {
-    this.auth.profile().subscribe(
+    this.auths.profile().subscribe(
       user => {
         this.details = user
       },

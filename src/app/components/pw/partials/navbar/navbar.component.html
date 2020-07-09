@@ -46,6 +46,15 @@
       >
         LOG IN
       </a>
+      <a
+        *ngIf="auth.isLoggedIn()"
+        class="nav-item nav-link active mr-4"
+        type="button"
+        routerLink="/"
+      >
+        Ir a Sistema
+      </a>
+
       <!-- <a href="" *ngIf="auth.isLoggedIn()" routerLink ="/AdminProfile">{{auth.getUserDetails()?.usuario}}</a>
       <a href="" *ngIf="auth.isLoggedIn()" routerLink="Home" (click)="auth.logout()">LogOut</a> -->
     </div>
