@@ -25,7 +25,7 @@ export class AuthGuardService implements CanActivate {
 
     if (route.url[0].path === "AdminProfile" && this.auth.IsAdmin() === 7) {
       if (this.auth.IsSupervisor() === 2) {
-        this.router.navigateByUrl("/SupervisorProfile");
+        this.router.navigateByUrl("/SupervisorProfile/Inicio_Supervisor");
       } else if (this.auth.IsVendedor() === 3) {
         this.router.navigateByUrl("/VendedorProfile");
       } else {
