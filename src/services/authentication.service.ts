@@ -73,7 +73,7 @@ export class AuthenticationService {
     if (user) {
       return user.user_type == "supervisor" ? 2 : 7; // si es supervisor regresa 2 , si no 7
     } else {
-      return 2;
+      return 0;
     }
   }
 
@@ -84,7 +84,7 @@ export class AuthenticationService {
 
       return user.user_type == "vendedor" ? 3 : 7; // si es supervisor regresa 3 , si no 7
     } else {
-      return 3;
+      return 0;
     }
   }
 
