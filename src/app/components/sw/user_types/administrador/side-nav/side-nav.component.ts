@@ -18,7 +18,6 @@ export class SideNavComponent implements OnInit {
 
   fillerNav = [
     { name: "HomeAdmin", route: "/AdminProfile/inicio", icon: "home" },
-    // { name: "Salir", route: "Home", icon: "logout" },
   ];
 
   private _mobileQueryListener: () => void;

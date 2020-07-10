@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  & img {
+    width: 450px;
+    height: 330px;
+  }
+}
+
+@media (max-width: 414px) {
+  .container {
+    & img {
+      width: 350px;
+      height: 250px;
+    }
+  }
+}

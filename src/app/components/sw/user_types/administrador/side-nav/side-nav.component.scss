@@ -30,11 +30,38 @@ h1.example-app-name {
   flex: 1 0 auto;
 }
 
+#imagen_menu > img {
+  width: auto;
+  height: 50px;
+}
 
-mat-sidenav{
+mat-sidenav {
   width: 20%;
 }
 
-.icono{
-margin-right: 15px;
+.icono {
+  margin-right: 15px;
+}
+
+#ln {
+  width: 100vw;
+  height: 2px;
+  background: #ff4800;
+}
+
+@media (max-width: 768px) {
+  mat-sidenav {
+    width: 30%;
+  }
+}
+@media (max-width: 414px) {
+  mat-sidenav {
+    width: 50%;
+  }
+}
+@media (max-width: 320px) {
+  #imagen_menu > img {
+    width: auto;
+    height: 40px;
+  }
 }
