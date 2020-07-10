@@ -11,7 +11,8 @@ import {
   styleUrls: ["./side-nav.component.scss"],
 })
 export class SideNavComponent implements OnInit {
-  ngOnInit(): void {}
+  details: UserDetails
+
   mobileQuery: MediaQueryList;
 
   // fillerNav = Array(50).fill(0).map((_, i) => `Nav Item ${i + 1}`);
@@ -37,4 +38,14 @@ export class SideNavComponent implements OnInit {
   }
 
   shouldRun = true;
+  ngOnInit(): void {
+    this.auths.profile().subscribe(
+      user => {
+        this.details = user
+      },
+      err => {
+        console.error(err)
+      }
+    )
+  }
 }
