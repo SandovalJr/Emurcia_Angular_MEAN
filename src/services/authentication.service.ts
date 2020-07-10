@@ -59,7 +59,6 @@ export class AuthenticationService {
     }
   }
 
-
   IsAdmin(): number {
     const user = this.getUserDetails();
     if (user) {
@@ -98,11 +97,9 @@ export class AuthenticationService {
     }
   }
 
-
   public register(user: TokenPayload): Observable<any> {
     return this.http.post(this.baseUrl + `/api/user/register`, user);
   }
-
 
   public login(user: TokenPayload): Observable<any> {
     const base = this.http.post(this.baseUrl + `/api/user/login`, user);

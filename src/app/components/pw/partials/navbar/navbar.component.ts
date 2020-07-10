@@ -22,7 +22,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {}
 
   IrSistema() {
-    if (this.auth.IsSupervisor() === 2) {
+    if (this.auth.IsAdmin() == 1) {
+      this.router.navigateByUrl("/AdminProfile/Inicio");
+    } else if (this.auth.IsSupervisor() === 2) {
       this.router.navigateByUrl("/SupervisorProfile/Inicio_Supervisor");
     } else if (this.auth.IsVendedor() === 3) {
       this.router.navigateByUrl("/VendedorProfile/Inicio_Vendedor");
