@@ -50,6 +50,7 @@ import { MatListModule } from  '@angular/material/list';
 // ADMIN
 import { SideNavComponent } from './components/sw/user_types/administrador/side-nav/side-nav.component';
 import { InicioAdminComponent } from './components/sw/user_types/administrador/inicio-admin/inicio-admin.component';
+import { SideNavSupervisorComponent } from './components/sw/user_types/supervisor/side-nav-supervisor/side-nav-supervisor.component';
 
 
 
@@ -70,6 +71,7 @@ import { InicioAdminComponent } from './components/sw/user_types/administrador/i
     LogInErrorComponent,
     SideNavComponent,
     InicioAdminComponent,
+    SideNavSupervisorComponent,
   ],
   imports: [
     BrowserModule,
