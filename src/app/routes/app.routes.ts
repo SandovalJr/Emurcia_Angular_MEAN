@@ -21,6 +21,9 @@ import { InicioAdminComponent } from "../components/sw/user_types/administrador/
 // SUPERVISOR
 import { InicioSupervisorComponent } from "../components/sw/user_types/supervisor/inicio-supervisor/inicio-supervisor.component";
 
+// VENDEDOR
+import { IniciovendedorComponent } from "../components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component";
+
 const routes: Routes = [
   { path: "", component: PwComponent },
   { path: "login", component: LogInSWComponent },
@@ -58,6 +61,13 @@ const routes: Routes = [
     path: "VendedorProfile",
     component: VendedorComponent,
     canActivate: [AuthGuardService],
+    children: [
+      {
+        path: "Inicio_Vendedor",
+        component: IniciovendedorComponent,
+        canActivate: [AuthGuardService],
+      },
+    ],
   },
 
   { path: "**", component: PwComponent },

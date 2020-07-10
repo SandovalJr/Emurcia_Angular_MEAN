@@ -50,8 +50,14 @@ import { MatListModule } from  '@angular/material/list';
 // ADMIN
 import { SideNavComponent } from './components/sw/user_types/administrador/side-nav/side-nav.component';
 import { InicioAdminComponent } from './components/sw/user_types/administrador/inicio-admin/inicio-admin.component';
+
+// SUPERVISOR
 import { SideNavSupervisorComponent } from './components/sw/user_types/supervisor/side-nav-supervisor/side-nav-supervisor.component';
 import { InicioSupervisorComponent } from './components/sw/user_types/supervisor/inicio-supervisor/inicio-supervisor.component';
+
+// VENDEDOR
+import { SidenavVendedorComponent } from './components/sw/user_types/vendedor/sidenav-vendedor/sidenav-vendedor.component';
+import { IniciovendedorComponent } from './components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component';
 
 
 
@@ -74,6 +80,8 @@ import { InicioSupervisorComponent } from './components/sw/user_types/supervisor
     InicioAdminComponent,
     SideNavSupervisorComponent,
     InicioSupervisorComponent,
+    SidenavVendedorComponent,
+    IniciovendedorComponent,
   ],
   imports: [
     BrowserModule,
