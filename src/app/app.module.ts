@@ -49,7 +49,6 @@ import { MatListModule } from  '@angular/material/list';
 
 // ADMIN
 import { SideNavComponent } from './components/sw/user_types/administrador/side-nav/side-nav.component';
-import { ToolsBarComponent } from './components/sw/user_types/administrador/tools-bar/tools-bar.component';
 import { InicioAdminComponent } from './components/sw/user_types/administrador/inicio-admin/inicio-admin.component';
 
 
@@ -70,7 +69,6 @@ import { InicioAdminComponent } from './components/sw/user_types/administrador/i
     VendedorComponent,
     LogInErrorComponent,
     SideNavComponent,
-    ToolsBarComponent,
     InicioAdminComponent,
   ],
   imports: [

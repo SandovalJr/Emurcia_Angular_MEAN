@@ -18,7 +18,7 @@ export class SideNavComponent implements OnInit {
   // fillerNav = Array(50).fill(0).map((_, i) => `Nav Item ${i + 1}`);
 
   fillerNav = [
-    { name: "HomeAdmin", route: "/AdminProfile/inicio", icon: "home" },
+    { name: "HomeAdmin", route: "/AdminProfile/Inicio", icon: "home" },
   ];
 
   private _mobileQueryListener: () => void;

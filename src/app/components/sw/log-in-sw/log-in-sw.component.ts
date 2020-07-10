@@ -56,7 +56,7 @@ export class LogInSWComponent implements OnInit {
   login() {
     this.auth.login(this.credentials).subscribe(
       () => {
-        this.router.navigateByUrl("/AdminProfile/inicio");
+        this.router.navigateByUrl("/AdminProfile/Inicio");
       },
       (err) => {
         this.router.navigateByUrl("/loginError");

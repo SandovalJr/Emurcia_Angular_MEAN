@@ -36,7 +36,7 @@ export class LogInErrorComponent implements OnInit {
   login() {
     this.auth.login(this.credentials).subscribe(
       () => {
-        this.router.navigateByUrl("/AdminProfile/inicio");
+        this.router.navigateByUrl("/AdminProfile/Inicio");
       },
       (err) => {
         console.error(err);

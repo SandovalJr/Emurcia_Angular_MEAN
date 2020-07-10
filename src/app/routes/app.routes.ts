@@ -28,7 +28,7 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
     children: [
       {
-        path: "inicio",
+        path: "Inicio",
         component: InicioAdminComponent,
       },
     ],
