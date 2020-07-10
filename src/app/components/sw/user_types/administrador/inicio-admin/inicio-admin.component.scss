@@ -17,3 +17,11 @@
     }
   }
 }
+@media (max-width: 320px) {
+  .container {
+    & img {
+      width: 290px;
+      height: 210px;
+    }
+  }
+}
