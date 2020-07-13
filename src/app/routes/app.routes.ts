@@ -17,6 +17,8 @@ import { AuthGuardService } from "../../services/auth-guard.service";
 
 // ADMIN
 import { InicioAdminComponent } from "../components/sw/user_types/administrador/inicio-admin/inicio-admin.component";
+import { ListaUsuariosComponent } from "../components/sw/user_types/administrador/funciones/lista-usuarios/lista-usuarios.component";
+import { AgregarUsuarioComponent } from "../components/sw/user_types/administrador/funciones/agregar-usuario/agregar-usuario.component";
 
 // SUPERVISOR
 import { InicioSupervisorComponent } from "../components/sw/user_types/supervisor/inicio-supervisor/inicio-supervisor.component";
@@ -38,6 +40,11 @@ const routes: Routes = [
       {
         path: "Inicio",
         component: InicioAdminComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: "ListaUsuarios",
+        component: ListaUsuariosComponent,
         canActivate: [AuthGuardService],
       },
     ],

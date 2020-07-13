@@ -11,7 +11,7 @@ import {
   styleUrls: ["./side-nav.component.scss"],
 })
 export class SideNavComponent implements OnInit {
-  details: UserDetails
+  details: UserDetails;
 
   mobileQuery: MediaQueryList;
 
@@ -19,7 +19,11 @@ export class SideNavComponent implements OnInit {
 
   fillerNav = [
     { name: "HomeAdmin", route: "/AdminProfile/Inicio", icon: "home" },
-
+    {
+      name: "Usuarios",
+      route: "/AdminProfile/ListaUsuarios",
+      icon: "supervised_user_circle",
+    },
   ];
 
   private _mobileQueryListener: () => void;
@@ -41,12 +45,12 @@ export class SideNavComponent implements OnInit {
   shouldRun = true;
   ngOnInit(): void {
     this.auths.profile().subscribe(
-      user => {
-        this.details = user
+      (user) => {
+        this.details = user;
       },
-      err => {
-        console.error(err)
+      (err) => {
+        console.error(err);
       }
-    )
+    );
   }
 }
