@@ -23,6 +23,7 @@ export class LogInErrorComponent implements OnInit {
     usuario: "",
     password: "",
     user_type: "",
+    marca: "",
     region: "",
   };
 

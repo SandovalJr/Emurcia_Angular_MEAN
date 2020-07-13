@@ -24,6 +24,7 @@ export class LogInSWComponent implements OnInit {
     usuario: "",
     password: "",
     user_type: "",
+    marca: "",
     region: "",
   };
   public formulario: FormGroup;
