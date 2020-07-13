@@ -27,6 +27,20 @@
   }
 }
 
+// BOTON
+.container .buttonContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  & .colorbtn {
+    color: #41434d;
+    border: 1px #41434d solid;
+    font-family: Roboto;
+  }
+}
+
 @media (max-width: 320px) {
   .lineas {
     .LA {
