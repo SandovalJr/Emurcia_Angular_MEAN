@@ -58,6 +58,7 @@ import { InicioSupervisorComponent } from './components/sw/user_types/supervisor
 // VENDEDOR
 import { SidenavVendedorComponent } from './components/sw/user_types/vendedor/sidenav-vendedor/sidenav-vendedor.component';
 import { IniciovendedorComponent } from './components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component';
+import { AgregarUsuarioComponent } from './components/sw/user_types/administrador/funciones/agregar-usuario/agregar-usuario.component';
 
 
 
@@ -82,6 +83,7 @@ import { IniciovendedorComponent } from './components/sw/user_types/vendedor/ini
     InicioSupervisorComponent,
     SidenavVendedorComponent,
     IniciovendedorComponent,
+    AgregarUsuarioComponent,
   ],
   imports: [
     BrowserModule,
