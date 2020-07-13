@@ -11,6 +11,7 @@ export interface UserDetails {
   password: string;
   user_type: string;
   region: string;
+  marca:string
   exp: number;
   iat: number;
 }
@@ -24,6 +25,7 @@ export interface TokenPayload {
   usuario: string;
   password: string;
   user_type: string;
+  marca:string
   region: string;
 }
 
