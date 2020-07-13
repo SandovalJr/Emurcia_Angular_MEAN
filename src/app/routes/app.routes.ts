@@ -47,6 +47,11 @@ const routes: Routes = [
         component: ListaUsuariosComponent,
         canActivate: [AuthGuardService],
       },
+      {
+        path: "AgregarUsuario",
+        component: AgregarUsuarioComponent,
+        canActivate: [AuthGuardService],
+      },
     ],
   },
 
