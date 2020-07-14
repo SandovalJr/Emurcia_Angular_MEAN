@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
     usuario: "",
     password: "",
     user_type: "",
+    marca: "",
     region: "",
   };
   ngOnInit(): void {}
