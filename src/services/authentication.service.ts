@@ -25,7 +25,7 @@ export interface TokenPayload {
   usuario: string;
   password: string;
   user_type: string;
-  marca:string
+  marca:string;
   region: string;
 }
 
@@ -63,6 +63,7 @@ export class AuthenticationService {
 
   IsAdmin(): number {
     const user = this.getUserDetails();
+
     if (user) {
       return user.user_type === "admin" ? 1 : 7; // si es admin regresa 1 , si no 7
     } else {

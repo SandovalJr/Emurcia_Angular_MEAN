@@ -109,9 +109,11 @@
               type="text"
               class="form-control"
               id="form10"
+              disabled
               value="{{ details?.marca }}"
+              placeholder="{{ details?.marca }}"
             />
-            <label for="form10">{{ details?.marca }}</label>
+
             <mdb-error *ngIf="marca.invalid && (marca.dirty || marca.touched)"
               >Debes establecer una marca
             </mdb-error>

@@ -30,9 +30,12 @@ export class AgregarUsuarioComponent implements OnInit {
   }
 
   ngOnInit() {
+    // console.log(this.auth.profile);
+
     this.auth.profile().subscribe(
       (user) => {
         this.details = user;
+        console.log(user);
       },
       (err) => {
         console.error(err);
@@ -52,5 +55,4 @@ export class AgregarUsuarioComponent implements OnInit {
   get region() {
     return this.validationForm.get("region");
   }
-
 }
