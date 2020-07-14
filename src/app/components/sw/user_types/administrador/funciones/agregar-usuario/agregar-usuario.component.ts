@@ -6,6 +6,10 @@ import {
 } from "@angular/forms";
 
 import { Component, OnInit } from "@angular/core";
+import {
+  AuthenticationService,
+  UserDetails,
+} from "../../../../../../../services/authentication.service";
 
 @Component({
   selector: "app-agregar-usuario",
@@ -14,15 +18,26 @@ import { Component, OnInit } from "@angular/core";
 })
 export class AgregarUsuarioComponent implements OnInit {
   validationForm: FormGroup;
+  details: UserDetails;
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: FormBuilder, private auth: AuthenticationService) {
     this.validationForm = fb.group({
       usuario: [null, [Validators.required]],
       password: [null, Validators.required],
+      marca: [null, Validators.required],
+      region: [null, Validators.required],
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.auth.profile().subscribe(
+      (user) => {
+        this.details = user;
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
 
   get usuario() {
@@ -31,4 +46,11 @@ export class AgregarUsuarioComponent implements OnInit {
   get password() {
     return this.validationForm.get("password");
   }
+  get marca() {
+    return this.validationForm.get("marca");
+  }
+  get region() {
+    return this.validationForm.get("region");
+  }
+
 }

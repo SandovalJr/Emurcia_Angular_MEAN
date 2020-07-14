@@ -27,7 +27,21 @@
   }
 }
 
-
+.seleccionar {
+  border-right: 0;
+  border-left: 0;
+  border-top: 0;
+  background: transparent;
+}
+.boton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.agregarUser{
+border: 1px #41434d solid;
+}
 @media (max-width: 320px) {
   .lineas {
     .LA {

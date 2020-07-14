@@ -11,7 +11,7 @@ export interface UserDetails {
   password: string;
   user_type: string;
   region: string;
-  marca:string
+  marca:string;
   exp: number;
   iat: number;
 }
