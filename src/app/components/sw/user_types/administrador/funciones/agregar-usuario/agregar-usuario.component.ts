@@ -13,6 +13,10 @@ import {
 } from "../../../../../../../services/authentication.service";
 import { Router } from "@angular/router";
 
+// SWEETALERT 2
+// CommonJS
+const Swal = require("sweetalert2");
+
 @Component({
   selector: "app-agregar-usuario",
   templateUrl: "./agregar-usuario.component.html",
@@ -83,25 +87,51 @@ export class AgregarUsuarioComponent implements OnInit {
   };
 
   registerUsuarios() {
+    if (
+      this.usuario.status === "VALID" &&
+      this.password.status === "VALID" &&
+      this.user_type.status == "VALID"
+    ) {
+      console.log(this.usuario.status);
+      console.log("si entro validacion");
 
-    this.validationForm.setValue({
-      usuario: this.credentialsRegistro.usuario,
-      password: this.credentialsRegistro.password,
-      user_type: this.credentialsRegistro.user_type,
-      marca: this.details.marca,
-      region: this.credentialsRegistro.region,
-    });
+      this.validationForm.setValue({
+        usuario: this.credentialsRegistro.usuario,
+        password: this.credentialsRegistro.password,
+        user_type: this.credentialsRegistro.user_type,
+        marca: this.details.marca,
+        region: this.credentialsRegistro.region,
+      });
 
-    // console.log(this.credentialsRegistro);
+      console.log(this.credentialsRegistro);
+    } else {
 
-    this.auth.register(this.credentialsRegistro).subscribe(
-      () => {
-        this.router.navigateByUrl("Home");
-      },
-      (err) => {
-        console.error(err);
-        console.log("tuvo error");
-      }
-    );
+      Swal.fire({
+        title: 'Campos Incompletos!',
+        text: "completa todos para continuar",
+        icon: 'warning',
+
+      })
+
+    }
+
+    // this.auth.register(this.credentialsRegistro).subscribe(
+    //   () => {
+    //     Swal.fire(
+    //       "Se Agrego Correctamente",
+    //       "Presiona para continuar..",
+    //       "success"
+    //     );
+    //     this.router.navigateByUrl("/AdminProfile/ListaUsuarios");
+    //   },
+    //   (err) => {
+    //     Swal.fire({
+    //       icon: "error",
+    //       title: "Oops...",
+    //       text: "Something went wrong!",
+    //     });
+    //     console.error(err);
+    //   }
+    // );
   }
 }
