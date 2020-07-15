@@ -69,7 +69,6 @@ export class AgregarUsuarioComponent implements OnInit {
     return this.validationForm.get("region");
   }
   get user_type() {
-    // console.log(this.validationForm.get("user_type"));
     return this.validationForm.get("user_type");
   }
 
@@ -84,6 +83,7 @@ export class AgregarUsuarioComponent implements OnInit {
   };
 
   registerUsuarios() {
+
     this.validationForm.setValue({
       usuario: this.credentialsRegistro.usuario,
       password: this.credentialsRegistro.password,
@@ -92,16 +92,16 @@ export class AgregarUsuarioComponent implements OnInit {
       region: this.credentialsRegistro.region,
     });
 
-    console.log(this.credentialsRegistro);
+    // console.log(this.credentialsRegistro);
 
-    // this.auth.register(this.credentialsRegistro).subscribe(
-    //   () => {
-    //     this.router.navigateByUrl("Home");
-    //   },
-    //   (err) => {
-    //     console.error(err);
-    //     console.log("tuvo error");
-    //   }
-    // );
+    this.auth.register(this.credentialsRegistro).subscribe(
+      () => {
+        this.router.navigateByUrl("Home");
+      },
+      (err) => {
+        console.error(err);
+        console.log("tuvo error");
+      }
+    );
   }
 }
