@@ -9,7 +9,9 @@ import { Component, OnInit } from "@angular/core";
 import {
   AuthenticationService,
   UserDetails,
+  TokenPayload,
 } from "../../../../../../../services/authentication.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-agregar-usuario",
@@ -20,18 +22,26 @@ export class AgregarUsuarioComponent implements OnInit {
   validationForm: FormGroup;
   details: UserDetails;
 
-  constructor(public fb: FormBuilder, private auth: AuthenticationService) {
+  constructor(
+    public fb: FormBuilder,
+    private auth: AuthenticationService,
+    private router: Router
+  ) {
     this.validationForm = fb.group({
       usuario: [null, [Validators.required]],
       password: [null, Validators.required],
       marca: [null, Validators.required],
-      region: [null, Validators.required],
+      region: [null, [Validators.required]],
     });
+    this.informacionUsuario();
   }
 
   ngOnInit() {
     // console.log(this.auth.profile);
+  }
 
+  // OBTENER INFORMACION DEL USUARIO LOGEADO
+  informacionUsuario() {
     this.auth.profile().subscribe(
       (user) => {
         this.details = user;
@@ -43,6 +53,7 @@ export class AgregarUsuarioComponent implements OnInit {
     );
   }
 
+  // VALIDAR USUARIO
   get usuario() {
     return this.validationForm.get("usuario");
   }
@@ -54,5 +65,28 @@ export class AgregarUsuarioComponent implements OnInit {
   }
   get region() {
     return this.validationForm.get("region");
+  }
+
+  //  REGISTRAR USUARIOS
+  credentialsRegistro: TokenPayload = {
+    id: 0,
+    usuario: "",
+    password: "",
+    user_type: "",
+    marca: "",
+    region: "",
+  };
+  registerUsuarios() {
+    console.log(this.credentialsRegistro);
+
+    // this.auth.register(this.credentialsRegistro).subscribe(
+    //   () => {
+    //     this.router.navigateByUrl("Home");
+    //   },
+    //   (err) => {
+    //     console.error(err);
+    //     console.log("tuvo error");
+    //   }
+    // );
   }
 }

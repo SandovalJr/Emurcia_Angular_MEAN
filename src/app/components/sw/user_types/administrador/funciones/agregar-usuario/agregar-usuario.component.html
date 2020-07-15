@@ -17,6 +17,7 @@
               mdbValidate
               formControlName="usuario"
               name="usuario"
+              [(ngModel)]="credentialsRegistro.usuario"
               minLength="8"
               maxLength="30"
               class="form-control"
@@ -41,6 +42,7 @@
               mdbInput
               mdbValidate
               formControlName="password"
+              [(ngModel)]="credentialsRegistro.password"
               name="password"
               minLength="10"
               maxLength="25"
@@ -62,12 +64,25 @@
       </div>
 
       <div class="row">
-        <select name="user_type" id="" class="form-control seleccionar">
+        <select
+          name="user_type"
+          id=""
+          requiered
+          class="form-control seleccionar"
+        >
           <option value="">Selecciona el tipo de usuario</option>
           <option value="admin">Administrador</option>
           <option value="supervisor">Supervisor</option>
           <option value="vendedor">Vendedor</option>
         </select>
+        <mdb-error
+          *ngIf="password.invalid && (password.dirty || password.touched)"
+          >Debes seleccionar un tipo de usuario
+        </mdb-error>
+        <mdb-success
+          *ngIf="password.valid && (password.dirty || password.touched)"
+          >tipo de usuario valido
+        </mdb-success>
       </div>
 
       <div class="row">
@@ -77,6 +92,7 @@
             <input
               mdbInput
               mdbValidate
+              [(ngModel)]="credentialsRegistro.region"
               formControlName="region"
               name="region"
               minLength="8"
@@ -100,17 +116,12 @@
           <div class="md-form">
             <mdb-icon fas icon="flag" class="prefix"></mdb-icon>
             <input
-              mdbInput
-              mdbValidate
               formControlName="marca"
               name="marca"
-              minLength="10"
-              maxLength="25"
+              [(ngModel)]="credentialsRegistro.marca"
               type="text"
+              ng-value="myVar"
               class="form-control"
-              id="form10"
-              disabled
-              value="{{ details?.marca }}"
               placeholder="{{ details?.marca }}"
             />
 
@@ -124,8 +135,14 @@
         </div>
       </div>
     </ng-form>
+    <div class="boton">
+      <button
+        type="submit"
+        class="btn agregarUser"
+        (click)="registerUsuarios()"
+      >
+        Agregar nuevo usuario
+      </button>
+    </div>
   </form>
-  <div class="boton">
-    <button type="submit" class="btn agregarUser">Agregar nuevo usuario</button>
-  </div>
 </div>
