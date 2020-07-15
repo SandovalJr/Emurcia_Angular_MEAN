@@ -77,6 +77,14 @@ export class AgregarUsuarioComponent implements OnInit {
     region: "",
   };
   registerUsuarios() {
+    this.validationForm.setValue({
+      usuario: this.credentialsRegistro.usuario,
+      password: this.credentialsRegistro.password,
+      // user_type: this.credentialsRegistro.user_type,
+      marca: this.details.marca,
+      region: this.credentialsRegistro.region,
+    });
+
     console.log(this.credentialsRegistro);
 
     // this.auth.register(this.credentialsRegistro).subscribe(
