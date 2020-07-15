@@ -32,7 +32,9 @@ export class AgregarUsuarioComponent implements OnInit {
       password: [null, Validators.required],
       marca: [null, Validators.required],
       region: [null, [Validators.required]],
+      user_type: [null, [Validators.required]],
     });
+
     this.informacionUsuario();
   }
 
@@ -66,6 +68,10 @@ export class AgregarUsuarioComponent implements OnInit {
   get region() {
     return this.validationForm.get("region");
   }
+  get user_type() {
+    // console.log(this.validationForm.get("user_type"));
+    return this.validationForm.get("user_type");
+  }
 
   //  REGISTRAR USUARIOS
   credentialsRegistro: TokenPayload = {
@@ -76,11 +82,12 @@ export class AgregarUsuarioComponent implements OnInit {
     marca: "",
     region: "",
   };
+
   registerUsuarios() {
     this.validationForm.setValue({
       usuario: this.credentialsRegistro.usuario,
       password: this.credentialsRegistro.password,
-      // user_type: this.credentialsRegistro.user_type,
+      user_type: this.credentialsRegistro.user_type,
       marca: this.details.marca,
       region: this.credentialsRegistro.region,
     });
