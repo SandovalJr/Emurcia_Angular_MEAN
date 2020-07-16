@@ -105,6 +105,25 @@ export class AgregarUsuarioComponent implements OnInit {
       });
 
       console.log(this.credentialsRegistro);
+      this.auth.register(this.credentialsRegistro).subscribe(
+        () => {
+          Swal.fire(
+            "Se Agrego Correctamente",
+            "Presiona para continuar..",
+            "success"
+          );
+          this.router.navigateByUrl("/AdminProfile/ListaUsuarios");
+        },
+        (err) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+          console.error(err);
+        }
+      );
+
     } else {
       Swal.fire({
         title: "Campos Incompletos!",
@@ -112,24 +131,5 @@ export class AgregarUsuarioComponent implements OnInit {
         icon: "warning",
       });
     }
-
-    // this.auth.register(this.credentialsRegistro).subscribe(
-    //   () => {
-    //     Swal.fire(
-    //       "Se Agrego Correctamente",
-    //       "Presiona para continuar..",
-    //       "success"
-    //     );
-    //     this.router.navigateByUrl("/AdminProfile/ListaUsuarios");
-    //   },
-    //   (err) => {
-    //     Swal.fire({
-    //       icon: "error",
-    //       title: "Oops...",
-    //       text: "Something went wrong!",
-    //     });
-    //     console.error(err);
-    //   }
-    // );
   }
 }
