@@ -119,7 +119,7 @@ export class AgregarUsuarioComponent implements OnInit {
           Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Something went wrong!",
+            text: "Usuario ya existente",
           });
           console.error(err);
         }
