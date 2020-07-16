@@ -99,36 +99,44 @@ export class AuthenticationService {
       return false;
     }
   }
-// *******************************************************************************************
+  // *******************************************************************************************
 
-// REGISTRAR USUARIO
+  // REGISTRAR USUARIO
   public register(user: TokenPayload): Observable<any> {
     // console.log(user);
     return this.http.post(this.baseUrl + `/api/user/register`, user);
   }
 
   // LISTARLOS
-  public ListarUsuarios(user: TokenPayload): Observable<any> {
+  public ListarUsuarios(): Observable<any> {
     console.log("entro a listar");
-    return this.http.get(this.baseUrl + `/api/user/listarUsuarios`);
+    // console.log(this.getToken());
+
+    return this.http.get(`${this.baseUrl}/api/user/ListarUsuarios`,{
+      headers: { Authorization: ` ${this.getToken()}` },
+
+    });
   }
 
-  // ELIMINARLOS
-  public eliminarUsuario(id: string):Observable<any> {
-    console.log(`se eliminara ${id}`);
+  // // ELIMINARLOS
+  // public eliminarUsuario(id: string): Observable<any> {
+  //   console.log(`se eliminara ${id}`);
 
-    return this.http.delete(this.baseUrl + `/api/user/listarUsuarios/${id}`);
-  }
+  //   return this.http.delete(this.baseUrl + `/api/user/ListarUsuarios/${id}`);
+  // }
 
-  // ACTUALIZAR USUARIO
-  public ActualizarUsuario(id: string, updateUsuario: UserDetails):Observable<any> {
-    return this.http.put(
-      this.baseUrl + `/api/user/listarUsuarios/${id}`,
-      updateUsuario
-    );
-  }
+  // // ACTUALIZAR USUARIO
+  // public ActualizarUsuario(
+  //   id: string,
+  //   updateUsuario: UserDetails
+  // ): Observable<any> {
+  //   return this.http.put(
+  //     this.baseUrl + `/api/user/ListarUsuarios/${id}`,
+  //     updateUsuario
+  //   );
+  // }
 
-// *******************************************************************************************
+  // *******************************************************************************************
 
   // LOGIN
   public login(user: TokenPayload): Observable<any> {
@@ -148,9 +156,9 @@ export class AuthenticationService {
     return request;
   }
 
-  // PERFIL
+  // PERFIL INFORMACION
   public profile(): Observable<any> {
-    console.log(this.getToken());
+    // console.log(this.getToken());
     return this.http.get(this.baseUrl + `/api/user/profile`, {
       headers: { Authorization: ` ${this.getToken()}` },
     });

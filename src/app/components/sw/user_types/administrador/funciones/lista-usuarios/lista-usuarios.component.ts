@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Routes, Router } from "@angular/router";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 import {
   AuthenticationService,
   UserDetails,
@@ -13,8 +13,15 @@ import {
   styleUrls: ["./lista-usuarios.component.scss"],
 })
 export class ListaUsuariosComponent implements OnInit {
-  constructor(private router: Router, private auth: AuthenticationService) {}
+  constructor(
+    private router: Router,
+    private auth: AuthenticationService,
+    private http: HttpClient
+  ) {
+    this.getUsuariosDeCadaMarca();
+  }
   details: UserDetails;
+  UsuariosListados: any = [];
 
   ngOnInit(): void {
     this.informacionUsuario();
@@ -28,7 +35,7 @@ export class ListaUsuariosComponent implements OnInit {
     this.auth.profile().subscribe(
       (user) => {
         this.details = user;
-        console.log(user);
+        // console.log(user);
       },
       (err) => {
         console.error(err);
@@ -46,7 +53,8 @@ export class ListaUsuariosComponent implements OnInit {
   };
 
   getUsuariosDeCadaMarca() {
-    this.auth.ListarUsuarios(this.credentials).subscribe(
+
+    this.auth.ListarUsuarios().subscribe(
       (res) => console.log(res),
       (err) => console.error(err)
     );
