@@ -99,12 +99,36 @@ export class AuthenticationService {
       return false;
     }
   }
+// *******************************************************************************************
 
-  // REGISTRAR USUARIO
+// REGISTRAR USUARIO
   public register(user: TokenPayload): Observable<any> {
     // console.log(user);
     return this.http.post(this.baseUrl + `/api/user/register`, user);
   }
+
+  // LISTARLOS
+  public ListarUsuarios(user: TokenPayload): Observable<any> {
+    console.log("entro a listar");
+    return this.http.get(this.baseUrl + `/api/user/listarUsuarios`);
+  }
+
+  // ELIMINARLOS
+  public eliminarUsuario(id: string):Observable<any> {
+    console.log(`se eliminara ${id}`);
+
+    return this.http.delete(this.baseUrl + `/api/user/listarUsuarios/${id}`);
+  }
+
+  // ACTUALIZAR USUARIO
+  public ActualizarUsuario(id: string, updateUsuario: UserDetails):Observable<any> {
+    return this.http.put(
+      this.baseUrl + `/api/user/listarUsuarios/${id}`,
+      updateUsuario
+    );
+  }
+
+// *******************************************************************************************
 
   // LOGIN
   public login(user: TokenPayload): Observable<any> {

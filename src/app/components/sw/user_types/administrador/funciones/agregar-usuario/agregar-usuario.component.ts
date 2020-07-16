@@ -14,7 +14,8 @@ import {
 import { Router } from "@angular/router";
 
 // SWEETALERT 2
-// CommonJS
+// se declaro esta variable por que marcaba error
+let require: any;
 const Swal = require("sweetalert2");
 
 @Component({
@@ -132,7 +133,4 @@ export class AgregarUsuarioComponent implements OnInit {
       });
     }
   }
-
-
-
 }

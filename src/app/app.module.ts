@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
 
 // RUTAS
 import { APP_ROUTES } from "./routes/app.routes";
@@ -20,7 +21,6 @@ import { LogInSWComponent } from "./components/sw/log-in-sw/log-in-sw.component"
 import { SwComponent } from "./components/sw/sw.component";
 
 // FORMULARIO Y LOG IN
-import { HttpClientModule } from "@angular/common/http";
 import { RouterModule, Routes } from "@angular/router";
 
 // TIPOS DE USUARIOS
