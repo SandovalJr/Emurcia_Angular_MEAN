@@ -14,8 +14,8 @@ import {
 import { Router } from "@angular/router";
 
 // SWEETALERT 2
-// se declaro esta variable por que marcaba error
-let require: any;
+// declarar variable de esta manera para que no marque err
+declare var require: any;
 const Swal = require("sweetalert2");
 
 @Component({
