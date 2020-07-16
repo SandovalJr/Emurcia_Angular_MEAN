@@ -26,6 +26,10 @@ import { InicioSupervisorComponent } from "../components/sw/user_types/superviso
 // VENDEDOR
 import { IniciovendedorComponent } from "../components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component";
 
+// ERROR 404
+import { ErrorNoExistePaginaComponent } from "../components/errors/error-no-existe-pagina/error-no-existe-pagina.component";
+
+
 const routes: Routes = [
   { path: "", component: PwComponent },
   { path: "login", component: LogInSWComponent },
@@ -82,7 +86,10 @@ const routes: Routes = [
     ],
   },
 
-  { path: "**", component: PwComponent },
+  // { path: "**", component: PwComponent },
+   // SIEMPRE RUTA DEFAULT ERROR
+   { path: 'notFound', component: ErrorNoExistePaginaComponent },
+   { path: '**', pathMatch: 'full', redirectTo: 'notFound' },
 ];
 
 export const APP_ROUTES = RouterModule.forRoot(routes);

@@ -60,6 +60,7 @@ import { SidenavVendedorComponent } from './components/sw/user_types/vendedor/si
 import { IniciovendedorComponent } from './components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component';
 import { AgregarUsuarioComponent } from './components/sw/user_types/administrador/funciones/agregar-usuario/agregar-usuario.component';
 import { ListaUsuariosComponent } from './components/sw/user_types/administrador/funciones/lista-usuarios/lista-usuarios.component';
+import { ErrorNoExistePaginaComponent } from './components/errors/error-no-existe-pagina/error-no-existe-pagina.component';
 
 
 
@@ -86,6 +87,7 @@ import { ListaUsuariosComponent } from './components/sw/user_types/administrador
     IniciovendedorComponent,
     AgregarUsuarioComponent,
     ListaUsuariosComponent,
+    ErrorNoExistePaginaComponent,
   ],
   imports: [
     BrowserModule,

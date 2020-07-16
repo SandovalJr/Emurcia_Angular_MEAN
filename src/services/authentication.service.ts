@@ -11,7 +11,7 @@ export interface UserDetails {
   password: string;
   user_type: string;
   region: string;
-  marca:string;
+  marca: string;
   exp: number;
   iat: number;
 }
@@ -25,7 +25,7 @@ export interface TokenPayload {
   usuario: string;
   password: string;
   user_type: string;
-  marca:string;
+  marca: string;
   region: string;
 }
 
@@ -100,10 +100,13 @@ export class AuthenticationService {
     }
   }
 
+  // REGISTRAR USUARIO
   public register(user: TokenPayload): Observable<any> {
+    // console.log(user);
     return this.http.post(this.baseUrl + `/api/user/register`, user);
   }
 
+  // LOGIN
   public login(user: TokenPayload): Observable<any> {
     const base = this.http.post(this.baseUrl + `/api/user/login`, user);
 
@@ -121,6 +124,7 @@ export class AuthenticationService {
     return request;
   }
 
+  // PERFIL
   public profile(): Observable<any> {
     console.log(this.getToken());
     return this.http.get(this.baseUrl + `/api/user/profile`, {
@@ -128,6 +132,7 @@ export class AuthenticationService {
     });
   }
 
+  // SALIR
   public logout(): void {
     this.token = "";
     window.localStorage.removeItem("usertoken");
