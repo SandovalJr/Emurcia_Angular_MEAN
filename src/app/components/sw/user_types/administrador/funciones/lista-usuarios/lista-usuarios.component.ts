@@ -53,10 +53,19 @@ export class ListaUsuariosComponent implements OnInit {
   };
 
   getUsuariosDeCadaMarca() {
+    this.UsuariosListados = [];
 
     this.auth.ListarUsuarios().subscribe(
-      (res) => console.log(res),
-      (err) => console.error(err)
+      (usuarios) => {
+        console.log(usuarios);
+        this.UsuariosListados.push(usuarios);
+
+        if (usuarios == null || "") {
+        }
+      },
+      (err) => {
+        console.error(err);
+      }
     );
   }
 }
