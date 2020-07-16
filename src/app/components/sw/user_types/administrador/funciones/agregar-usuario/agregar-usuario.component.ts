@@ -90,7 +90,8 @@ export class AgregarUsuarioComponent implements OnInit {
     if (
       this.usuario.status === "VALID" &&
       this.password.status === "VALID" &&
-      this.user_type.status == "VALID"
+      this.user_type.status == "VALID" &&
+      this.region.status == "VALID"
     ) {
       console.log(this.usuario.status);
       console.log("si entro validacion");
@@ -105,14 +106,11 @@ export class AgregarUsuarioComponent implements OnInit {
 
       console.log(this.credentialsRegistro);
     } else {
-
       Swal.fire({
-        title: 'Campos Incompletos!',
+        title: "Campos Incompletos!",
         text: "completa todos para continuar",
-        icon: 'warning',
-
-      })
-
+        icon: "warning",
+      });
     }
 
     // this.auth.register(this.credentialsRegistro).subscribe(

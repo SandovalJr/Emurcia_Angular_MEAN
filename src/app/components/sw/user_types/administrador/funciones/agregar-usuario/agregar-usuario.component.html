@@ -64,28 +64,33 @@
       </div>
 
       <div class="row">
-        <select
+        <div class="col">
+          <div class="md-form">
+
+          <select
           name="user_type"
           id=""
           formControlName="user_type"
           requiered
           class="form-control seleccionar"
           [(ngModel)]="credentialsRegistro.user_type"
-        >
+          >
           <option value="">Selecciona el tipo de usuario</option>
           <option [value]="'admin'">Administrador</option>
           <option [value]="'supervisor'">Supervisor</option>
           <option [value]="'vendedor'">Vendedor</option>
         </select>
-        <mdb-error
-          *ngIf="password.invalid && (password.dirty || password.touched)"
-          >Debes seleccionar un tipo de usuario
-        </mdb-error>
-        <mdb-success
-          *ngIf="password.valid && (password.dirty || password.touched)"
-          >tipo de usuario valido
-        </mdb-success>
-      </div>
+        <mdb-error class="text-center"
+        *ngIf="user_type.invalid && (user_type.dirty || user_type.touched)"
+        >Debes seleccionar un tipo de usuario
+      </mdb-error>
+      <mdb-success class="text-center"
+      *ngIf="user_type.valid && (user_type.dirty || user_type.touched)"
+      >tipo de usuario valido
+    </mdb-success>
+</div>
+  </div>
+  </div>
 
       <div class="row">
         <div class="col">
