@@ -66,31 +66,34 @@
       <div class="row">
         <div class="col">
           <div class="md-form">
-
-          <select
-          name="user_type"
-          id=""
-          formControlName="user_type"
-          requiered
-          class="form-control seleccionar"
-          [(ngModel)]="credentialsRegistro.user_type"
-          >
-          <option value="">Selecciona el tipo de usuario</option>
-          <option [value]="'admin'">Administrador</option>
-          <option [value]="'supervisor'">Supervisor</option>
-          <option [value]="'vendedor'">Vendedor</option>
-        </select>
-        <mdb-error class="text-center"
-        *ngIf="user_type.invalid && (user_type.dirty || user_type.touched)"
-        >Debes seleccionar un tipo de usuario
-      </mdb-error>
-      <mdb-success class="text-center"
-      *ngIf="user_type.valid && (user_type.dirty || user_type.touched)"
-      >tipo de usuario valido
-    </mdb-success>
-</div>
-  </div>
-  </div>
+            <select
+              name="user_type"
+              id=""
+              formControlName="user_type"
+              requiered
+              class="form-control seleccionar"
+              [(ngModel)]="credentialsRegistro.user_type"
+            >
+              <option value="">Selecciona el tipo de usuario</option>
+              <option [value]="'admin'">Administrador</option>
+              <option [value]="'supervisor'">Supervisor</option>
+              <option [value]="'vendedor'">Vendedor</option>
+            </select>
+            <mdb-error
+              class="text-center"
+              *ngIf="
+                user_type.invalid && (user_type.dirty || user_type.touched)
+              "
+              >Debes seleccionar un tipo de usuario
+            </mdb-error>
+            <mdb-success
+              class="text-center"
+              *ngIf="user_type.valid && (user_type.dirty || user_type.touched)"
+              >tipo de usuario valido
+            </mdb-success>
+          </div>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col">
@@ -121,17 +124,22 @@
 
         <div class="col">
           <div class="md-form">
-            <mdb-icon fas icon="flag" class="prefix"></mdb-icon>
-            <input
+            <!-- <mdb-icon fas icon="flag" class="prefix"></mdb-icon> -->
+
+            <select
               formControlName="marca"
               name="marca"
+              requiered
+              class="form-control seleccionar"
               [(ngModel)]="credentialsRegistro.marca"
-              type="text"
-              ng-value="myVar"
-              class="form-control"
-              disabled
-              placeholder="{{ details?.marca }}"
-            />
+            >
+              <option class="text-center" value="">Selecciona la marca </option>
+              <option [value]="'alfagas'">Alfa Gas</option>
+              <option [value]="'auregas'">Auregas</option>
+              <option [value]="'gascanon'">Gas Cañon</option>
+              <option [value]="'gaslux'">GasLux</option>
+              <option [value]="'haciendanueva'">Hacienda Nueva</option>
+            </select>
 
             <mdb-error *ngIf="marca.invalid && (marca.dirty || marca.touched)"
               >Debes establecer una marca

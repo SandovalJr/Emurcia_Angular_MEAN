@@ -101,7 +101,7 @@ export class AgregarUsuarioComponent implements OnInit {
         usuario: this.credentialsRegistro.usuario,
         password: this.credentialsRegistro.password,
         user_type: this.credentialsRegistro.user_type,
-        marca: this.details.marca,
+        marca: this.credentialsRegistro.marca,
         region: this.credentialsRegistro.region,
       });
 
