@@ -103,7 +103,7 @@ export class AuthenticationService {
 
   // REGISTRAR USUARIO
   public register(user: TokenPayload): Observable<any> {
-    // console.log(user);
+    console.log(user);
     return this.http.post(this.baseUrl + `/api/user/register`, user);
   }
 
@@ -111,18 +111,20 @@ export class AuthenticationService {
   public ListarUsuarios(): Observable<any> {
     // console.log("entro a listar");
     // console.log(this.getToken());
-    return this.http.get(`${this.baseUrl}/api/user/ListarUsuarios`,{
-      headers: { Authorization: ` ${this.getToken()}` },
 
+    return this.http.get(`${this.baseUrl}/api/user/ListarUsuarios`, {
+      headers: { Authorization: ` ${this.getToken()}` },
     });
   }
 
   // // ELIMINARLOS
-  // public eliminarUsuario(id: string): Observable<any> {
-  //   console.log(`se eliminara ${id}`);
+  public eliminarUsuario(id: any): Observable<any> {
+    console.log(`se eliminara ${id}`);
 
-  //   return this.http.delete(this.baseUrl + `/api/user/ListarUsuarios/${id}`);
-  // }
+    return this.http.get(`${this.baseUrl}/api/user/ListarUsuarios/${id}`, {
+      headers: { Authorization: ` ${this.getToken()}` },
+    });
+  }
 
   // // ACTUALIZAR USUARIO
   // public ActualizarUsuario(

@@ -64,7 +64,7 @@ export class ListaUsuariosComponent implements OnInit {
     // this.loading = false;
     this.auth.ListarUsuarios().subscribe(
       (usuarios) => {
-        console.log(usuarios);
+        // console.log(usuarios);
         this.UsuariosListados = usuarios;
         this.loading = true;
         // if (usuarios == null || "") {
@@ -76,6 +76,18 @@ export class ListaUsuariosComponent implements OnInit {
           title: "Oops...",
           text: "Algo salio mal!",
         });
+        console.error(err);
+      }
+    );
+  }
+
+  EliminarUsuario(id: any) {
+    this.auth.eliminarUsuario(id).subscribe(
+      (userEliminado) => {
+        // this.details = user;
+        console.log(userEliminado);
+      },
+      (err) => {
         console.error(err);
       }
     );
