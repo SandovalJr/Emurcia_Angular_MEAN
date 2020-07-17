@@ -31,33 +31,33 @@ export class ListaUsuariosComponent implements OnInit {
   public UsuariosListados: Array<any> = [];
 
   ngOnInit(): void {
-    this.informacionUsuario();
+    // this.informacionUsuario();
   }
 
   GoToAgregarUsuario() {
     this.router.navigate(["AdminProfile/AgregarUsuario"]);
   }
 
-  informacionUsuario() {
-    this.auth.profile().subscribe(
-      (user) => {
-        this.details = user;
-        // console.log(user);
-      },
-      (err) => {
-        console.error(err);
-      }
-    );
-  }
+  // informacionUsuario() {
+  //   this.auth.profile().subscribe(
+  //     (user) => {
+  //       this.details = user;
+  //       // console.log(user);
+  //     },
+  //     (err) => {
+  //       console.error(err);
+  //     }
+  //   );
+  // }
 
-  credentials: TokenPayload = {
-    id: 0,
-    usuario: "",
-    password: "",
-    user_type: "",
-    marca: "",
-    region: "",
-  };
+  // credentials: TokenPayload = {
+  //   id: 0,
+  //   usuario: "",
+  //   password: "",
+  //   user_type: "",
+  //   marca: "",
+  //   region: "",
+  // };
 
   getUsuariosDeCadaMarca() {
     this.UsuariosListados = [];
