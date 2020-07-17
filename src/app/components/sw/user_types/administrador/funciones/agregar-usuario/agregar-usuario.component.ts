@@ -97,14 +97,6 @@ export class AgregarUsuarioComponent implements OnInit {
       // console.log(this.usuario.status);
       // console.log("si entro validacion");
 
-      this.validationForm.setValue({
-        usuario: this.credentialsRegistro.usuario,
-        password: this.credentialsRegistro.password,
-        user_type: this.credentialsRegistro.user_type,
-        marca: this.credentialsRegistro.marca,
-        region: this.credentialsRegistro.region,
-      });
-
       // console.log(this.credentialsRegistro);
 
       this.auth.register(this.credentialsRegistro).subscribe(
