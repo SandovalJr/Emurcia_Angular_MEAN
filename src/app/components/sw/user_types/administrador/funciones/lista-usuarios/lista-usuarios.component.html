@@ -46,24 +46,30 @@
   </div>
 
   <div *ngIf="loading" class="table-responsive mt-5">
-    <table class="table" >
+    <table class="table">
       <thead>
         <tr class="ttabla">
-          <th>ID</th>
           <th>USUARIO</th>
-          <th>CONTRASEÑA</th>
-          <th>OPERACIONES</th>
+          <th>TIPO DE USUARIO</th>
+          <th>REGION</th>
+          <th class="operaciones">OPERACIONES</th>
         </tr>
       </thead>
       <tbody hover="true">
         <tr *ngFor="let usuario of UsuariosListados">
-          <td class="tc" scope="row">{{usuario.id}}</td>
-          <td  class="tc">{{ usuario.usuario }}</td>
+          <td class="tc">{{ usuario.usuario }}</td>
+          <td class="tc">{{ usuario.user_type }}</td>
+          <td class="tc">{{ usuario.region }}</td>
+          <td class="operacionesBoton">
+            <button class="btn btn-outline-danger">
+              <mat-icon>delete_forever</mat-icon>
+            </button>
+            <button class="btn btn-outline-warning">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
-
-
-
 </div>
