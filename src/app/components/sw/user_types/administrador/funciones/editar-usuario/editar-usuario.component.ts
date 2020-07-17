@@ -25,6 +25,8 @@ const Swal = require("sweetalert2");
 export class EditarUsuarioComponent implements OnInit {
   validationForm: FormGroup;
   details: UserDetails;
+
+
   credentialsRegistro: TokenPayload = {
     id: 0,
     usuario: "",
@@ -75,7 +77,7 @@ export class EditarUsuarioComponent implements OnInit {
       (user) => {
         this.details = user;
         // console.log("user:");
-        // console.log(user);
+        console.log(user);
       },
       (err) => {
         console.error(err);

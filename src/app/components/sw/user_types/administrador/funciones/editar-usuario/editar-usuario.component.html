@@ -22,6 +22,7 @@
               maxLength="30"
               class="form-control"
               id="form9"
+              value="{{details?.usuario}}"
             />
             <label for="form9">Usuario</label>
             <mdb-error
@@ -44,11 +45,12 @@
               formControlName="password"
               [(ngModel)]="credentialsRegistro.password"
               name="password"
+              value="{{details?.password}}"
               minLength="10"
               maxLength="25"
-              type="password"
               class="form-control"
               id="form10"
+
             />
             <label for="form10">Contraseña</label>
             <mdb-error
@@ -74,7 +76,7 @@
               class="form-control seleccionar"
               [(ngModel)]="credentialsRegistro.user_type"
             >
-              <option value="">Selecciona el tipo de usuario</option>
+              <option value="">{{details?.user_type}}</option>
               <option [value]="'admin'">Administrador</option>
               <option [value]="'supervisor'">Supervisor</option>
               <option [value]="'vendedor'">Vendedor</option>
@@ -109,6 +111,7 @@
               maxLength="30"
               class="form-control"
               id="form9"
+              value="{{details?.region}}"
             />
             <label for="form9">Region</label>
             <mdb-error
@@ -132,7 +135,7 @@
             class="form-control seleccionar"
             [(ngModel)]="credentialsRegistro.marca"
           >
-            <option class="text-center" value="">Selecciona la marca </option>
+            <option class="text-center" value="">{{details?.marca}}</option>
             <option [value]="'Alfagas'">Alfa Gas</option>
             <option [value]="'Auregas'">Auregas</option>
             <option [value]="'Gas Cañon'">Gas Cañon</option>
