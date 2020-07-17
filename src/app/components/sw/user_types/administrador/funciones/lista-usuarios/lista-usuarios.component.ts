@@ -82,14 +82,32 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
   EliminarUsuario(id: any) {
-    this.auth.eliminarUsuario(id).subscribe(
-      (userEliminado) => {
-        // this.details = user;
-        console.log(userEliminado);
-      },
-      (err) => {
-        console.error(err);
+    Swal.fire({
+      title: "Seguro que quieres eliminarlo?",
+      text: "No podras volver atras!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#00a441",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.value) {
+        this.auth.eliminarUsuario(id).subscribe(
+          (userEliminado) => {
+            // console.log(userEliminado);
+            window.location.reload();
+          },
+          (err) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Algo salio mal!",
+            });
+            console.error(err);
+          }
+        );
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
       }
-    );
+    });
   }
 }
