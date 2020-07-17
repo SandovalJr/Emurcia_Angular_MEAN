@@ -124,17 +124,21 @@
 
         <div class="col">
           <div class="md-form">
-            <mdb-icon fas icon="flag" class="prefix"></mdb-icon>
-            <input
-              formControlName="marca"
-              name="marca"
-              [(ngModel)]="credentialsRegistro.marca"
-              type="text"
-              ng-value="myVar"
-              class="form-control"
-              disabled
-              placeholder="{{ details?.marca }}"
-            />
+            <!-- <mdb-icon fas icon="flag" class="prefix"></mdb-icon> -->
+            <select
+            formControlName="marca"
+            name="marca"
+            requiered
+            class="form-control seleccionar"
+            [(ngModel)]="credentialsRegistro.marca"
+          >
+            <option class="text-center" value="">Selecciona la marca </option>
+            <option [value]="'Alfagas'">Alfa Gas</option>
+            <option [value]="'Auregas'">Auregas</option>
+            <option [value]="'Gas Cañon'">Gas Cañon</option>
+            <option [value]="'Gaslux'">GasLux</option>
+            <option [value]="'Hacienda Nueva'">Hacienda Nueva</option>
+          </select>
 
             <mdb-error *ngIf="marca.invalid && (marca.dirty || marca.touched)"
               >Debes establecer una marca

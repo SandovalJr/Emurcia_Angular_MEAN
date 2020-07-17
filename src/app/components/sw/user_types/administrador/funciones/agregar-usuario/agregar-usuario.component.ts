@@ -39,26 +39,24 @@ export class AgregarUsuarioComponent implements OnInit {
       region: [null, [Validators.required]],
       user_type: [null, [Validators.required]],
     });
-
-    this.informacionUsuario();
   }
 
   ngOnInit() {
     // console.log(this.auth.profile);
   }
 
-  // OBTENER INFORMACION DEL USUARIO LOGEADO
-  informacionUsuario() {
-    this.auth.profile().subscribe(
-      (user) => {
-        this.details = user;
-        // console.log(user);
-      },
-      (err) => {
-        console.error(err);
-      }
-    );
-  }
+  // // OBTENER INFORMACION DEL USUARIO LOGEADO
+  // informacionUsuario() {
+  //   this.auth.profile().subscribe(
+  //     (user) => {
+  //       this.details = user;
+  //       // console.log(user);
+  //     },
+  //     (err) => {
+  //       console.error(err);
+  //     }
+  //   );
+  // }
 
   // VALIDAR USUARIO
   get usuario() {
@@ -96,6 +94,14 @@ export class AgregarUsuarioComponent implements OnInit {
     ) {
       // console.log(this.usuario.status);
       // console.log("si entro validacion");
+
+      // this.validationForm.setValue({
+      //   usuario: this.credentialsRegistro.usuario,
+      //   password: this.credentialsRegistro.password,
+      //   user_type: this.credentialsRegistro.user_type,
+      //   marca: this.credentialsRegistro.marca,
+      //   region: this.credentialsRegistro.region,
+      // });
 
       // console.log(this.credentialsRegistro);
 
