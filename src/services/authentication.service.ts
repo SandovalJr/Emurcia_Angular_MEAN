@@ -109,9 +109,8 @@ export class AuthenticationService {
 
   // LISTARLOS
   public ListarUsuarios(): Observable<any> {
-    console.log("entro a listar");
+    // console.log("entro a listar");
     // console.log(this.getToken());
-
     return this.http.get(`${this.baseUrl}/api/user/ListarUsuarios`,{
       headers: { Authorization: ` ${this.getToken()}` },
 

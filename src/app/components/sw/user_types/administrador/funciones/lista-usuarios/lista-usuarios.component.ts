@@ -13,6 +13,8 @@ import {
   styleUrls: ["./lista-usuarios.component.scss"],
 })
 export class ListaUsuariosComponent implements OnInit {
+  loading: boolean = false;
+
   constructor(
     private router: Router,
     private auth: AuthenticationService,
@@ -21,7 +23,7 @@ export class ListaUsuariosComponent implements OnInit {
     this.getUsuariosDeCadaMarca();
   }
   details: UserDetails;
-  UsuariosListados: any = [];
+  public UsuariosListados: Array<any> = [];
 
   ngOnInit(): void {
     this.informacionUsuario();
@@ -58,10 +60,10 @@ export class ListaUsuariosComponent implements OnInit {
     this.auth.ListarUsuarios().subscribe(
       (usuarios) => {
         console.log(usuarios);
-        this.UsuariosListados.push(usuarios);
-
-        if (usuarios == null || "") {
-        }
+        this.UsuariosListados= usuarios;
+        this.loading = true;
+        // if (usuarios == null || "") {
+        // }
       },
       (err) => {
         console.error(err);

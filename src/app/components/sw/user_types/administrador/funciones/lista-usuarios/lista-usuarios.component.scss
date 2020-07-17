@@ -26,7 +26,24 @@
     background: #bf0e0e;
   }
 }
-
+.tc{
+  text-align: center;
+}
+.ttabla{
+  // margin-top: 30px;
+background: #41434d ;
+font-family: oswald;
+color: white;
+text-align: center;
+}
+.contenedorload{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // width: 100%;
+  // height: 100%;
+  margin-top: 150px;
+}
 // BOTON
 .container .buttonContainer {
   display: flex;

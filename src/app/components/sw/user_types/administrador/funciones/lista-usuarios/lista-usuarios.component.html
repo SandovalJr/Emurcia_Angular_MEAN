@@ -18,17 +18,52 @@
     </button>
   </div>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Usuario</th>
-        <th>Contraseña</th>
-        <th>Operaciones</th>
-      </tr>
-    </thead>
-    <tbody>
+  <div *ngIf="loading" class="contenedorload">
+    <div class="spinner-grow text-warning" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-warning" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-warning" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-warning" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
 
-    </tbody>
-  </table>
+  <div *ngIf="!loading" class="table-responsive mt-5">
+    <table class="table" >
+      <thead>
+        <tr class="ttabla">
+          <th>ID</th>
+          <th>USUARIO</th>
+          <th>CONTRASEÑA</th>
+          <th>OPERACIONES</th>
+        </tr>
+      </thead>
+      <tbody hover="true">
+        <tr *ngFor="let usuario of UsuariosListados">
+          <td class="tc" scope="row">{{usuario.id}}</td>
+          <td  class="tc">{{ usuario.usuario }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
 
 </div>
