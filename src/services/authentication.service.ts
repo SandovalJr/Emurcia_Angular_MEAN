@@ -120,7 +120,7 @@ export class AuthenticationService {
   // // ELIMINARLOS
   public eliminarUsuario(id: any): Observable<any> {
     console.log(`se eliminara ${id}`);
-
+    // se usa get en lugar de delete
     return this.http.get(`${this.baseUrl}/api/user/ListarUsuarios/${id}`, {
       headers: { Authorization: ` ${this.getToken()}` },
     });
