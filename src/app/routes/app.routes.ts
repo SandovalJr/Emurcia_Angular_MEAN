@@ -19,6 +19,7 @@ import { AuthGuardService } from "../../services/auth-guard.service";
 import { InicioAdminComponent } from "../components/sw/user_types/administrador/inicio-admin/inicio-admin.component";
 import { ListaUsuariosComponent } from "../components/sw/user_types/administrador/funciones/lista-usuarios/lista-usuarios.component";
 import { AgregarUsuarioComponent } from "../components/sw/user_types/administrador/funciones/agregar-usuario/agregar-usuario.component";
+import { EditarUsuarioComponent } from "../components/sw/user_types/administrador/funciones/editar-usuario/editar-usuario.component";
 
 // SUPERVISOR
 import { InicioSupervisorComponent } from "../components/sw/user_types/supervisor/inicio-supervisor/inicio-supervisor.component";
@@ -28,7 +29,6 @@ import { IniciovendedorComponent } from "../components/sw/user_types/vendedor/in
 
 // ERROR 404
 import { ErrorNoExistePaginaComponent } from "../components/errors/error-no-existe-pagina/error-no-existe-pagina.component";
-
 
 const routes: Routes = [
   { path: "", component: PwComponent },
@@ -53,6 +53,11 @@ const routes: Routes = [
       },
       {
         path: "AgregarUsuario",
+        component: AgregarUsuarioComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: "EditarUsuario/:id",
         component: AgregarUsuarioComponent,
         canActivate: [AuthGuardService],
       },
@@ -87,9 +92,9 @@ const routes: Routes = [
   },
 
   // { path: "**", component: PwComponent },
-   // SIEMPRE RUTA DEFAULT ERROR
-   { path: 'notFound', component: ErrorNoExistePaginaComponent },
-   { path: '**', pathMatch: 'full', redirectTo: 'notFound' },
+  // SIEMPRE RUTA DEFAULT ERROR
+  { path: "notFound", component: ErrorNoExistePaginaComponent },
+  { path: "**", pathMatch: "full", redirectTo: "notFound" },
 ];
 
 export const APP_ROUTES = RouterModule.forRoot(routes);

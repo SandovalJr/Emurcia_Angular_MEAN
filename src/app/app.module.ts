@@ -61,6 +61,7 @@ import { IniciovendedorComponent } from './components/sw/user_types/vendedor/ini
 import { AgregarUsuarioComponent } from './components/sw/user_types/administrador/funciones/agregar-usuario/agregar-usuario.component';
 import { ListaUsuariosComponent } from './components/sw/user_types/administrador/funciones/lista-usuarios/lista-usuarios.component';
 import { ErrorNoExistePaginaComponent } from './components/errors/error-no-existe-pagina/error-no-existe-pagina.component';
+import { EditarUsuarioComponent } from './components/sw/user_types/administrador/funciones/editar-usuario/editar-usuario.component';
 
 
 
@@ -88,6 +89,7 @@ import { ErrorNoExistePaginaComponent } from './components/errors/error-no-exist
     AgregarUsuarioComponent,
     ListaUsuariosComponent,
     ErrorNoExistePaginaComponent,
+    EditarUsuarioComponent,
   ],
   imports: [
     BrowserModule,

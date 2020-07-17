@@ -61,10 +61,16 @@
           <td class="tc">{{ usuario.user_type }}</td>
           <td class="tc">{{ usuario.region }}</td>
           <td class="operacionesBoton">
-            <button class="btn btn-outline-danger" (click)="EliminarUsuario(usuario.id)">
+            <button
+              class="btn btn-outline-danger"
+              (click)="EliminarUsuario(usuario.id)"
+            >
               <mat-icon>delete_forever</mat-icon>
             </button>
-            <button class="btn btn-outline-warning">
+            <button
+              class="btn btn-outline-warning"
+              (click)="EditarUsuario(usuario.id)"
+            >
               <mat-icon>edit</mat-icon>
             </button>
           </td>

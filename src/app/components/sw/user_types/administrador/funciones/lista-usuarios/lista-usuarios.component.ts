@@ -110,4 +110,10 @@ export class ListaUsuariosComponent implements OnInit {
       }
     });
   }
+
+  EditarUsuario(id: any) {
+    console.log(id);
+    this.router.navigate(["AdminProfile/EditarUsuario", id]);
+  }
+
 }
