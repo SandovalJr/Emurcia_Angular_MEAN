@@ -112,8 +112,7 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
   EditarUsuario(id: any) {
-    console.log(id);
-    this.router.navigate(["AdminProfile/EditarUsuario", id]);
+    console.log(`El id que se debe editar es ${id}`)
+    this.router.navigate(["/AdminProfile/EditarUsuario/", id]);
   }
-
 }

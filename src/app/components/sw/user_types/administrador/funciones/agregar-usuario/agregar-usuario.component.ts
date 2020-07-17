@@ -52,7 +52,7 @@ export class AgregarUsuarioComponent implements OnInit {
     this.auth.profile().subscribe(
       (user) => {
         this.details = user;
-        console.log(user);
+        // console.log(user);
       },
       (err) => {
         console.error(err);

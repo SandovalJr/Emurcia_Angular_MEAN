@@ -165,6 +165,15 @@ export class AuthenticationService {
     });
   }
 
+  // informacion del usuario a actualizar
+  public InfoUserEdit(id: any): Observable<any> {
+    // console.log(this.getToken());
+    // console.log(`El id en el servicio ${id}`);
+    return this.http.get(this.baseUrl + `/api/user/EditarUsuario/${id}`, {
+      headers: { Authorization: ` ${this.getToken()}` },
+    });
+  }
+
   // SALIR
   public logout(): void {
     this.token = "";

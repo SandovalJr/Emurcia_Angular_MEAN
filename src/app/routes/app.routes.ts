@@ -58,7 +58,7 @@ const routes: Routes = [
       },
       {
         path: "EditarUsuario/:id",
-        component: AgregarUsuarioComponent,
+        component: EditarUsuarioComponent,
         canActivate: [AuthGuardService],
       },
     ],

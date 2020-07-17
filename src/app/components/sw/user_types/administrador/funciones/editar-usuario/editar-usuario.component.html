@@ -1,1 +1,155 @@
-<p>editar-usuario works!</p>
+<p class="titulos">Editar Informacion de Usuario</p>
+
+<div class="lineas">
+  <div class="LA"></div>
+  <div class="LR"></div>
+</div>
+
+<div class="container">
+  <form>
+    <ng-form [formGroup]="validationForm">
+      <div class="row mt-3">
+        <div class="col">
+          <div class="md-form">
+            <mdb-icon fas icon="user" class="prefix"></mdb-icon>
+            <input
+              mdbInput
+              mdbValidate
+              formControlName="usuario"
+              name="usuario"
+              [(ngModel)]="credentialsRegistro.usuario"
+              minLength="8"
+              maxLength="30"
+              class="form-control"
+              id="form9"
+            />
+            <label for="form9">Usuario</label>
+            <mdb-error
+              *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)"
+              >Debes llenar este campo</mdb-error
+            >
+            <mdb-success
+              *ngIf="usuario.valid && (usuario.dirty || usuario.touched)"
+              >Usuario Valido</mdb-success
+            >
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="md-form">
+            <mdb-icon fas icon="lock" class="prefix"></mdb-icon>
+            <input
+              mdbInput
+              mdbValidate
+              formControlName="password"
+              [(ngModel)]="credentialsRegistro.password"
+              name="password"
+              minLength="10"
+              maxLength="25"
+              type="password"
+              class="form-control"
+              id="form10"
+            />
+            <label for="form10">Contraseña</label>
+            <mdb-error
+              *ngIf="password.invalid && (password.dirty || password.touched)"
+              >Debes establecer una clave
+            </mdb-error>
+            <mdb-success
+              *ngIf="password.valid && (password.dirty || password.touched)"
+              >Contraseña valida
+            </mdb-success>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="md-form">
+            <select
+              name="user_type"
+              id=""
+              formControlName="user_type"
+              requiered
+              class="form-control seleccionar"
+              [(ngModel)]="credentialsRegistro.user_type"
+            >
+              <option value="">Selecciona el tipo de usuario</option>
+              <option [value]="'admin'">Administrador</option>
+              <option [value]="'supervisor'">Supervisor</option>
+              <option [value]="'vendedor'">Vendedor</option>
+            </select>
+            <mdb-error
+              class="text-center"
+              *ngIf="
+                user_type.invalid && (user_type.dirty || user_type.touched)
+              "
+              >Debes seleccionar un tipo de usuario
+            </mdb-error>
+            <mdb-success
+              class="text-center"
+              *ngIf="user_type.valid && (user_type.dirty || user_type.touched)"
+              >tipo de usuario valido
+            </mdb-success>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="md-form">
+            <mdb-icon fas icon="map-marked-alt" class="prefix"></mdb-icon>
+            <input
+              mdbInput
+              mdbValidate
+              [(ngModel)]="credentialsRegistro.region"
+              formControlName="region"
+              name="region"
+              minLength="8"
+              maxLength="30"
+              class="form-control"
+              id="form9"
+            />
+            <label for="form9">Region</label>
+            <mdb-error
+              *ngIf="region.invalid && (region.dirty || region.touched)"
+              >Debes llenar este campo</mdb-error
+            >
+            <mdb-success
+              *ngIf="region.valid && (region.dirty || region.touched)"
+              >Region Valida</mdb-success
+            >
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="md-form">
+            <mdb-icon fas icon="flag" class="prefix"></mdb-icon>
+            <input
+              formControlName="marca"
+              name="marca"
+              [(ngModel)]="credentialsRegistro.marca"
+              type="text"
+              ng-value="myVar"
+              class="form-control"
+              disabled
+              placeholder="{{ details?.marca }}"
+            />
+
+            <mdb-error *ngIf="marca.invalid && (marca.dirty || marca.touched)"
+              >Debes establecer una marca
+            </mdb-error>
+            <mdb-success *ngIf="marca.valid && (marca.dirty || marca.touched)"
+              >marca valida
+            </mdb-success>
+          </div>
+        </div>
+      </div>
+    </ng-form>
+    <div class="boton">
+      <button type="submit" class="btn agregarUser">
+        Actualizar informacion
+      </button>
+    </div>
+  </form>
+</div>
