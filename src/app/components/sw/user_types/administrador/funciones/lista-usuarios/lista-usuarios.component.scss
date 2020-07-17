@@ -26,27 +26,25 @@
     background: #bf0e0e;
   }
 }
-.tc{
+.tc {
   text-align: center;
 }
 
-.operaciones{
-
+.operacionesBoton {
+  // position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.operacionesBoton{
-
-}
-
-
-.ttabla{
+.ttabla {
   // margin-top: 30px;
-background: #41434d ;
-font-family: oswald;
-color: white;
-text-align: center;
+  background: #41434d;
+  font-family: oswald;
+  color: white;
+  text-align: center;
 }
-.contenedorload{
+.contenedorload {
   display: flex;
   justify-content: center;
   align-items: center;
