@@ -26,7 +26,6 @@ export class EditarUsuarioComponent implements OnInit {
   validationForm: FormGroup;
   details: UserDetails;
 
-
   credentialsRegistro: TokenPayload = {
     id: 0,
     usuario: "",
@@ -71,15 +70,36 @@ export class EditarUsuarioComponent implements OnInit {
 
   InformacionDeElUsuarioAEditar() {
     const id = this.activatedRouter.snapshot.paramMap.get("id");
-    console.log(`metodo de editar usuario envio id ${id}`);
 
     this.auth.InfoUserEdit(id).subscribe(
       (user) => {
         this.details = user;
         // console.log("user:");
-        console.log(user);
+        // console.log(user);
       },
       (err) => {
+        console.error(err);
+      }
+    );
+  }
+
+  ActualizarUsuario() {
+    const id = this.activatedRouter.snapshot.paramMap.get("id");
+    this.auth.ActualizarUsuario(id, this.credentialsRegistro).subscribe(
+      () => {
+        Swal.fire(
+          "Se Actualizo Correctamente",
+          "Presiona para continuar..",
+          "success"
+        );
+        this.router.navigateByUrl("/AdminProfile/ListaUsuarios");
+      },
+      (err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Error al actualizar",
+        });
         console.error(err);
       }
     );

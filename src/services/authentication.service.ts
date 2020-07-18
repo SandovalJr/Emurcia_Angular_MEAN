@@ -127,15 +127,18 @@ export class AuthenticationService {
   }
 
   // // ACTUALIZAR USUARIO
-  // public ActualizarUsuario(
-  //   id: string,
-  //   updateUsuario: UserDetails
-  // ): Observable<any> {
-  //   return this.http.put(
-  //     this.baseUrl + `/api/user/ListarUsuarios/${id}`,
-  //     updateUsuario
-  //   );
-  // }
+  public ActualizarUsuario(
+    id: any,
+    updateUsuario: TokenPayload
+  ): Observable<any> {
+    console.log(`el id de actualizar es ${id}`);
+    console.log(updateUsuario);
+
+    return this.http.put(
+      this.baseUrl + `/api/user/ListarUsuarios/${id}`,
+      updateUsuario
+    );
+  }
 
   // *******************************************************************************************
 
