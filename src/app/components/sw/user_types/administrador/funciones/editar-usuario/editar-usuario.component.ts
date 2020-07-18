@@ -26,15 +26,6 @@ export class EditarUsuarioComponent implements OnInit {
   validationForm: FormGroup;
   details: UserDetails;
 
-  credentialsRegistro: TokenPayload = {
-    id: 0,
-    usuario: "",
-    password: "",
-    user_type: "",
-    marca: "",
-    region: "",
-  };
-
   constructor(
     public fb: FormBuilder,
     private auth: AuthenticationService,
@@ -83,8 +74,40 @@ export class EditarUsuarioComponent implements OnInit {
     );
   }
 
+  credentialsRegistro: TokenPayload = {
+    id: 0,
+    usuario: "",
+    password: "",
+    user_type: "",
+    marca: "",
+    region: "",
+  };
+
   ActualizarUsuario() {
     const id = this.activatedRouter.snapshot.paramMap.get("id");
+
+    if (this.credentialsRegistro.password === "") {
+      this.credentialsRegistro.password = this.details.password;
+    }
+
+    if (this.credentialsRegistro.region === "") {
+      this.credentialsRegistro.region == this.details.region;
+    }
+
+    if (this.credentialsRegistro.marca === "") {
+      this.credentialsRegistro.marca = this.details.marca;
+    }
+
+    if (this.credentialsRegistro.user_type === "") {
+      this.credentialsRegistro.user_type = this.details.user_type;
+    }
+
+    if (this.credentialsRegistro.usuario === "") {
+      this.credentialsRegistro.usuario = this.details.usuario;
+    }
+
+    // console.log(this.credentialsRegistro);
+
     this.auth.ActualizarUsuario(id, this.credentialsRegistro).subscribe(
       () => {
         Swal.fire(
