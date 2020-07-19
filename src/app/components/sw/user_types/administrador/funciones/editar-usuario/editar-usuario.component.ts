@@ -88,29 +88,30 @@ export class EditarUsuarioComponent implements OnInit {
   ActualizarUsuario() {
     const id = this.activatedRouter.snapshot.paramMap.get("id");
 
+    // USUARIO
+    this.credentialsRegistro.usuario !== ""
+      ? (this.details.usuario = this.credentialsRegistro.usuario)
+      : (this.credentialsRegistro.usuario = this.details.usuario);
+
+    // CONTRASEÑA
+    this.credentialsRegistro.password !== ""
+      ? (this.details.password = this.credentialsRegistro.password)
+      : (this.credentialsRegistro.password = this.details.password);
+
+    // REGION
     this.credentialsRegistro.region !== ""
       ? (this.details.region = this.credentialsRegistro.region)
       : (this.credentialsRegistro.region = this.details.region);
 
-    // if (this.credentialsRegistro.password === "") {
-    //   this.credentialsRegistro.password = this.details.password;
-    // }
+    // TIPO DE USUARIO
+    this.credentialsRegistro.user_type !== ""
+      ? (this.details.user_type = this.credentialsRegistro.user_type)
+      : (this.credentialsRegistro.user_type = this.details.user_type);
 
-    // if (this.credentialsRegistro.region === "") {
-    //   this.credentialsRegistro.region == this.details.region;
-    // }
-
-    // if (this.credentialsRegistro.marca === "") {
-    //   this.credentialsRegistro.marca = this.details.marca;
-    // }
-
-    // if (this.credentialsRegistro.user_type === "") {
-    //   this.credentialsRegistro.user_type = this.details.user_type;
-    // }
-
-    // if (this.credentialsRegistro.usuario === "") {
-    //   this.credentialsRegistro.usuario = this.details.usuario;
-    // }
+    // MARCA
+    this.credentialsRegistro.marca == ""
+      ? (this.credentialsRegistro.marca = this.details.marca)
+      : (this.details.marca = this.credentialsRegistro.marca);
 
     // console.log(this.credentialsRegistro);
 
