@@ -57,7 +57,7 @@
         </tr>
       </thead>
       <tbody hover="true">
-        <tr *ngFor="let usuario of UsuariosListados">
+        <tr appTablehover *ngFor="let usuario of UsuariosListados">
           <td class="tc">{{ usuario.usuario }}</td>
           <td class="tc">{{ usuario.user_type }}</td>
           <td class="tc">{{ usuario.region }}</td>

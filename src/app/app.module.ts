@@ -44,27 +44,25 @@ import { MatTabsModule } from "@angular/material/tabs";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 // import { FlexLayoutModule } from '@angular/flex-layout';
-import {MatMenuModule} from '@angular/material/menu';
-import { MatListModule } from  '@angular/material/list';
+import { MatMenuModule } from "@angular/material/menu";
+import { MatListModule } from "@angular/material/list";
 
 // ADMIN
-import { SideNavComponent } from './components/sw/user_types/administrador/side-nav/side-nav.component';
-import { InicioAdminComponent } from './components/sw/user_types/administrador/inicio-admin/inicio-admin.component';
+import { SideNavComponent } from "./components/sw/user_types/administrador/side-nav/side-nav.component";
+import { InicioAdminComponent } from "./components/sw/user_types/administrador/inicio-admin/inicio-admin.component";
 
 // SUPERVISOR
-import { SideNavSupervisorComponent } from './components/sw/user_types/supervisor/side-nav-supervisor/side-nav-supervisor.component';
-import { InicioSupervisorComponent } from './components/sw/user_types/supervisor/inicio-supervisor/inicio-supervisor.component';
+import { SideNavSupervisorComponent } from "./components/sw/user_types/supervisor/side-nav-supervisor/side-nav-supervisor.component";
+import { InicioSupervisorComponent } from "./components/sw/user_types/supervisor/inicio-supervisor/inicio-supervisor.component";
 
 // VENDEDOR
-import { SidenavVendedorComponent } from './components/sw/user_types/vendedor/sidenav-vendedor/sidenav-vendedor.component';
-import { IniciovendedorComponent } from './components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component';
-import { AgregarUsuarioComponent } from './components/sw/user_types/administrador/funciones/agregar-usuario/agregar-usuario.component';
-import { ListaUsuariosComponent } from './components/sw/user_types/administrador/funciones/lista-usuarios/lista-usuarios.component';
-import { ErrorNoExistePaginaComponent } from './components/errors/error-no-existe-pagina/error-no-existe-pagina.component';
-import { EditarUsuarioComponent } from './components/sw/user_types/administrador/funciones/editar-usuario/editar-usuario.component';
-
-
-
+import { SidenavVendedorComponent } from "./components/sw/user_types/vendedor/sidenav-vendedor/sidenav-vendedor.component";
+import { IniciovendedorComponent } from "./components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component";
+import { AgregarUsuarioComponent } from "./components/sw/user_types/administrador/funciones/agregar-usuario/agregar-usuario.component";
+import { ListaUsuariosComponent } from "./components/sw/user_types/administrador/funciones/lista-usuarios/lista-usuarios.component";
+import { ErrorNoExistePaginaComponent } from "./components/errors/error-no-existe-pagina/error-no-existe-pagina.component";
+import { EditarUsuarioComponent } from "./components/sw/user_types/administrador/funciones/editar-usuario/editar-usuario.component";
+import { TablehoverDirective } from "./components/directive/tablehover.directive";
 
 @NgModule({
   declarations: [
@@ -90,6 +88,7 @@ import { EditarUsuarioComponent } from './components/sw/user_types/administrador
     ListaUsuariosComponent,
     ErrorNoExistePaginaComponent,
     EditarUsuarioComponent,
+    TablehoverDirective,
   ],
   imports: [
     BrowserModule,
@@ -110,7 +109,7 @@ import { EditarUsuarioComponent } from './components/sw/user_types/administrador
     MatIconModule,
     // FlexLayoutModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   exports: [
     MatTabsModule,
@@ -119,7 +118,7 @@ import { EditarUsuarioComponent } from './components/sw/user_types/administrador
     MatIconModule,
     MatToolbarModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   providers: [AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent],
