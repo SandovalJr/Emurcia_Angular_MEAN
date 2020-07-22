@@ -1,4 +1,12 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+} from "@angular/core";
+import { fromEvent } from "rxjs";
+import { debounceTime, take, pluck, switchMap } from "rxjs/operators";
 import { Routes, Router } from "@angular/router";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import {
@@ -19,6 +27,8 @@ const Swal = require("sweetalert2");
 })
 export class ListaUsuariosComponent implements OnInit {
   loading: boolean = false;
+  term: any;
+  pageActual: number = 1;
 
   constructor(
     private router: Router,
@@ -37,27 +47,6 @@ export class ListaUsuariosComponent implements OnInit {
   GoToAgregarUsuario() {
     this.router.navigate(["AdminProfile/AgregarUsuario"]);
   }
-
-  // informacionUsuario() {
-  //   this.auth.profile().subscribe(
-  //     (user) => {
-  //       this.details = user;
-  //       // console.log(user);
-  //     },
-  //     (err) => {
-  //       console.error(err);
-  //     }
-  //   );
-  // }
-
-  // credentials: TokenPayload = {
-  //   id: 0,
-  //   usuario: "",
-  //   password: "",
-  //   user_type: "",
-  //   marca: "",
-  //   region: "",
-  // };
 
   getUsuariosDeCadaMarca() {
     this.UsuariosListados = [];
@@ -112,7 +101,11 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
   EditarUsuario(id: any) {
-    console.log(`El id que se debe editar es ${id}`)
+    console.log(`El id que se debe editar es ${id}`);
     this.router.navigate(["/AdminProfile/EditarUsuario/", id]);
   }
+
+
+
+
 }

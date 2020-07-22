@@ -3,6 +3,11 @@ import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
+import { AutocompleteLibModule } from "angular-ng-autocomplete";
+// BUSCADOR
+import { Ng2SearchPipeModule } from "ng2-search-filter";
+// PAGINACION
+import { NgxPaginationModule } from "ngx-pagination";
 
 // RUTAS
 import { APP_ROUTES } from "./routes/app.routes";
@@ -62,7 +67,7 @@ import { AgregarUsuarioComponent } from "./components/sw/user_types/administrado
 import { ListaUsuariosComponent } from "./components/sw/user_types/administrador/funciones/lista-usuarios/lista-usuarios.component";
 import { ErrorNoExistePaginaComponent } from "./components/errors/error-no-existe-pagina/error-no-existe-pagina.component";
 import { EditarUsuarioComponent } from "./components/sw/user_types/administrador/funciones/editar-usuario/editar-usuario.component";
-import { TablehoverDirective } from "./components/directive/tablehover.directive";
+import { TablehoverDirective } from "./directivas/tablehover.directive";
 
 @NgModule({
   declarations: [
@@ -110,6 +115,9 @@ import { TablehoverDirective } from "./components/directive/tablehover.directive
     // FlexLayoutModule,
     MatListModule,
     MatMenuModule,
+    AutocompleteLibModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
   ],
   exports: [
     MatTabsModule,
