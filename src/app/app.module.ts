@@ -68,6 +68,9 @@ import { ListaUsuariosComponent } from "./components/sw/user_types/administrador
 import { ErrorNoExistePaginaComponent } from "./components/errors/error-no-existe-pagina/error-no-existe-pagina.component";
 import { EditarUsuarioComponent } from "./components/sw/user_types/administrador/funciones/editar-usuario/editar-usuario.component";
 import { TablehoverDirective } from "./directivas/tablehover.directive";
+import { ListarAutosComponent } from './components/sw/user_types/supervisor/funciones/autosFunciones/listar-autos/listar-autos.component';
+import { AgregarAutoComponent } from './components/sw/user_types/supervisor/funciones/autosFunciones/agregar-auto/agregar-auto.component';
+import { EditarAutoComponent } from './components/sw/user_types/supervisor/funciones/autosFunciones/editar-auto/editar-auto.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +97,9 @@ import { TablehoverDirective } from "./directivas/tablehover.directive";
     ErrorNoExistePaginaComponent,
     EditarUsuarioComponent,
     TablehoverDirective,
+    ListarAutosComponent,
+    AgregarAutoComponent,
+    EditarAutoComponent,
   ],
   imports: [
     BrowserModule,
