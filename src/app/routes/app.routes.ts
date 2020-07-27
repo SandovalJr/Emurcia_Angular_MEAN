@@ -83,7 +83,7 @@ const routes: Routes = [
         canActivate: [AuthGuardService],
       },
       {
-        path: "AgregarUnidad",
+        path: "AgregarAuto",
         component: AgregarAutoComponent,
         canActivate: [AuthGuardService],
       },
