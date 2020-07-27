@@ -23,7 +23,9 @@ import { EditarUsuarioComponent } from "../components/sw/user_types/administrado
 
 // SUPERVISOR
 import { InicioSupervisorComponent } from "../components/sw/user_types/supervisor/inicio-supervisor/inicio-supervisor.component";
-
+import { ListarAutosComponent } from "../components/sw/user_types/supervisor/funciones/autosFunciones/listar-autos/listar-autos.component";
+import { AgregarAutoComponent } from "../components/sw/user_types/supervisor/funciones/autosFunciones/agregar-auto/agregar-auto.component";
+import { EditarAutoComponent } from "../components/sw/user_types/supervisor/funciones/autosFunciones/editar-auto/editar-auto.component";
 // VENDEDOR
 import { IniciovendedorComponent } from "../components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component";
 
@@ -73,6 +75,16 @@ const routes: Routes = [
       {
         path: "Inicio_Supervisor",
         component: InicioSupervisorComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: "Autos_Listado",
+        component: ListarAutosComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: "AgregarUnidad",
+        component: AgregarAutoComponent,
         canActivate: [AuthGuardService],
       },
     ],
