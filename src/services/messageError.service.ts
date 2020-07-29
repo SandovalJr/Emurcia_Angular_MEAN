@@ -21,6 +21,12 @@ export class MessageErrorsService {
       case errorRecibido.hasOwnProperty("minLength"):
         message = "Es necesario minimo 3 caracteres";
         break;
+
+      case errorRecibido.hasOwnProperty("numeric"):
+        message = "Tienes que ingresar un valor numerico";
+        break;
+
+
     }
     return {
       message,
