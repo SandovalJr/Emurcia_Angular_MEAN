@@ -35,10 +35,10 @@ export class AgregarAutoComponent implements OnInit {
   details: UserDetails;
   private MessageErrorSvr: MessageErrorsService;
   formulario: FormGroup;
-  constructor(private autoService: autosService, private router: Router) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.creatForm();
+    // this.creatForm();
   }
 
   public creatForm() {
@@ -58,7 +58,7 @@ export class AgregarAutoComponent implements OnInit {
       placas: new FormControl(null, [RxwebValidators.required()]),
       chofer_ruta: new FormControl(null, [RxwebValidators.required()]),
       cilindros_piezas: new FormControl(null, [RxwebValidators.required()]),
-      marca: new FormControl(null, [RxwebValidators.required()]),
+      // marca: new FormControl(null, [RxwebValidators.required()]),
     });
   }
 
@@ -69,8 +69,5 @@ export class AgregarAutoComponent implements OnInit {
     );
   }
 
-  addAuto() {
-
-  }
-
+  addAuto() {}
 }
