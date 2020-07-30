@@ -7,7 +7,7 @@ import { Router } from "@angular/router";
 export interface AutosDetails {
   id_auto: number;
   Num_eco: number;
-  año: number;
+  anio: number;
   ubicacion: string;
   num_serie: string;
   marca_auto: string;
@@ -23,14 +23,14 @@ export interface AutosDetails {
 export interface AutosLoad {
   id_auto: number;
   Num_eco: number;
-  año: number;
+  anio: number;
   ubicacion: string;
   num_serie: string;
   marca_auto: string;
   modelo: string;
   placas: string;
   chofer_ruta: string;
-  cilindros_piezas: string;
+  cilindros_piezas: number;
   marca: string;
 }
 
@@ -41,9 +41,11 @@ export class autosService {
   constructor(private http: HttpClient, private router: Router) {}
 
   // ADD AUTO
-  public registerAuto(auto: AutosLoad): Observable<any> {
+  public registerAuto(auto: any): Observable<any> {
+    console.log("llego");
     console.log(auto);
-    return this.http.post(this.baseUrl + `/api/autos/registerAutos`, auto);
+
+    return this.http.post(`${this.baseUrl}/api/autos/registerAutos`, auto);
   }
 
   // DELETE AUTO

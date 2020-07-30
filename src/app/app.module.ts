@@ -36,6 +36,7 @@ import { VendedorComponent } from "./components/sw/user_types/vendedor/vendedor.
 // Servicios
 import { AuthGuardService } from "../services/auth-guard.service";
 import { AuthenticationService } from "../services/authentication.service";
+import { autosService } from "../services/autos.service";
 import { LogInErrorComponent } from "./components/sw/log-in-error/log-in-error.component";
 
 // validator RXJS
@@ -134,7 +135,7 @@ import { EditarAutoComponent } from './components/sw/user_types/supervisor/funci
     MatListModule,
     MatMenuModule,
   ],
-  providers: [AuthenticationService, AuthGuardService],
+  providers: [AuthenticationService, AuthGuardService,autosService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
