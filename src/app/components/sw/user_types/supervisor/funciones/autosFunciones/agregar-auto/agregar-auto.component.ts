@@ -78,10 +78,7 @@ export class AgregarAutoComponent implements OnInit {
       modelo: new FormControl(null, [RxwebValidators.required()]),
       placas: new FormControl(null, [RxwebValidators.required()]),
       chofer_ruta: new FormControl(null, [RxwebValidators.required()]),
-      cilindros_piezas: new FormControl(null, [
-        RxwebValidators.required(),
-        RxwebValidators.numeric(),
-      ]),
+      cilindros_piezas: new FormControl(null, [RxwebValidators.required()]),
       marca: new FormControl(null, [RxwebValidators.required()]),
     });
   }
@@ -153,31 +150,24 @@ export class AgregarAutoComponent implements OnInit {
     });
 
     console.log(this.credentialsRegistroAuto);
-    if (this.formulario.valid) {
-      this.autoService.registerAuto(this.credentialsRegistroAuto).subscribe(
-        () => {
-          Swal.fire(
-            "Se Agrego Correctamente",
-            "Presiona para continuar..",
-            "success"
-          );
-          this.router.navigateByUrl("/Inicio_Supervisor");
-        },
-        (err) => {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Auto ya existente",
-          });
-          console.error(err);
-        }
-      );
-    } else {
-      Swal.fire({
-        title: "Campos Incompletos o Incorrectos!",
-        text: "completa todos para continuar",
-        icon: "warning",
-      });
-    }
+
+    this.autoService.registerAuto(this.credentialsRegistroAuto).subscribe(
+      () => {
+        Swal.fire(
+          "Se Agrego Correctamente",
+          "Presiona para continuar..",
+          "success"
+        );
+        this.router.navigateByUrl("/Inicio_Supervisor");
+      },
+      (err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Auto ya existente",
+        });
+        console.error(err);
+      }
+    );
   }
 }
