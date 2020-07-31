@@ -90,38 +90,6 @@ export class AgregarAutoComponent implements OnInit {
     );
   }
 
-  // VALIDAR USUARIO
-  // get Num_eco() {
-  //   return this.formulario.get("Num_eco");
-  // }
-  // get anio() {
-  //   return this.formulario.get("anio");
-  // }
-  // get ubicacion() {
-  //   return this.formulario.get("ubicacion");
-  // }
-  // get num_serie() {
-  //   return this.formulario.get("num_serie");
-  // }
-  // get marca_auto() {
-  //   return this.formulario.get("marca_auto");
-  // }
-  // get modelo() {
-  //   return this.formulario.get("modelo");
-  // }
-  // get placas() {
-  //   return this.formulario.get("placas");
-  // }
-  // get chofer_ruta() {
-  //   return this.formulario.get("chofer_ruta");
-  // }
-  // get cilindros_piezas() {
-  //   return this.formulario.get("cilindros_piezas");
-  // }
-  // get marca() {
-  //   return this.formulario.get("marca");
-  // }
-
   // detalles del usuario para obtener la marca
   informacionUsuario() {
     this.auth.profile().subscribe(
@@ -149,7 +117,7 @@ export class AgregarAutoComponent implements OnInit {
       marca: this.details.marca,
     });
 
-    console.log(this.credentialsRegistroAuto);
+    // console.log(this.credentialsRegistroAuto);
 
     this.autoService.registerAuto(this.credentialsRegistroAuto).subscribe(
       () => {

@@ -66,11 +66,10 @@
         >
         <!-- Transporte -->
         <p mat-list-item class="TSideNav">Transporte</p>
-        <a mat-list-item class="BtnSideNav" routerLink="Autos_Listado">
+        <a mat-list-item class="BtnSideNav" (click)="Autos(details.marca)">
           <mat-icon class="icono">directions_car</mat-icon>
           Unidades / Autos</a
         >
-
 
         <!-- LogOut -->
         <a

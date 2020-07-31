@@ -4,7 +4,7 @@ import {
   AuthenticationService,
   UserDetails,
 } from "../../../../../../services/authentication.service";
-
+import { Routes, Router } from "@angular/router";
 @Component({
   selector: "app-side-nav-supervisor",
   templateUrl: "./side-nav-supervisor.component.html",
@@ -27,11 +27,20 @@ export class SideNavSupervisorComponent implements OnInit {
   constructor(
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
-    public auths: AuthenticationService
+    public auths: AuthenticationService,
+    private router: Router
   ) {
     this.mobileQuery = media.matchMedia("(max-width: 600px)");
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+    this.auths.profile().subscribe(
+      (user) => {
+        this.details = user;
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
 
   ngOnDestroy(): void {
@@ -48,5 +57,10 @@ export class SideNavSupervisorComponent implements OnInit {
         console.error(err);
       }
     );
+  }
+
+  Autos(marca: any) {
+    console.log(`La marca que va a pasar ${marca}`);
+    this.router.navigate(["/SupervisorProfile/Autos_Listado", marca]);
   }
 }

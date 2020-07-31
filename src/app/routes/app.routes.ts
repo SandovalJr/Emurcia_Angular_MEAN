@@ -78,7 +78,7 @@ const routes: Routes = [
         canActivate: [AuthGuardService],
       },
       {
-        path: "Autos_Listado",
+        path: "Autos_Listado/:marca",
         component: ListarAutosComponent,
         canActivate: [AuthGuardService],
       },
