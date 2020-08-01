@@ -61,6 +61,18 @@ export class AgregarAutoComponent implements OnInit {
   ngOnInit(): void {
     this.creatForm();
   }
+  // detalles del usuario para obtener la marca
+  informacionUsuario() {
+    this.auth.profile().subscribe(
+      (user) => {
+        this.details = user;
+        this.credentialsRegistroAuto.marca = this.details.marca;
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
+  }
 
   public creatForm() {
     this.formulario = new FormGroup({
@@ -79,7 +91,7 @@ export class AgregarAutoComponent implements OnInit {
       placas: new FormControl(null, [RxwebValidators.required()]),
       chofer_ruta: new FormControl(null, [RxwebValidators.required()]),
       cilindros_piezas: new FormControl(null, [RxwebValidators.required()]),
-      marca: new FormControl(null, [RxwebValidators.required()]),
+      marca: new FormControl(null, []),
     });
   }
 
@@ -87,19 +99,6 @@ export class AgregarAutoComponent implements OnInit {
     if (!this.formulario.controls[control].touched) return { error: undefined };
     return this.MessageErrorSvr.errorMessage(
       this.formulario.controls[control].errors
-    );
-  }
-
-  // detalles del usuario para obtener la marca
-  informacionUsuario() {
-    this.auth.profile().subscribe(
-      (user) => {
-        this.details = user;
-        // console.log(user);
-      },
-      (err) => {
-        console.error(err);
-      }
     );
   }
 
@@ -118,24 +117,34 @@ export class AgregarAutoComponent implements OnInit {
     });
 
     // console.log(this.credentialsRegistroAuto);
+    // console.log(this.formulario.value);
+    // if (this.formulario.invalid) {
+    //   console.log("es invalido");
+    // } else {
+    //   console.log(this.formulario);
+    //   console.log("entro como valido");
+    // }
 
-    this.autoService.registerAuto(this.credentialsRegistroAuto).subscribe(
-      () => {
-        Swal.fire(
-          "Se Agrego Correctamente",
-          "Presiona para continuar..",
-          "success"
-        );
-        this.router.navigateByUrl("/Inicio_Supervisor");
-      },
-      (err) => {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Auto ya existente",
-        });
-        console.error(err);
-      }
-    );
+    if (!this.formulario.invalid) {
+      console.log("entro valido");
+      this.autoService.registerAuto(this.credentialsRegistroAuto).subscribe(
+        () => {
+          Swal.fire(
+            "Se Agrego Correctamente",
+            "Presiona para continuar..",
+            "success"
+          );
+          this.router.navigateByUrl("/Inicio_Supervisor");
+        },
+        (err) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Auto ya existente",
+          });
+          console.error(err);
+        }
+      );
+    }
   }
 }
