@@ -120,8 +120,33 @@ export class EditarAutoComponent implements OnInit {
     const id = this.activatedRouter.snapshot.paramMap.get("id");
     console.log("para actualizar" + id);
     console.log(this.credentialsRegistroAuto);
+
     if (this.formulario.valid) {
       console.log("valido");
+
+      this.autoService
+        .ActualizarInfoAuto(id, this.credentialsRegistroAuto)
+        .subscribe(
+          () => {
+            Swal.fire(
+              "Se Actualizo Correctamente",
+              "Presiona para continuar..",
+              "success"
+            );
+            this.router.navigateByUrl(
+              "/SupervisorProfile/Autos_Listado/" +
+                this.credentialsRegistroAuto.marca
+            );
+          },
+          (err) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Error al actualizar",
+            });
+            console.error(err);
+          }
+        );
     } else {
       Swal.fire({
         title: "Campos Incompletos!",

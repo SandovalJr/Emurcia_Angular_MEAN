@@ -54,7 +54,18 @@ export class autosService {
     return this.http.get(`${this.baseUrl}/api/autos/EliminarAuto/${id}`);
   }
   // UPDATE AUTO
+  public ActualizarInfoAuto(
+    id: any,
+    updateAutoInfo: AutosLoad
+  ): Observable<any> {
+    console.log(`el id de actualizar es ${id}`);
+    console.log(updateAutoInfo);
 
+    return this.http.put(
+      this.baseUrl + `/api/autos/ActualizarAuto/${id}`,
+      updateAutoInfo
+    );
+  }
   // LIST
   public ListarAuto(marcaempresa: any): Observable<any> {
     console.log(marcaempresa);
