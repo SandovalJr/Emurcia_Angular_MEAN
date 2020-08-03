@@ -87,6 +87,11 @@ const routes: Routes = [
         component: AgregarAutoComponent,
         canActivate: [AuthGuardService],
       },
+      {
+        path: "EditarAuto/:id",
+        component: EditarAutoComponent,
+        canActivate: [AuthGuardService],
+      },
     ],
   },
   // VENDEDOR

@@ -68,7 +68,7 @@ export class ListarAutosComponent implements OnInit {
 
   // ELIMINAR UN AUTO
   EliminarAuto(id: any) {
-    console.log("agarro"+id);
+    console.log("agarro" + id);
 
     Swal.fire({
       title: "Seguro que quieres eliminarlo?",
@@ -97,5 +97,10 @@ export class ListarAutosComponent implements OnInit {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
       }
     });
+  }
+
+  EditarInfoAdmin(id: any) {
+    console.log(`El id que se debe editar es ${id}`);
+    this.router.navigate(["/SupervisorProfile/EditarAuto/", id]);
   }
 }
