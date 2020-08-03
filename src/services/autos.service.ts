@@ -49,7 +49,10 @@ export class autosService {
   }
 
   // DELETE AUTO
-
+  public EliminarAuto(id: any): Observable<any> {
+    console.log(`se eliminara el auto con el id: ${id}`);
+    return this.http.get(`${this.baseUrl}/api/autos/EliminarAuto/${id}`);
+  }
   // UPDATE AUTO
 
   // LIST

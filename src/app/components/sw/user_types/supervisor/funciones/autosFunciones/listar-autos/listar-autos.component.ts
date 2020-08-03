@@ -6,6 +6,10 @@ import {
   UserDetails,
   TokenPayload,
 } from "../../../../../../../../services/authentication.service";
+// SWEETALERT 2
+// declarar variable de esta manera para que no marque err
+declare var require: any;
+const Swal = require("sweetalert2");
 
 @Component({
   selector: "app-listar-autos",
@@ -44,6 +48,7 @@ export class ListarAutosComponent implements OnInit {
       }
     );
   }
+  // OBTENER LA LISTA E INFORMACION DE LOS AUTOS
   GetAutosLista() {
     let marcaempresa = this.activatedRouter.snapshot.paramMap.get("marca");
 
@@ -57,5 +62,38 @@ export class ListarAutosComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  // ELIMINAR UN AUTO
+  EliminarAuto(id: any) {
+    console.log("agarro"+id);
+
+    Swal.fire({
+      title: "Seguro que quieres eliminarlo?",
+      text: "No podras volver atras!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#00a441",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si , Eliminar",
+    }).then((result) => {
+      if (result.value) {
+        this.AutoService.EliminarAuto(id).subscribe(
+          (AutoEliminado) => {
+            console.log(AutoEliminado);
+            window.location.reload();
+          },
+          (err) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Algo salio mal!",
+            });
+            console.error(err);
+          }
+        );
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+      }
+    });
   }
 }

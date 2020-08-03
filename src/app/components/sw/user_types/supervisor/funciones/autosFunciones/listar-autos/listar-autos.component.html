@@ -38,8 +38,6 @@
     />
   </div>
 
-
-
   <div class="table-responsive mt-5">
     <table class="table">
       <thead>
@@ -59,7 +57,11 @@
       <tbody hover="true">
         <tr
           appTablehover
-          *ngFor="let Auto of AutosListados | filter: Buscador_Autos | paginate: { itemsPerPage: 5, currentPage: pageActual }"
+          *ngFor="
+            let Auto of AutosListados
+              | filter: Buscador_Autos
+              | paginate: { itemsPerPage: 5, currentPage: pageActual }
+          "
         >
           <td class="tc">{{ Auto.Num_eco }}</td>
           <td class="tc">{{ Auto.anio }}</td>
@@ -72,15 +74,14 @@
           <td class="tc">{{ Auto.cilindros_piezas }}</td>
           <td>
             <button
-            class="btn btn-outline-danger"
-          >
-            <mat-icon>delete_forever</mat-icon>
-          </button>
-          <button
-            class="btn btn-outline-warning"
-          >
-            <mat-icon>edit</mat-icon>
-          </button>
+              class="btn btn-outline-danger"
+              (click)="EliminarAuto(Auto.id_auto)"
+            >
+              <mat-icon>delete_forever</mat-icon>
+            </button>
+            <button class="btn btn-outline-warning">
+              <mat-icon>edit</mat-icon>
+            </button>
           </td>
         </tr>
       </tbody>
@@ -92,6 +93,5 @@
         nextLabel="Siguiente"
       ></pagination-controls>
     </div>
-
   </div>
 </div>
