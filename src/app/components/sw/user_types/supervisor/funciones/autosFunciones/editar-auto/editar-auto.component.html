@@ -1,1 +1,242 @@
-<p>editar-auto works!</p>
+<p class="titulos">Editar Informacion De Un Auto</p>
+
+<div class="lineas">
+  <div class="LA"></div>
+  <div class="LR"></div>
+</div>
+
+<div class="container mt-5">
+  <form class="login100-form validate-form">
+    <ng-container [formGroup]="formulario">
+      <div class="row md-form">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control text-center"
+            name="Num_eco"
+            placeholder="Numero Eco"
+            formControlName="Num_eco"
+            [(ngModel)]="credentialsRegistroAuto.Num_eco"
+            value="{{ credentialsRegistroAuto.Num_eco }}"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('Num_eco').error == false,
+              'is-invalid': ValidarFormulario('Num_eco').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('Num_eco').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("Num_eco").message }}
+          </div>
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control text-center"
+            formControlName="anio"
+            [(ngModel)]="credentialsRegistroAuto.anio"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('anio').error == false,
+              'is-invalid': ValidarFormulario('anio').error == true
+            }"
+            value="{{ credentialsRegistroAuto.anio }}"
+            name="anio"
+            placeholder="Ingresa el año del vehiculo"
+          />
+          <div
+            *ngIf="ValidarFormulario('anio').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("anio").message }}
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3 md-form">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control text-center"
+            name="ubicacion"
+            placeholder="Ubicacion"
+            [(ngModel)]="credentialsRegistroAuto.ubicacion"
+            formControlName="ubicacion"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('ubicacion').error == false,
+              'is-invalid': ValidarFormulario('ubicacion').error == true
+            }"
+            value="{{ credentialsRegistroAuto.ubicacion }}"
+          />
+          <div
+            *ngIf="ValidarFormulario('ubicacion').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("ubicacion").message }}
+          </div>
+        </div>
+
+        <div class="col">
+          <input
+            type="text"
+            class="form-control text-center"
+            name="num_serie"
+            placeholder="Numero de Serie"
+            [(ngModel)]="credentialsRegistroAuto.num_serie"
+            formControlName="num_serie"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('num_serie').error == false,
+              'is-invalid': ValidarFormulario('num_serie').error == true
+            }"
+            value="{{ credentialsRegistroAuto.num_serie }}"
+          />
+          <div
+            *ngIf="ValidarFormulario('num_serie').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("num_serie").message }}
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3 md-form">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control text-center"
+            name="marca_auto"
+            formControlName="marca_auto"
+            [(ngModel)]="credentialsRegistroAuto.marca_auto"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('marca_auto').error == false,
+              'is-invalid': ValidarFormulario('marca_auto').error == true
+            }"
+            value="{{ credentialsRegistroAuto.marca_auto }}"
+            placeholder="Marca de auto"
+          />
+          <div
+            *ngIf="ValidarFormulario('marca_auto').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("marca_auto").message }}
+          </div>
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control text-center"
+            name="modelo"
+            formControlName="modelo"
+            [(ngModel)]="credentialsRegistroAuto.modelo"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('modelo').error == false,
+              'is-invalid': ValidarFormulario('modelo').error == true
+            }"
+            value="{{ credentialsRegistroAuto.modelo }}"
+            placeholder="Modelo"
+          />
+          <div
+            *ngIf="ValidarFormulario('modelo').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("modelo").message }}
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3 md-form">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control text-center"
+            name="placas"
+            placeholder="Placas"
+            formControlName="placas"
+            value="{{ credentialsRegistroAuto.placas }}"
+            [(ngModel)]="credentialsRegistroAuto.placas"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('placas').error == false,
+              'is-invalid': ValidarFormulario('placas').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('placas').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("placas").message }}
+          </div>
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control text-center"
+            name="chofer_ruta"
+            [(ngModel)]="credentialsRegistroAuto.chofer_ruta"
+            formControlName="chofer_ruta"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('chofer_ruta').error == false,
+              'is-invalid': ValidarFormulario('chofer_ruta').error == true
+            }"
+            value="{{ credentialsRegistroAuto.chofer_ruta }}"
+            placeholder="Nombre de el chofer o ruta"
+          />
+          <div
+            *ngIf="ValidarFormulario('chofer_ruta').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("chofer_ruta").message }}
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3 md-form">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control text-center"
+            name="cilindros_piezas"
+            placeholder="Cilindros Piezas"
+            [(ngModel)]="credentialsRegistroAuto.cilindros_piezas"
+            formControlName="cilindros_piezas"
+            value="{{ credentialsRegistroAuto.cilindros_piezas}}"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('cilindros_piezas').error == false,
+              'is-invalid': ValidarFormulario('cilindros_piezas').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('cilindros_piezas').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("cilindros_piezas").message }}
+          </div>
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control text-center"
+            name="marca"
+            formControlName="marca"
+            [(ngModel)]="credentialsRegistroAuto.marca"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('marca').error == false,
+              'is-invalid': ValidarFormulario('marca').error == true
+            }"
+            disabled
+            value="{{ credentialsRegistroAuto.marca }}"
+          />
+        </div>
+      </div>
+    </ng-container>
+
+    <div class="boton">
+      <button
+        type="submit"
+        (click)="ActualizarInfoAuto()"
+        class="btn agregarUser"
+      >
+        Agregar Auto
+      </button>
+    </div>
+  </form>
+</div>

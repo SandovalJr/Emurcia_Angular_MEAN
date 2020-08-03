@@ -103,18 +103,18 @@ export class AgregarAutoComponent implements OnInit {
   }
 
   addAuto() {
-    this.formulario.setValue({
-      Num_eco: this.credentialsRegistroAuto.Num_eco,
-      anio: this.credentialsRegistroAuto.anio,
-      ubicacion: this.credentialsRegistroAuto.ubicacion,
-      num_serie: this.credentialsRegistroAuto.num_serie,
-      marca_auto: this.credentialsRegistroAuto.marca_auto,
-      modelo: this.credentialsRegistroAuto.modelo,
-      placas: this.credentialsRegistroAuto.placas,
-      chofer_ruta: this.credentialsRegistroAuto.chofer_ruta,
-      cilindros_piezas: this.credentialsRegistroAuto.cilindros_piezas,
-      marca: this.details.marca,
-    });
+    // this.formulario.setValue({
+    //   Num_eco: this.credentialsRegistroAuto.Num_eco,
+    //   anio: this.credentialsRegistroAuto.anio,
+    //   ubicacion: this.credentialsRegistroAuto.ubicacion,
+    //   num_serie: this.credentialsRegistroAuto.num_serie,
+    //   marca_auto: this.credentialsRegistroAuto.marca_auto,
+    //   modelo: this.credentialsRegistroAuto.modelo,
+    //   placas: this.credentialsRegistroAuto.placas,
+    //   chofer_ruta: this.credentialsRegistroAuto.chofer_ruta,
+    //   cilindros_piezas: this.credentialsRegistroAuto.cilindros_piezas,
+    //   marca: this.details.marca,
+    // });
 
     // console.log(this.credentialsRegistroAuto);
     // console.log(this.formulario.value);
@@ -126,7 +126,7 @@ export class AgregarAutoComponent implements OnInit {
     // }
 
     if (!this.formulario.invalid) {
-      console.log("entro valido");
+      // console.log("entro valido");
       this.autoService.registerAuto(this.credentialsRegistroAuto).subscribe(
         () => {
           Swal.fire(

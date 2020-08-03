@@ -57,7 +57,7 @@ export class ListarAutosComponent implements OnInit {
     this.AutoService.ListarAuto(marcaempresa).subscribe(
       (auto) => {
         this.AutosListados = auto;
-        console.log(this.AutosListados);
+        // console.log(this.AutosListados);
         this.loading = true;
       },
       (err) => {
@@ -82,7 +82,7 @@ export class ListarAutosComponent implements OnInit {
       if (result.value) {
         this.AutoService.EliminarAuto(id).subscribe(
           (AutoEliminado) => {
-            console.log(AutoEliminado);
+            // console.log(AutoEliminado);
             window.location.reload();
           },
           (err) => {
@@ -94,13 +94,13 @@ export class ListarAutosComponent implements OnInit {
             console.error(err);
           }
         );
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        Swal.fire("Eliminado!", "El auto fue eliminado", "success");
       }
     });
   }
 
   EditarInfoAdmin(id: any) {
-    console.log(`El id que se debe editar es ${id}`);
+    // console.log(`El id que se debe editar es ${id}`);
     this.router.navigate(["/SupervisorProfile/EditarAuto/", id]);
   }
 }

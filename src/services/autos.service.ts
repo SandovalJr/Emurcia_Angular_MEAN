@@ -42,7 +42,7 @@ export class autosService {
 
   // ADD AUTO
   public registerAuto(auto: any): Observable<any> {
-    console.log("llego");
+    // console.log("llego");
     // console.log(auto);
 
     return this.http.post(`${this.baseUrl}/api/autos/registerAutos`, auto);
@@ -50,7 +50,7 @@ export class autosService {
 
   // DELETE AUTO
   public EliminarAuto(id: any): Observable<any> {
-    console.log(`se eliminara el auto con el id: ${id}`);
+    // console.log(`se eliminara el auto con el id: ${id}`);
     return this.http.get(`${this.baseUrl}/api/autos/EliminarAuto/${id}`);
   }
   // UPDATE AUTO
@@ -60,6 +60,13 @@ export class autosService {
     console.log(marcaempresa);
     return this.http.get(
       `${this.baseUrl}/api/autos/ListarAutos/${marcaempresa}`
+    );
+  }
+
+  // Informacion del id a actualizar
+  public InfoAutoEdit(id: any): Observable<any> {
+    return this.http.get(
+      `${this.baseUrl}/api/autos/ListarActualizarAuto/${id}`
     );
   }
 }
