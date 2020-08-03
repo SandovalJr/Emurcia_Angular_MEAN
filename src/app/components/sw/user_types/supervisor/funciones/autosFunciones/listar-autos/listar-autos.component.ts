@@ -22,6 +22,8 @@ export class ListarAutosComponent implements OnInit {
   public AutosListados: Array<any> = [];
   details: UserDetails;
   Buscador_Autos: any;
+  pageActual: number = 1;
+
   ngOnInit(): void {
     this.GetAutosLista();
   }
