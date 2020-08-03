@@ -31,10 +31,22 @@
           <th>Placas</th>
           <th>Chofer/Ruta</th>
           <th>Cilindros pzas</th>
-          <th>Grupo</th>
           <th class="operaciones">OPERACIONES</th>
         </tr>
       </thead>
+      <tbody hover="true">
+        <tr appTablehover *ngFor="let Auto of AutosListados">
+          <td class="tc" >{{ Auto.Num_eco }}</td>
+          <td class="tc" >{{ Auto.anio }}</td>
+          <td class="tc" >{{ Auto.ubicacion }}</td>
+          <td class="tc" >{{ Auto.num_serie }}</td>
+          <td class="tc" >{{ Auto.marca_auto }}</td>
+          <td class="tc" >{{ Auto.modelo }}</td>
+          <td class="tc" >{{ Auto.placas }}</td>
+          <td class="tc" >{{ Auto.chofer_ruta }}</td>
+          <td class="tc" >{{ Auto.cilindros_piezas }}</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </div>
