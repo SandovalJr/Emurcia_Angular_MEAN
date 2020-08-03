@@ -27,6 +27,7 @@ export class ListarAutosComponent implements OnInit {
   details: UserDetails;
   Buscador_Autos: any;
   pageActual: number = 1;
+  loading: boolean = false;
 
   ngOnInit(): void {
     this.GetAutosLista();
@@ -57,6 +58,7 @@ export class ListarAutosComponent implements OnInit {
       (auto) => {
         this.AutosListados = auto;
         console.log(this.AutosListados);
+        this.loading = true;
       },
       (err) => {
         console.log(err);
