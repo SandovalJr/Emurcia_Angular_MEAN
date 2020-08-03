@@ -145,6 +145,12 @@ export class AgregarAutoComponent implements OnInit {
           console.error(err);
         }
       );
+    } else {
+      Swal.fire({
+        title: "Campos Incompletos!",
+        text: "completa todos para continuar",
+        icon: "warning",
+      });
     }
   }
 }

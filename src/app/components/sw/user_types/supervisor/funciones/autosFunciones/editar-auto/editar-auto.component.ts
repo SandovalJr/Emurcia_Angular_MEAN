@@ -120,5 +120,14 @@ export class EditarAutoComponent implements OnInit {
     const id = this.activatedRouter.snapshot.paramMap.get("id");
     console.log("para actualizar" + id);
     console.log(this.credentialsRegistroAuto);
+    if (this.formulario.valid) {
+      console.log("valido");
+    } else {
+      Swal.fire({
+        title: "Campos Incompletos!",
+        text: "completa todos para continuar",
+        icon: "warning",
+      });
+    }
   }
 }
