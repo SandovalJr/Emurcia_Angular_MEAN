@@ -80,6 +80,7 @@ export class EditarAutoComponent implements OnInit {
         this.credentialsRegistroAuto.placas = this.detallesAuto.placas;
         this.credentialsRegistroAuto.ubicacion = this.detallesAuto.ubicacion;
         this.credentialsRegistroAuto.marca = this.detallesAuto.marca;
+        this.credentialsRegistroAuto.cilindros_piezas = this.detallesAuto.cilindros_piezas;
       },
       (err) => {
         console.log(err);

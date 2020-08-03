@@ -14,7 +14,7 @@ export interface AutosDetails {
   modelo: string;
   placas: string;
   chofer_ruta: string;
-  cilindros_piezas: string;
+  cilindros_piezas: number;
   marca: string;
   exp: number;
   iat: number;
