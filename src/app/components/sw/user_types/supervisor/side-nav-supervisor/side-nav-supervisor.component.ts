@@ -63,4 +63,8 @@ export class SideNavSupervisorComponent implements OnInit {
     console.log(`La marca que va a pasar ${marca}`);
     this.router.navigate(["/SupervisorProfile/Autos_Listado", marca]);
   }
+  AutoTanque(marca: any) {
+    console.log(marca);
+    this.router.navigate(["/SupervisorProfile/AutoTanque_Listado", marca]);
+  }
 }
