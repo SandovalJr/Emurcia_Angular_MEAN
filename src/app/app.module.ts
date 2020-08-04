@@ -38,7 +38,7 @@ import { VendedorComponent } from "./components/sw/user_types/vendedor/vendedor.
 import { AuthGuardService } from "../services/auth-guard.service";
 import { AuthenticationService } from "../services/authentication.service";
 import { autosService } from "../services/autos.service";
-
+import { auto_Tanques_Service } from "../services/auto_tanque.service";
 // validator RXJS
 import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
 import { ReactiveFormsModule } from "@angular/forms";
@@ -69,12 +69,12 @@ import { ListaUsuariosComponent } from "./components/sw/user_types/administrador
 import { ErrorNoExistePaginaComponent } from "./components/errors/error-no-existe-pagina/error-no-existe-pagina.component";
 import { EditarUsuarioComponent } from "./components/sw/user_types/administrador/funciones/editar-usuario/editar-usuario.component";
 import { TablehoverDirective } from "./directivas/tablehover.directive";
-import { ListarAutosComponent } from './components/sw/user_types/supervisor/funciones/autosFunciones/listar-autos/listar-autos.component';
-import { AgregarAutoComponent } from './components/sw/user_types/supervisor/funciones/autosFunciones/agregar-auto/agregar-auto.component';
-import { EditarAutoComponent } from './components/sw/user_types/supervisor/funciones/autosFunciones/editar-auto/editar-auto.component';
-import { AgregarAutoTanqueComponent } from './components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/agregar-auto-tanque/agregar-auto-tanque.component';
-import { ListarAutoTanqueComponent } from './components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/listar-auto-tanque/listar-auto-tanque.component';
-import { EditarAutoTanqueComponent } from './components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/editar-auto-tanque/editar-auto-tanque.component';
+import { ListarAutosComponent } from "./components/sw/user_types/supervisor/funciones/autosFunciones/listar-autos/listar-autos.component";
+import { AgregarAutoComponent } from "./components/sw/user_types/supervisor/funciones/autosFunciones/agregar-auto/agregar-auto.component";
+import { EditarAutoComponent } from "./components/sw/user_types/supervisor/funciones/autosFunciones/editar-auto/editar-auto.component";
+import { AgregarAutoTanqueComponent } from "./components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/agregar-auto-tanque/agregar-auto-tanque.component";
+import { ListarAutoTanqueComponent } from "./components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/listar-auto-tanque/listar-auto-tanque.component";
+import { EditarAutoTanqueComponent } from "./components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/editar-auto-tanque/editar-auto-tanque.component";
 
 @NgModule({
   declarations: [
@@ -141,7 +141,12 @@ import { EditarAutoTanqueComponent } from './components/sw/user_types/supervisor
     MatListModule,
     MatMenuModule,
   ],
-  providers: [AuthenticationService, AuthGuardService,autosService],
+  providers: [
+    AuthenticationService,
+    AuthGuardService,
+    autosService,
+    auto_Tanques_Service,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

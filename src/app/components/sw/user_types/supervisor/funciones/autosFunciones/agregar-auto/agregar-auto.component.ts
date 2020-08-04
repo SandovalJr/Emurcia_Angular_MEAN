@@ -90,7 +90,7 @@ export class AgregarAutoComponent implements OnInit {
       modelo: new FormControl(null, [RxwebValidators.required()]),
       placas: new FormControl(null, [RxwebValidators.required()]),
       chofer_ruta: new FormControl(null, [RxwebValidators.required()]),
-      cilindros_piezas: new FormControl(null, [RxwebValidators.required()]),
+      cilindros_piezas: new FormControl(null, [RxwebValidators.required(),RxwebValidators.alphaNumeric()]),
       marca: new FormControl(null, []),
     });
   }
