@@ -18,3 +18,54 @@
     </button>
   </div>
 </div>
+
+<div class="contendor">
+  <div class="table-responsive mt-5">
+    <table class="table">
+      <thead>
+        <tr class="ttabla">
+          <th>Num Eco</th>
+          <th>Año</th>
+          <th>Ubicación</th>
+          <th>Numero de serie</th>
+          <th>Marca</th>
+          <th>Modelo</th>
+          <th>Placas</th>
+          <th>Chofer/Ruta</th>
+          <th>Cilindros pzas</th>
+          <th>% Salida/Llegada</th>
+          <th>Auto Tanque</th>
+          <th>Observaciones</th>
+          <th class="operaciones">OPERACIONES</th>
+        </tr>
+      </thead>
+      <tbody hover="true">
+        <tr appTablehover *ngFor="let AutoTanque of AutosListados">
+          <td class="tc">{{ AutoTanque.Num_eco }}</td>
+          <td class="tc">{{ AutoTanque.anio }}</td>
+          <td class="tc">{{ AutoTanque.ubicacion }}</td>
+          <td class="tc">{{ AutoTanque.num_serie }}</td>
+          <td class="tc">{{ AutoTanque.marca_auto }}</td>
+          <td class="tc">{{ AutoTanque.modelo }}</td>
+          <td class="tc">{{ AutoTanque.placas }}</td>
+          <td class="tc">{{ AutoTanque.chofer_ruta }}</td>
+          <td class="tc">{{ AutoTanque.cilindros_piezas }}</td>
+          <td class="tc">{{ AutoTanque.Porcentaje_Salida_Llegada }}</td>
+          <td class="tc">{{ AutoTanque.AutoTanque }}</td>
+          <td class="tc">{{ AutoTanque.observaciones }}</td>
+          <td>
+            <button
+              class="btn btn-outline-danger"
+              (click)="Eliminar(AutoTanque.id_autoTanque)"
+            >
+              <mat-icon>delete_forever</mat-icon>
+            </button>
+            <button class="btn btn-outline-warning">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

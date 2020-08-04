@@ -55,10 +55,20 @@ export class auto_Tanques_Service {
     );
   }
   // DELETE AUTO TANQUE
-
+  public EliminarAutoTanque(id: any): Observable<any> {
+    console.log(id);
+    return this.http.get(
+      `${this.baseUrl}/api/auto_tanque/EliminarAutoTanque/${id}`
+    );
+  }
   // UPDATE AUTO TANQUE
 
   // LISTAR AUTO TANQUES
-
+  public ListarAutoTanques(marcaempresa: any): Observable<any> {
+    console.log(marcaempresa);
+    return this.http.get(
+      `${this.baseUrl}/api/auto_tanque/ListarAutoTanques/${marcaempresa}`
+    );
+  }
   // INFO POR ID
 }

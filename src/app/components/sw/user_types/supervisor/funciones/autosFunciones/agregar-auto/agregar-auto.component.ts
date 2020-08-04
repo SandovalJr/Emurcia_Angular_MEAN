@@ -90,7 +90,10 @@ export class AgregarAutoComponent implements OnInit {
       modelo: new FormControl(null, [RxwebValidators.required()]),
       placas: new FormControl(null, [RxwebValidators.required()]),
       chofer_ruta: new FormControl(null, [RxwebValidators.required()]),
-      cilindros_piezas: new FormControl(null, [RxwebValidators.required(),RxwebValidators.alphaNumeric()]),
+      cilindros_piezas: new FormControl(null, [
+        RxwebValidators.required(),
+        RxwebValidators.alphaNumeric(),
+      ]),
       marca: new FormControl(null, []),
     });
   }
@@ -134,7 +137,9 @@ export class AgregarAutoComponent implements OnInit {
             "Presiona para continuar..",
             "success"
           );
-          this.router.navigateByUrl("/Inicio_Supervisor");
+          this.router.navigateByUrl(
+            "/SupervisorProfile/AutoTanque_Listado/Alfagas"
+          );
         },
         (err) => {
           Swal.fire({
