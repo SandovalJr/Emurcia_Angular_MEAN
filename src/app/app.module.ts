@@ -24,6 +24,7 @@ import { NosotrosComponent } from "./components/pw/nosotros/nosotros.component";
 
 import { LogInSWComponent } from "./components/sw/log-in-sw/log-in-sw.component";
 import { SwComponent } from "./components/sw/sw.component";
+import { LogInErrorComponent } from "./components/sw/log-in-error/log-in-error.component";
 
 // FORMULARIO Y LOG IN
 import { RouterModule, Routes } from "@angular/router";
@@ -37,7 +38,6 @@ import { VendedorComponent } from "./components/sw/user_types/vendedor/vendedor.
 import { AuthGuardService } from "../services/auth-guard.service";
 import { AuthenticationService } from "../services/authentication.service";
 import { autosService } from "../services/autos.service";
-import { LogInErrorComponent } from "./components/sw/log-in-error/log-in-error.component";
 
 // validator RXJS
 import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
