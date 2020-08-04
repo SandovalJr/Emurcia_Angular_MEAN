@@ -9,5 +9,4 @@ export class ListarAutoTanqueComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-  GoToAgregarAutoTanque() {}
 }
