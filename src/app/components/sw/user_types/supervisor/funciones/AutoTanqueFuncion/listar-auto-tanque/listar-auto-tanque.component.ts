@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-listar-auto-tanque',
-  templateUrl: './listar-auto-tanque.component.html',
-  styleUrls: ['./listar-auto-tanque.component.scss']
+  selector: "app-listar-auto-tanque",
+  templateUrl: "./listar-auto-tanque.component.html",
+  styleUrls: ["./listar-auto-tanque.component.scss"],
 })
 export class ListarAutoTanqueComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
+  GoToAgregarAutoTanque() {}
 }
