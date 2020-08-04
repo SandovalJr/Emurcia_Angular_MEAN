@@ -46,7 +46,14 @@ export class auto_Tanques_Service {
   constructor(private http: HttpClient, private router: Router) {}
 
   // ADD AUTO TANQUE
-
+  public registerAuto(auto: any): Observable<any> {
+    console.log("llego");
+    console.log(auto);
+    return this.http.post(
+      `${this.baseUrl}/api/auto_tanque/AgregarAutoTanque`,
+      auto
+    );
+  }
   // DELETE AUTO TANQUE
 
   // UPDATE AUTO TANQUE

@@ -20,6 +20,10 @@ import {
   ReactiveFormConfig,
   NumericValueType,
 } from "@rxweb/reactive-form-validators";
+// SWEETALERT 2
+// declarar variable de esta manera para que no marque err
+declare var require: any;
+const Swal = require("sweetalert2");
 
 @Component({
   selector: "app-agregar-auto-tanque",
@@ -89,7 +93,10 @@ export class AgregarAutoTanqueComponent implements OnInit {
       placas: new FormControl(null, [RxwebValidators.required()]),
       chofer_ruta: new FormControl(null, [RxwebValidators.required()]),
       cilindros_piezas: new FormControl(null, [RxwebValidators.required()]),
-      observaciones: new FormControl(null, [RxwebValidators.required()]),
+      observaciones: new FormControl(null, [
+        RxwebValidators.required(),
+        RxwebValidators.alpha(),
+      ]),
       AutoTanque: new FormControl(null, [RxwebValidators.required()]),
       Porcentaje_Salida_Llegada: new FormControl(null, [
         RxwebValidators.required(),
@@ -104,5 +111,26 @@ export class AgregarAutoTanqueComponent implements OnInit {
     );
   }
 
-  public addAutoTanque() {}
+  public addAutoTanque() {
+    this.autoTanqueService
+      .registerAuto(this.credentialsRegistroAuto_Tanque)
+      .subscribe(
+        () => {
+          Swal.fire(
+            "Se Agrego Correctamente",
+            "Presiona para continuar..",
+            "success"
+          );
+          this.router.navigateByUrl("/Inicio_Supervisor");
+        },
+        (err) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Auto ya existente",
+          });
+          console.error(err);
+        }
+      );
+  }
 }
