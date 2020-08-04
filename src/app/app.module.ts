@@ -72,6 +72,9 @@ import { TablehoverDirective } from "./directivas/tablehover.directive";
 import { ListarAutosComponent } from './components/sw/user_types/supervisor/funciones/autosFunciones/listar-autos/listar-autos.component';
 import { AgregarAutoComponent } from './components/sw/user_types/supervisor/funciones/autosFunciones/agregar-auto/agregar-auto.component';
 import { EditarAutoComponent } from './components/sw/user_types/supervisor/funciones/autosFunciones/editar-auto/editar-auto.component';
+import { AgregarAutoTanqueComponent } from './components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/agregar-auto-tanque/agregar-auto-tanque.component';
+import { ListarAutoTanqueComponent } from './components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/listar-auto-tanque/listar-auto-tanque.component';
+import { EditarAutoTanqueComponent } from './components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/editar-auto-tanque/editar-auto-tanque.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +104,9 @@ import { EditarAutoComponent } from './components/sw/user_types/supervisor/funci
     ListarAutosComponent,
     AgregarAutoComponent,
     EditarAutoComponent,
+    AgregarAutoTanqueComponent,
+    ListarAutoTanqueComponent,
+    EditarAutoTanqueComponent,
   ],
   imports: [
     BrowserModule,

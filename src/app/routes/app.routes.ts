@@ -23,9 +23,14 @@ import { EditarUsuarioComponent } from "../components/sw/user_types/administrado
 
 // SUPERVISOR
 import { InicioSupervisorComponent } from "../components/sw/user_types/supervisor/inicio-supervisor/inicio-supervisor.component";
+// autos
 import { ListarAutosComponent } from "../components/sw/user_types/supervisor/funciones/autosFunciones/listar-autos/listar-autos.component";
 import { AgregarAutoComponent } from "../components/sw/user_types/supervisor/funciones/autosFunciones/agregar-auto/agregar-auto.component";
 import { EditarAutoComponent } from "../components/sw/user_types/supervisor/funciones/autosFunciones/editar-auto/editar-auto.component";
+// auto tanques
+
+
+
 // VENDEDOR
 import { IniciovendedorComponent } from "../components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component";
 
