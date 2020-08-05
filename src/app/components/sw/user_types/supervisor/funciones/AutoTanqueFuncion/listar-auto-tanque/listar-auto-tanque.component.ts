@@ -17,6 +17,8 @@ import {
 export class ListarAutoTanqueComponent implements OnInit {
   details: UserDetails;
   public AutosListados: Array<any> = [];
+  Buscador_AutosTanques: any;
+
   constructor(
     private router: Router,
     private AutoTanqueService: auto_Tanques_Service,

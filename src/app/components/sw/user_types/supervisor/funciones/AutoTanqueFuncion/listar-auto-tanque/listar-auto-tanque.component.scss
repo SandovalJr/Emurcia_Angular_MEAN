@@ -53,3 +53,20 @@
 padding-left: 25px;
 padding-right: 25px;
 }
+
+.centrar {
+  display: flex;
+  justify-content: center;
+}
+.tc {
+  text-align: center;
+}
+
+.iconColor {
+  background: #41434d;
+  padding: 5px;
+  border-radius: 7%;
+  padding-left: 10px;
+  padding-right: 10px;
+  // margin-left: 2px;
+}
