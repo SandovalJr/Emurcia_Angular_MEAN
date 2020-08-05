@@ -69,4 +69,8 @@ export class ListarAutoTanqueComponent implements OnInit {
       }
     );
   }
+
+  public GoToEditar(id: any) {
+    this.router.navigate(["/SupervisorProfile/Editar_AutoTanque/", id]);
+  }
 }
