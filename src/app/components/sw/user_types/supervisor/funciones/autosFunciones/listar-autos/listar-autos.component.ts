@@ -83,6 +83,7 @@ export class ListarAutosComponent implements OnInit {
           (AutoEliminado) => {
             // console.log(AutoEliminado);
             window.location.reload();
+
           },
           (err) => {
             Swal.fire({
@@ -93,7 +94,6 @@ export class ListarAutosComponent implements OnInit {
             console.error(err);
           }
         );
-        Swal.fire("Eliminado!", "El auto fue eliminado", "success");
       }
     });
   }

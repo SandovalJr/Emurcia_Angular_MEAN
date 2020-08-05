@@ -8,6 +8,8 @@ import {
   AuthenticationService,
   UserDetails,
 } from "../../../../../../../../services/authentication.service";
+declare var require: any;
+const Swal = require("sweetalert2");
 
 @Component({
   selector: "app-listar-auto-tanque",
@@ -61,15 +63,29 @@ export class ListarAutoTanqueComponent implements OnInit {
   }
 
   public Eliminar(id: any) {
-    this.AutoTanqueService.EliminarAutoTanque(id).subscribe(
-      () => {
-        window.location.reload();
-        // console.log("Eliminado con exito");
-      },
-      (err) => {
-        console.log(err);
+    console.log("agarro" + id);
+
+    Swal.fire({
+      title: "Seguro que quieres eliminarlo?",
+      text: "No podras volver atras!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#00a441",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si , Eliminar",
+    }).then((result) => {
+      if (result.value) {
+        this.AutoTanqueService.EliminarAutoTanque(id).subscribe(
+          () => {
+            window.location.reload();
+            // console.log("Eliminado con exito");
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
       }
-    );
+    });
   }
 
   public GoToEditar(id: any) {

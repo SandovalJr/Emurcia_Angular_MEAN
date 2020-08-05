@@ -138,7 +138,7 @@ export class AgregarAutoComponent implements OnInit {
             "success"
           );
           this.router.navigateByUrl(
-            "/SupervisorProfile/AutoTanque_Listado/Alfagas"
+            "/SupervisorProfile/Autos_Listado/" + this.details.marca
           );
         },
         (err) => {
