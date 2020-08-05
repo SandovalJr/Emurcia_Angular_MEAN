@@ -17,6 +17,8 @@ import {
 export class ListarAutoTanqueComponent implements OnInit {
   details: UserDetails;
   public AutosListados: Array<any> = [];
+  loading: boolean = false;
+
   Buscador_AutosTanques: any;
   pageActual: number = 1;
   constructor(
@@ -50,7 +52,7 @@ export class ListarAutoTanqueComponent implements OnInit {
       (auto) => {
         this.AutosListados = auto;
         console.log(this.AutosListados);
-        // this.loading = true;
+        this.loading = true;
       },
       (err) => {
         console.log(err);
