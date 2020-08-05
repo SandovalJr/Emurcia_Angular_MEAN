@@ -92,11 +92,18 @@ export class AgregarAutoTanqueComponent implements OnInit {
       modelo: new FormControl(null, [RxwebValidators.required()]),
       placas: new FormControl(null, [RxwebValidators.required()]),
       chofer_ruta: new FormControl(null, [RxwebValidators.required()]),
-      cilindros_piezas: new FormControl(null, [RxwebValidators.required()]),
+      cilindros_piezas: new FormControl(null, [
+        RxwebValidators.required(),
+        RxwebValidators.alphaNumeric(),
+      ]),
       observaciones: new FormControl(null, []),
-      AutoTanque: new FormControl(null, [RxwebValidators.required()]),
+      AutoTanque: new FormControl(null, [
+        RxwebValidators.required(),
+        RxwebValidators.alphaNumeric(),
+      ]),
       Porcentaje_Salida_Llegada: new FormControl(null, [
         RxwebValidators.required(),
+        RxwebValidators.alphaNumeric(),
       ]),
       marca: new FormControl(null, []),
     });

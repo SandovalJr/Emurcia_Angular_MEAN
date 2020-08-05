@@ -1,1 +1,302 @@
-<p>ver-informacion-auto-tanque works!</p>
+<p class="titulos">Ver Informacion de Auto Tanque</p>
+
+<div class="lineas">
+  <div class="LA"></div>
+  <div class="LR"></div>
+</div>
+
+<div class="container mt-5">
+  <div class="container mt-5">
+    <form class="login100-form validate-form">
+      <ng-container [formGroup]="formulario">
+        <div class="row md-form">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              name="Num_eco"
+              placeholder="Numero Eco"
+              formControlName="Num_eco"
+              [(ngModel)]="credentialsRegistroAuto_Tanque.Num_eco"
+              [ngClass]="{
+                'is-valid': ValidarFormulario('Num_eco').error == false,
+                'is-invalid': ValidarFormulario('Num_eco').error == true
+              }"
+            />
+            <div
+              *ngIf="ValidarFormulario('Num_eco').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("Num_eco").message }}
+            </div>
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="anio"
+              [(ngModel)]="credentialsRegistroAuto_Tanque.anio"
+              [ngClass]="{
+                'is-valid': ValidarFormulario('anio').error == false,
+                'is-invalid': ValidarFormulario('anio').error == true
+              }"
+              name="anio"
+              placeholder="Ingresa el año del vehiculo"
+            />
+            <div
+              *ngIf="ValidarFormulario('anio').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("anio").message }}
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3 md-form">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              name="ubicacion"
+              placeholder="Ubicacion"
+              [(ngModel)]="credentialsRegistroAuto_Tanque.ubicacion"
+              formControlName="ubicacion"
+              [ngClass]="{
+                'is-valid': ValidarFormulario('ubicacion').error == false,
+                'is-invalid': ValidarFormulario('ubicacion').error == true
+              }"
+            />
+            <div
+              *ngIf="ValidarFormulario('ubicacion').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("ubicacion").message }}
+            </div>
+          </div>
+
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              name="num_serie"
+              placeholder="Numero de Serie"
+              [(ngModel)]="credentialsRegistroAuto_Tanque.num_serie"
+              formControlName="num_serie"
+              [ngClass]="{
+                'is-valid': ValidarFormulario('num_serie').error == false,
+                'is-invalid': ValidarFormulario('num_serie').error == true
+              }"
+            />
+            <div
+              *ngIf="ValidarFormulario('num_serie').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("num_serie").message }}
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3 md-form">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              name="marca_auto"
+              formControlName="marca_auto"
+              [(ngModel)]="credentialsRegistroAuto_Tanque.marca_auto"
+              [ngClass]="{
+                'is-valid': ValidarFormulario('marca_auto').error == false,
+                'is-invalid': ValidarFormulario('marca_auto').error == true
+              }"
+              placeholder="Marca de auto"
+            />
+            <div
+              *ngIf="ValidarFormulario('marca_auto').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("marca_auto").message }}
+            </div>
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              name="modelo"
+              formControlName="modelo"
+              [(ngModel)]="credentialsRegistroAuto_Tanque.modelo"
+              [ngClass]="{
+                'is-valid': ValidarFormulario('modelo').error == false,
+                'is-invalid': ValidarFormulario('modelo').error == true
+              }"
+              placeholder="Modelo"
+            />
+            <div
+              *ngIf="ValidarFormulario('modelo').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("modelo").message }}
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3 md-form">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              name="placas"
+              placeholder="Placas"
+              formControlName="placas"
+              [(ngModel)]="credentialsRegistroAuto_Tanque.placas"
+              [ngClass]="{
+                'is-valid': ValidarFormulario('placas').error == false,
+                'is-invalid': ValidarFormulario('placas').error == true
+              }"
+            />
+            <div
+              *ngIf="ValidarFormulario('placas').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("placas").message }}
+            </div>
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              name="chofer_ruta"
+              [(ngModel)]="credentialsRegistroAuto_Tanque.chofer_ruta"
+              formControlName="chofer_ruta"
+              [ngClass]="{
+                'is-valid': ValidarFormulario('chofer_ruta').error == false,
+                'is-invalid': ValidarFormulario('chofer_ruta').error == true
+              }"
+              placeholder="Nombre de el chofer o ruta"
+            />
+            <div
+              *ngIf="ValidarFormulario('chofer_ruta').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("chofer_ruta").message }}
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3 md-form">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              name="cilindros_piezas"
+              placeholder="Cilindros Piezas"
+              [(ngModel)]="credentialsRegistroAuto_Tanque.cilindros_piezas"
+              formControlName="cilindros_piezas"
+              [ngClass]="{
+                'is-valid':
+                  ValidarFormulario('cilindros_piezas').error == false,
+                'is-invalid':
+                  ValidarFormulario('cilindros_piezas').error == true
+              }"
+            />
+            <div
+              *ngIf="ValidarFormulario('cilindros_piezas').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("cilindros_piezas").message }}
+            </div>
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              class="form-control text-center"
+              name="marca"
+              formControlName="marca"
+              [(ngModel)]="credentialsRegistroAuto_Tanque.marca"
+              [ngClass]="{
+                'is-valid': ValidarFormulario('marca').error == false,
+                'is-invalid': ValidarFormulario('marca').error == true
+              }"
+              disabled
+              value="{{ credentialsRegistroAuto_Tanque.marca }}"
+            />
+          </div>
+        </div>
+
+        <div class="row mt-3 md-form">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              name="AutoTanque"
+              placeholder="Aunto Tanque"
+              [(ngModel)]="credentialsRegistroAuto_Tanque.AutoTanque"
+              formControlName="AutoTanque"
+              [ngClass]="{
+                'is-valid': ValidarFormulario('AutoTanque').error == false,
+                'is-invalid': ValidarFormulario('AutoTanque').error == true
+              }"
+            />
+            <div
+              *ngIf="ValidarFormulario('AutoTanque').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("AutoTanque").message }}
+            </div>
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              class="form-control text-center"
+              name="Porcentaje_Salida_Llegada"
+              formControlName="Porcentaje_Salida_Llegada"
+              placeholder="Porcetaje de Salida o Llegada"
+              [(ngModel)]="
+                credentialsRegistroAuto_Tanque.Porcentaje_Salida_Llegada
+              "
+              [ngClass]="{
+                'is-valid':
+                  ValidarFormulario('Porcentaje_Salida_Llegada').error == false,
+                'is-invalid':
+                  ValidarFormulario('Porcentaje_Salida_Llegada').error == true
+              }"
+            />
+          </div>
+        </div>
+
+        <div class="col-12 md-form">
+          <textarea
+            class="form-control"
+            name="observaciones"
+            formControlName="observaciones"
+            [(ngModel)]="credentialsRegistroAuto_Tanque.observaciones"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('observaciones').error == false,
+              'is-invalid': ValidarFormulario('observaciones').error == true
+            }"
+            cols="30"
+            rows="5"
+            placeholder=" Escribe tus observaciones"
+          ></textarea>
+          <div
+            *ngIf="ValidarFormulario('observaciones').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("observaciones").message }}
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="boton">
+        <button
+          type="submit"
+          class="btn agregarUser"
+          routerLink="/SupervisorProfile/AutoTanque_Listado/{{
+            credentialsRegistroAuto_Tanque.marca
+          }}"
+        >
+          <mat-icon class="icono">undo </mat-icon> Regresar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
