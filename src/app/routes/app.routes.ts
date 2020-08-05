@@ -31,6 +31,7 @@ import { EditarAutoComponent } from "../components/sw/user_types/supervisor/func
 import { AgregarAutoTanqueComponent } from "../components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/agregar-auto-tanque/agregar-auto-tanque.component";
 import { EditarAutoTanqueComponent } from "../components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/editar-auto-tanque/editar-auto-tanque.component";
 import { ListarAutoTanqueComponent } from "../components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/listar-auto-tanque/listar-auto-tanque.component";
+import { VerInformacionAutoTanqueComponent } from "../components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/ver-informacion-auto-tanque/ver-informacion-auto-tanque.component";
 
 // VENDEDOR
 import { IniciovendedorComponent } from "../components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component";
@@ -111,6 +112,11 @@ const routes: Routes = [
       {
         path: "Editar_AutoTanque/:id",
         component: EditarAutoTanqueComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: "VerInformacioAutoTanque/:id",
+        component: VerInformacionAutoTanqueComponent,
         canActivate: [AuthGuardService],
       },
     ],
