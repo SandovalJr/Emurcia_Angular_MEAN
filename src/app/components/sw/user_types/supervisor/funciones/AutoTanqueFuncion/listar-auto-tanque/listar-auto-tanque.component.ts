@@ -18,7 +18,7 @@ export class ListarAutoTanqueComponent implements OnInit {
   details: UserDetails;
   public AutosListados: Array<any> = [];
   Buscador_AutosTanques: any;
-
+  pageActual: number = 1;
   constructor(
     private router: Router,
     private AutoTanqueService: auto_Tanques_Service,
@@ -58,7 +58,7 @@ export class ListarAutoTanqueComponent implements OnInit {
     );
   }
 
-  public Eliminar(id:any) {
+  public Eliminar(id: any) {
     this.AutoTanqueService.EliminarAutoTanque(id).subscribe(
       () => {
         window.location.reload();

@@ -58,7 +58,14 @@
         </tr>
       </thead>
       <tbody hover="true">
-        <tr appTablehover *ngFor="let AutoTanque of AutosListados  | filter: Buscador_AutosTanques">
+        <tr
+          appTablehover
+          *ngFor="
+            let AutoTanque of AutosListados
+              | filter: Buscador_AutosTanques
+              | paginate: { itemsPerPage: 5, currentPage: pageActual }
+          "
+        >
           <td class="tc">{{ AutoTanque.Num_eco }}</td>
           <td class="tc">{{ AutoTanque.anio }}</td>
           <td class="tc">{{ AutoTanque.ubicacion }}</td>
@@ -85,5 +92,12 @@
         </tr>
       </tbody>
     </table>
+    <div class="mt-4 float-right">
+      <pagination-controls
+        (pageChange)="pageActual = $event"
+        previousLabel="Anterior"
+        nextLabel="Siguiente"
+      ></pagination-controls>
+    </div>
   </div>
 </div>
