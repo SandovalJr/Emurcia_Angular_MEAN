@@ -11,6 +11,9 @@
       <ng-container [formGroup]="formulario">
         <div class="row md-form">
           <div class="col">
+            <div class="text-center d-block">
+              Numero Eco
+            </div>
             <input
               type="text"
               class="form-control"
@@ -22,7 +25,9 @@
                 'is-valid': ValidarFormulario('Num_eco').error == false,
                 'is-invalid': ValidarFormulario('Num_eco').error == true
               }"
+              disabled
             />
+
             <div
               *ngIf="ValidarFormulario('Num_eco').error"
               class="text-center invalid-feedback d-block"
@@ -31,6 +36,9 @@
             </div>
           </div>
           <div class="col">
+            <div class="text-center d-block">
+              Año
+            </div>
             <input
               type="text"
               class="form-control"
@@ -40,6 +48,7 @@
                 'is-valid': ValidarFormulario('anio').error == false,
                 'is-invalid': ValidarFormulario('anio').error == true
               }"
+              disabled
               name="anio"
               placeholder="Ingresa el año del vehiculo"
             />
@@ -54,6 +63,9 @@
 
         <div class="row mt-3 md-form">
           <div class="col">
+            <div class="text-center d-block">
+              Ubicación
+            </div>
             <input
               type="text"
               class="form-control"
@@ -61,6 +73,7 @@
               placeholder="Ubicacion"
               [(ngModel)]="credentialsRegistroAuto_Tanque.ubicacion"
               formControlName="ubicacion"
+              disabled
               [ngClass]="{
                 'is-valid': ValidarFormulario('ubicacion').error == false,
                 'is-invalid': ValidarFormulario('ubicacion').error == true
@@ -75,6 +88,9 @@
           </div>
 
           <div class="col">
+            <div class="text-center d-block">
+              Numero de serie
+            </div>
             <input
               type="text"
               class="form-control"
@@ -82,6 +98,7 @@
               placeholder="Numero de Serie"
               [(ngModel)]="credentialsRegistroAuto_Tanque.num_serie"
               formControlName="num_serie"
+              disabled
               [ngClass]="{
                 'is-valid': ValidarFormulario('num_serie').error == false,
                 'is-invalid': ValidarFormulario('num_serie').error == true
@@ -98,10 +115,14 @@
 
         <div class="row mt-3 md-form">
           <div class="col">
+            <div class="text-center d-block">
+              Marca de la unidad
+            </div>
             <input
               type="text"
               class="form-control"
               name="marca_auto"
+              disabled
               formControlName="marca_auto"
               [(ngModel)]="credentialsRegistroAuto_Tanque.marca_auto"
               [ngClass]="{
@@ -118,10 +139,14 @@
             </div>
           </div>
           <div class="col">
+            <div class="text-center d-block">
+              Modelo de la unidad
+            </div>
             <input
               type="text"
               class="form-control"
               name="modelo"
+              disabled
               formControlName="modelo"
               [(ngModel)]="credentialsRegistroAuto_Tanque.modelo"
               [ngClass]="{
@@ -141,11 +166,15 @@
 
         <div class="row mt-3 md-form">
           <div class="col">
+            <div class="text-center d-block">
+              Placas
+            </div>
             <input
               type="text"
               class="form-control"
               name="placas"
               placeholder="Placas"
+              disabled
               formControlName="placas"
               [(ngModel)]="credentialsRegistroAuto_Tanque.placas"
               [ngClass]="{
@@ -161,9 +190,13 @@
             </div>
           </div>
           <div class="col">
+            <div class="text-center d-block">
+              Chofer y/o Ruta
+            </div>
             <input
               type="text"
               class="form-control"
+              disabled
               name="chofer_ruta"
               [(ngModel)]="credentialsRegistroAuto_Tanque.chofer_ruta"
               formControlName="chofer_ruta"
@@ -184,10 +217,14 @@
 
         <div class="row mt-3 md-form">
           <div class="col">
+            <div class="text-center d-block">
+              Cilindros Piezas
+            </div>
             <input
               type="text"
               class="form-control"
               name="cilindros_piezas"
+              disabled
               placeholder="Cilindros Piezas"
               [(ngModel)]="credentialsRegistroAuto_Tanque.cilindros_piezas"
               formControlName="cilindros_piezas"
@@ -206,10 +243,14 @@
             </div>
           </div>
           <div class="col">
+            <div class="text-center d-block">
+              Grupo al que perteneces
+            </div>
             <input
               type="text"
               class="form-control text-center"
               name="marca"
+              disabled
               formControlName="marca"
               [(ngModel)]="credentialsRegistroAuto_Tanque.marca"
               [ngClass]="{
@@ -224,11 +265,15 @@
 
         <div class="row mt-3 md-form">
           <div class="col">
+            <div class="text-center d-block">
+              Auto Tanque
+                </div>
             <input
               type="text"
               class="form-control"
               name="AutoTanque"
               placeholder="Aunto Tanque"
+              disabled
               [(ngModel)]="credentialsRegistroAuto_Tanque.AutoTanque"
               formControlName="AutoTanque"
               [ngClass]="{
@@ -244,11 +289,15 @@
             </div>
           </div>
           <div class="col">
+            <div class="text-center d-block">
+              Porcentaje de Salida y/o Llegada
+                </div>
             <input
               type="text"
               class="form-control text-center"
               name="Porcentaje_Salida_Llegada"
               formControlName="Porcentaje_Salida_Llegada"
+              disabled
               placeholder="Porcetaje de Salida o Llegada"
               [(ngModel)]="
                 credentialsRegistroAuto_Tanque.Porcentaje_Salida_Llegada
@@ -264,9 +313,13 @@
         </div>
 
         <div class="col-12 md-form">
+          <div class="text-center d-block">
+            Observaciones
+          </div>
           <textarea
             class="form-control"
             name="observaciones"
+            disabled
             formControlName="observaciones"
             [(ngModel)]="credentialsRegistroAuto_Tanque.observaciones"
             [ngClass]="{

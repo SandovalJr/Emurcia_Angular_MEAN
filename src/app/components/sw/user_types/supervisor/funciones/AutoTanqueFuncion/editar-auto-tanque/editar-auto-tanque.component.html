@@ -11,6 +11,9 @@
       <ng-container [formGroup]="formulario">
         <div class="row md-form">
           <div class="col">
+            <div class="text-center d-block">
+              Numero Eco
+            </div>
             <input
               type="text"
               class="form-control"
@@ -31,6 +34,9 @@
             </div>
           </div>
           <div class="col">
+            <div class="text-center d-block">
+              Año
+            </div>
             <input
               type="text"
               class="form-control"
@@ -54,6 +60,9 @@
 
         <div class="row mt-3 md-form">
           <div class="col">
+            <div class="text-center d-block">
+              Ubicación
+            </div>
             <input
               type="text"
               class="form-control"
@@ -75,6 +84,9 @@
           </div>
 
           <div class="col">
+            <div class="text-center d-block">
+              Numero de serie
+            </div>
             <input
               type="text"
               class="form-control"
@@ -98,6 +110,9 @@
 
         <div class="row mt-3 md-form">
           <div class="col">
+            <div class="text-center d-block">
+              Marca de la unidad
+            </div>
             <input
               type="text"
               class="form-control"
@@ -118,6 +133,9 @@
             </div>
           </div>
           <div class="col">
+            <div class="text-center d-block">
+              Modelo de la unidad
+            </div>
             <input
               type="text"
               class="form-control"
@@ -141,6 +159,9 @@
 
         <div class="row mt-3 md-form">
           <div class="col">
+            <div class="text-center d-block">
+              Placas
+            </div>
             <input
               type="text"
               class="form-control"
@@ -161,6 +182,9 @@
             </div>
           </div>
           <div class="col">
+            <div class="text-center d-block">
+              Chofer y/o Ruta
+            </div>
             <input
               type="text"
               class="form-control"
@@ -184,6 +208,9 @@
 
         <div class="row mt-3 md-form">
           <div class="col">
+            <div class="text-center d-block">
+              Cilindros Piezas
+            </div>
             <input
               type="text"
               class="form-control"
@@ -206,6 +233,9 @@
             </div>
           </div>
           <div class="col">
+            <div class="text-center d-block">
+              Grupo al que perteneces
+            </div>
             <input
               type="text"
               class="form-control text-center"
@@ -224,6 +254,9 @@
 
         <div class="row mt-3 md-form">
           <div class="col">
+            <div class="text-center d-block">
+              Auto Tanque
+            </div>
             <input
               type="text"
               class="form-control"
@@ -244,6 +277,9 @@
             </div>
           </div>
           <div class="col">
+            <div class="text-center d-block">
+              Porcentaje de Salida y/o Llegada
+            </div>
             <input
               type="text"
               class="form-control text-center"
@@ -264,6 +300,9 @@
         </div>
 
         <div class="col-12 md-form">
+          <div class="text-center d-block">
+            Observaciones
+          </div>
           <textarea
             class="form-control"
             name="observaciones"
@@ -287,7 +326,11 @@
       </ng-container>
 
       <div class="boton">
-        <button type="submit" (click)="EditarInformacion()" class="btn agregarUser">
+        <button
+          type="submit"
+          (click)="EditarInformacion()"
+          class="btn agregarUser"
+        >
           Actualizar Auto Tanque
         </button>
       </div>

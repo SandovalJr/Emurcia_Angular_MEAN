@@ -57,15 +57,23 @@ export class VerInformacionAutoTanqueComponent implements OnInit {
     private autoTanqueService: auto_Tanques_Service,
     private MessageErrorSvr: MessageErrorsService,
     private activatedRouter: ActivatedRoute
-  ) {}
+  ) {
+    Swal.fire({
+      title: "<strong>AVISO!</strong>",
+      icon: "info",
+      html: "Solo podras ver la <b>Informacion</b>",
+      showCloseButton: true,
+
+      focusConfirm: false,
+      confirmButtonText: '<i class="fa fa-thumbs-up"></i> OK!',
+    });
+  }
 
   ngOnInit(): void {
     this.InfAutoId();
     this.creatForm();
   }
   public InfAutoId() {
-
-
     const id = this.activatedRouter.snapshot.paramMap.get("id");
     // console.log(id);
     this.autoTanqueService.ListarInfoAT(id).subscribe(
