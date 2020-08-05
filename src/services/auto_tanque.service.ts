@@ -71,4 +71,10 @@ export class auto_Tanques_Service {
     );
   }
   // INFO POR ID
+  public ListarInfoAT(id: any): Observable<any> {
+    // console.log(id);
+    return this.http.get(
+      `${this.baseUrl}/api/auto_tanque/ListarActualizarAutoTanque/${id}`
+    );
+  }
 }
