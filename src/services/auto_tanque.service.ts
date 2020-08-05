@@ -62,6 +62,17 @@ export class auto_Tanques_Service {
     );
   }
   // UPDATE AUTO TANQUE
+  public EditarAutosTanques(
+    id: any,
+    InformacioAuto: Auto_TanquesLoad
+  ): Observable<any> {
+    console.log(id);
+    console.log(InformacioAuto);
+    return this.http.put(
+      `${this.baseUrl}/api/auto_tanque/ActualizarAutoTanque/${id}`,
+      InformacioAuto
+    );
+  }
 
   // LISTAR AUTO TANQUES
   public ListarAutoTanques(marcaempresa: any): Observable<any> {

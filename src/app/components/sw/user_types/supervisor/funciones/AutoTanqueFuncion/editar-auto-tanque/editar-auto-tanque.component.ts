@@ -121,4 +121,33 @@ export class EditarAutoTanqueComponent implements OnInit {
       this.formulario.controls[control].errors
     );
   }
+
+  public EditarInformacion() {
+    const id = this.activatedRouter.snapshot.paramMap.get("id");
+    console.log(id);
+
+    this.autoTanqueService
+      .EditarAutosTanques(id, this.credentialsRegistroAuto_Tanque)
+      .subscribe(
+        () => {
+          Swal.fire(
+            "Se Actualizo Correctamente",
+            "Presiona para continuar..",
+            "success"
+          );
+          this.router.navigateByUrl(
+            "/SupervisorProfile/AutoTanque_Listado/" +
+              this.credentialsRegistroAuto_Tanque.marca
+          );
+        },
+        (err) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Error al actualizar",
+          });
+          console.error(err);
+        }
+      );
+  }
 }
