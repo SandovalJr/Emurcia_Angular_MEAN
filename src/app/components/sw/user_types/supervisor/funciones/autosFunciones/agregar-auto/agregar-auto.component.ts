@@ -67,6 +67,7 @@ export class AgregarAutoComponent implements OnInit {
       (user) => {
         this.details = user;
         this.credentialsRegistroAuto.marca = this.details.marca;
+        this.credentialsRegistroAuto.ubicacion = this.details.region;
       },
       (err) => {
         console.error(err);

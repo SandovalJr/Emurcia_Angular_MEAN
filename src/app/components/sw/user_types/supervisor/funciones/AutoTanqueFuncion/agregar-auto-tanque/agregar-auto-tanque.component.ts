@@ -69,6 +69,8 @@ export class AgregarAutoTanqueComponent implements OnInit {
       (user) => {
         this.details = user;
         this.credentialsRegistroAuto_Tanque.marca = this.details.marca;
+        this.credentialsRegistroAuto_Tanque.ubicacion = this.details.region;
+
       },
       (err) => {
         console.error(err);

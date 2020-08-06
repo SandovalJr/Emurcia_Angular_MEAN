@@ -60,6 +60,7 @@
             placeholder="Ubicacion"
             [(ngModel)]="credentialsRegistroAuto.ubicacion"
             formControlName="ubicacion"
+            disabled
             [ngClass]="{
               'is-valid': ValidarFormulario('ubicacion').error == false,
               'is-invalid': ValidarFormulario('ubicacion').error == true

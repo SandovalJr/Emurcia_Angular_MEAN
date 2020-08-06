@@ -66,7 +66,7 @@
   </div>
 </div>
 
-<div *ngIf="loading" class="container">
+<div *ngIf="loading" class="contenedor">
   <div class="table-responsive mt-5">
     <table class="table">
       <thead>
@@ -78,7 +78,7 @@
           <th>Placas</th>
           <th>Chofer/Ruta</th>
           <th>Auto Tanque</th>
-          <th class="operaciones">OPERACIONES</th>
+          <th>OPERACIONES</th>
         </tr>
       </thead>
       <tbody hover="true">
@@ -98,7 +98,7 @@
           <td class="tc">{{ AutoTanque.placas }}</td>
           <td class="tc">{{ AutoTanque.chofer_ruta }}</td>
           <td class="tc">{{ AutoTanque.AutoTanque }}</td>
-          <td>
+          <td class="operaciones">
             <button
               class="btn btn-outline-danger"
               (click)="Eliminar(AutoTanque.id_autoTanque)"

@@ -17,54 +17,54 @@
       Agregar Auto
     </button>
   </div>
-
-  <div *ngIf="!loading" class="contenedorload">
-    <div class="spinner-grow text-warning" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-    <div class="spinner-grow text-danger" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-    <div class="spinner-grow text-warning" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-    <div class="spinner-grow text-danger" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-    <div class="spinner-grow text-warning" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-    <div class="spinner-grow text-danger" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-    <div class="spinner-grow text-warning" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-    <div class="spinner-grow text-danger" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
+</div>
+<div *ngIf="!loading" class="contenedorload">
+  <div class="spinner-grow text-warning" role="status">
+    <span class="sr-only">Loading...</span>
   </div>
-
-  <div class="form-inline md-form form-sm centrar">
-    <span class="iconColor">
-      <mdb-icon
-        fas
-        icon="search"
-        style="color: white;"
-        aria-hidden="true"
-      ></mdb-icon>
-    </span>
-    <input
-      [(ngModel)]="Buscador_Autos"
-      class="form-control form-control-sm ml-3 w-75"
-      type="text"
-      placeholder="Buscar"
-      aria-describedby="helpId"
-      aria-label="Search"
-      mdbInput
-    />
+  <div class="spinner-grow text-danger" role="status">
+    <span class="sr-only">Loading...</span>
   </div>
+  <div class="spinner-grow text-warning" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-danger" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-warning" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-danger" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-warning" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-danger" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div class="form-inline md-form form-sm centrar">
+  <span class="iconColor">
+    <mdb-icon
+      fas
+      icon="search"
+      style="color: white;"
+      aria-hidden="true"
+    ></mdb-icon>
+  </span>
+  <input
+    [(ngModel)]="Buscador_Autos"
+    class="form-control form-control-sm ml-3 w-75"
+    type="text"
+    placeholder="Buscar"
+    aria-describedby="helpId"
+    aria-label="Search"
+    mdbInput
+  />
+</div>
 
+<div class="contenedor">
   <div *ngIf="loading" class="table-responsive mt-5">
     <table class="table">
       <thead>
@@ -78,7 +78,7 @@
           <th>Placas</th>
           <th>Chofer/Ruta</th>
           <th>Cilindros pzas</th>
-          <th class="operaciones">OPERACIONES</th>
+          <th>OPERACIONES</th>
         </tr>
       </thead>
       <tbody hover="true">
@@ -99,7 +99,7 @@
           <td class="tc">{{ Auto.placas }}</td>
           <td class="tc">{{ Auto.chofer_ruta }}</td>
           <td class="tc">{{ Auto.cilindros_piezas }}</td>
-          <td>
+          <td class="operaciones">
             <button
               class="btn btn-outline-danger"
               (click)="EliminarAuto(Auto.id_auto)"

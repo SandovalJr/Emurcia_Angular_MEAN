@@ -82,7 +82,7 @@
           *ngFor="
             let usuario of UsuariosListados
               | filter: term
-              | paginate: { itemsPerPage: 2, currentPage: pageActual }
+              | paginate: { itemsPerPage: 5, currentPage: pageActual }
           "
         >
           <td class="tc">{{ usuario.usuario }}</td>

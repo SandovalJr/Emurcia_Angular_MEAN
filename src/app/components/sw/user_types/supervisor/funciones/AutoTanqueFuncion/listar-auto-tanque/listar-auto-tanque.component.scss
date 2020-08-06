@@ -48,10 +48,9 @@
   text-align: center;
 }
 
-
-.contendor{
-padding-left: 25px;
-padding-right: 25px;
+.contendor {
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .centrar {
@@ -77,4 +76,14 @@ padding-right: 25px;
   // width: 100%;
   // height: 100%;
   margin-top: 150px;
+}
+.contenedor {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.operaciones{
+  display: flex;
+  justify-content: center;
+
 }
