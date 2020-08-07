@@ -70,7 +70,6 @@ export class AgregarAutoTanqueComponent implements OnInit {
         this.details = user;
         this.credentialsRegistroAuto_Tanque.marca = this.details.marca;
         this.credentialsRegistroAuto_Tanque.ubicacion = this.details.region;
-
       },
       (err) => {
         console.error(err);
@@ -129,7 +128,7 @@ export class AgregarAutoTanqueComponent implements OnInit {
               "success"
             );
             this.router.navigateByUrl(
-              "/SupervisorProfile/AutoTanque_Listado/" + this.details.marca
+              `/SupervisorProfile/AutoTanque_Listado/${this.details.marca}/${this.details.region}`
             );
           },
           (err) => {

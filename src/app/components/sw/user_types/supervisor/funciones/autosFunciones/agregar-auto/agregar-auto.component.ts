@@ -139,7 +139,7 @@ export class AgregarAutoComponent implements OnInit {
             "success"
           );
           this.router.navigateByUrl(
-            "/SupervisorProfile/Autos_Listado/" + this.details.marca
+            `/SupervisorProfile/Autos_Listado/${this.details.marca}/${this.details.region}`
           );
         },
         (err) => {
