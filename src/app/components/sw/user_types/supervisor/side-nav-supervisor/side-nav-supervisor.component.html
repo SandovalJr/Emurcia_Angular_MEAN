@@ -66,11 +66,19 @@
         >
         <!-- Transporte -->
         <p mat-list-item class="TSideNav">Transporte</p>
-        <a mat-list-item class="BtnSideNav" (click)="Autos(details.marca)">
+        <a
+          mat-list-item
+          class="BtnSideNav"
+          (click)="Autos(details.marca, details.region)"
+        >
           <mat-icon class="icono">directions_car</mat-icon>
           Unidades / Autos</a
         >
-        <a mat-list-item class="BtnSideNav" (click)="AutoTanque(details.marca)">
+        <a
+          mat-list-item
+          class="BtnSideNav"
+          (click)="AutoTanque(details.marca, details.region)"
+        >
           <mat-icon class="icono">local_shipping</mat-icon>
           Auto Tanques
         </a>

@@ -51,9 +51,9 @@ export class ListarAutosComponent implements OnInit {
   // OBTENER LA LISTA E INFORMACION DE LOS AUTOS
   GetAutosLista() {
     let marcaempresa = this.activatedRouter.snapshot.paramMap.get("marca");
-
+    let regionempresa = this.activatedRouter.snapshot.paramMap.get("region");
     this.AutosListados = [];
-    this.AutoService.ListarAuto(marcaempresa).subscribe(
+    this.AutoService.ListarAuto(marcaempresa, regionempresa).subscribe(
       (auto) => {
         this.AutosListados = auto;
         // console.log(this.AutosListados);
@@ -83,7 +83,6 @@ export class ListarAutosComponent implements OnInit {
           (AutoEliminado) => {
             // console.log(AutoEliminado);
             window.location.reload();
-
           },
           (err) => {
             Swal.fire({

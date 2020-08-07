@@ -48,9 +48,11 @@ export class ListarAutoTanqueComponent implements OnInit {
 
   public ListarAutosTanques() {
     let marcaempresa = this.activatedRouter.snapshot.paramMap.get("marca");
+    let region = this.activatedRouter.snapshot.paramMap.get("region");
+console.log();
 
     this.AutosListados = [];
-    this.AutoTanqueService.ListarAutoTanques(marcaempresa).subscribe(
+    this.AutoTanqueService.ListarAutoTanques(marcaempresa, region).subscribe(
       (auto) => {
         this.AutosListados = auto;
         console.log(this.AutosListados);

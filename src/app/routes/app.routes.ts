@@ -85,7 +85,7 @@ const routes: Routes = [
         canActivate: [AuthGuardService],
       },
       {
-        path: "Autos_Listado/:marca",
+        path: "Autos_Listado/:marca/:region",
         component: ListarAutosComponent,
         canActivate: [AuthGuardService],
       },
@@ -100,7 +100,7 @@ const routes: Routes = [
         canActivate: [AuthGuardService],
       },
       {
-        path: "AutoTanque_Listado/:marca",
+        path: "AutoTanque_Listado/:marca/:region",
         component: ListarAutoTanqueComponent,
         canActivate: [AuthGuardService],
       },

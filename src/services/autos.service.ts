@@ -67,10 +67,12 @@ export class autosService {
     );
   }
   // LIST
-  public ListarAuto(marcaempresa: any): Observable<any> {
+  public ListarAuto(marcaempresa: any, region: any): Observable<any> {
     console.log(marcaempresa);
+    console.log(` s ${region}`);
+
     return this.http.get(
-      `${this.baseUrl}/api/autos/ListarAutos/${marcaempresa}`
+      `${this.baseUrl}/api/autos/ListarAutos/${marcaempresa}/${region}`
     );
   }
 

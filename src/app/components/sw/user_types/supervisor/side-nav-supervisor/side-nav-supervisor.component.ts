@@ -59,12 +59,18 @@ export class SideNavSupervisorComponent implements OnInit {
     );
   }
 
-  Autos(marca: any) {
-    console.log(`La marca que va a pasar ${marca}`);
-    this.router.navigate(["/SupervisorProfile/Autos_Listado", marca]);
+  Autos(marca: any, region: any) {
+    // console.log(`La marca que va a pasar ${marca}`);
+    // console.log("region" + region);
+
+    this.router.navigate([
+      `/SupervisorProfile/Autos_Listado/${marca}/${region}`,
+    ]);
   }
-  AutoTanque(marca: any) {
+  AutoTanque(marca: any, region: any) {
     console.log(marca);
-    this.router.navigate(["/SupervisorProfile/AutoTanque_Listado", marca]);
+    this.router.navigate([
+      `/SupervisorProfile/AutoTanque_Listado/${marca}/${region}`,
+    ]);
   }
 }

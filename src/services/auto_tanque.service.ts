@@ -75,10 +75,12 @@ export class auto_Tanques_Service {
   }
 
   // LISTAR AUTO TANQUES
-  public ListarAutoTanques(marcaempresa: any): Observable<any> {
+  public ListarAutoTanques(marcaempresa: any, region: any): Observable<any> {
     console.log(marcaempresa);
+    console.log("ser" + region);
+
     return this.http.get(
-      `${this.baseUrl}/api/auto_tanque/ListarAutoTanques/${marcaempresa}`
+      `${this.baseUrl}/api/auto_tanque/ListarAutoTanques/${marcaempresa}/${region}`
     );
   }
   // INFO POR ID
