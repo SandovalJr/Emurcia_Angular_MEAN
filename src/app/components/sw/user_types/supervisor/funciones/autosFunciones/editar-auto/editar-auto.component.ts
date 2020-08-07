@@ -134,8 +134,7 @@ export class EditarAutoComponent implements OnInit {
               "success"
             );
             this.router.navigateByUrl(
-              "/SupervisorProfile/Autos_Listado/" +
-                this.credentialsRegistroAuto.marca
+              `/SupervisorProfile/Autos_Listado/${this.credentialsRegistroAuto.marca}/${this.credentialsRegistroAuto.ubicacion}`
             );
           },
           (err) => {

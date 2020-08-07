@@ -91,7 +91,6 @@ export class EditarAutoTanqueComponent implements OnInit {
   }
 
   public creatForm() {
-
     this.formulario = new FormGroup({
       Num_eco: new FormControl(null, [
         RxwebValidators.required(),
@@ -144,8 +143,7 @@ export class EditarAutoTanqueComponent implements OnInit {
               "success"
             );
             this.router.navigateByUrl(
-              "/SupervisorProfile/AutoTanque_Listado/" +
-                this.credentialsRegistroAuto_Tanque.marca
+              `/SupervisorProfile/AutoTanque_Listado/${this.credentialsRegistroAuto_Tanque.marca}/${this.credentialsRegistroAuto_Tanque.ubicacion}`
             );
           },
           (err) => {
