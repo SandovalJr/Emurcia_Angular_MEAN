@@ -1,0 +1,41 @@
+// TITULO Y LINEA
+.titulos {
+  text-align: center;
+  font-size: 45px;
+  font-family: oswald;
+  color: #41434d;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.lineas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5vh;
+  & .LA {
+    width: 160px;
+    height: 5px;
+    background: #ddc700;
+    // margin-bottom: 10px;
+  }
+  & .LR {
+    width: 160px;
+    height: 5px;
+    background: #bf0e0e;
+  }
+}
+// BOTON
+.container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  & .colorbtn {
+    color: #41434d;
+    border: 1px #41434d solid;
+    font-family: Roboto;
+  }
+}

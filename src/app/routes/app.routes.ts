@@ -37,7 +37,6 @@ import { ReportesVentasComponent } from "../components/sw/user_types/supervisor/
 import { AgregarVentaRVComponent } from "../components/sw/user_types/supervisor/funciones/reportes-ventas/agregar-venta-rv/agregar-venta-rv.component";
 import { BuscarVentasRVComponent } from "../components/sw/user_types/supervisor/funciones/reportes-ventas/buscar-ventas-rv/buscar-ventas-rv.component";
 
-
 // VENDEDOR
 import { IniciovendedorComponent } from "../components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component";
 
@@ -122,6 +121,11 @@ const routes: Routes = [
       {
         path: "VerInformacioAutoTanque/:id",
         component: VerInformacionAutoTanqueComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: "ReportesVentas/:marca/:region/:createdAt",
+        component: ReportesVentasComponent,
         canActivate: [AuthGuardService],
       },
     ],

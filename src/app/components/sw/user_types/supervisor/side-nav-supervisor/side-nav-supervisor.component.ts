@@ -5,6 +5,7 @@ import {
   UserDetails,
 } from "../../../../../../services/authentication.service";
 import { Routes, Router } from "@angular/router";
+
 @Component({
   selector: "app-side-nav-supervisor",
   templateUrl: "./side-nav-supervisor.component.html",
@@ -67,10 +68,33 @@ export class SideNavSupervisorComponent implements OnInit {
       `/SupervisorProfile/Autos_Listado/${marca}/${region}`,
     ]);
   }
+
   AutoTanque(marca: any, region: any) {
     console.log(marca);
     this.router.navigate([
       `/SupervisorProfile/AutoTanque_Listado/${marca}/${region}`,
     ]);
+  }
+
+  GoToReportesVenta(marca: any, region: any) {
+    var f = new Date();
+    let año = f.getFullYear();
+    let mes = f.getMonth();
+    let dia = f.getDate();
+
+    if (mes > 0 && mes < 10) {
+      console.log("entre 0");
+
+      let fechaCom = `${año}-0${mes}-${dia}`;
+      this.router.navigate([
+        `/SupervisorProfile/ReportesVentas/${marca}/${region}/${fechaCom}`,
+      ]);
+    } else {
+      console.log("entre sin 0");
+      let fechaCom = `${año}-${mes}-${dia}`;
+      this.router.navigate([
+        `/SupervisorProfile/ReportesVentas/${marca}/${region}/${fechaCom}`,
+      ]);
+    }
   }
 }
