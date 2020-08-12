@@ -39,6 +39,7 @@ import { AuthGuardService } from "../services/auth-guard.service";
 import { AuthenticationService } from "../services/authentication.service";
 import { autosService } from "../services/autos.service";
 import { auto_Tanques_Service } from "../services/auto_tanque.service";
+
 // validator RXJS
 import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
 import { ReactiveFormsModule } from "@angular/forms";
@@ -52,22 +53,18 @@ import { MatButtonModule } from "@angular/material/button";
 // import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatMenuModule } from "@angular/material/menu";
 import { MatListModule } from "@angular/material/list";
+import { ErrorNoExistePaginaComponent } from "./components/errors/error-no-existe-pagina/error-no-existe-pagina.component";
 
 // ADMIN
 import { SideNavComponent } from "./components/sw/user_types/administrador/side-nav/side-nav.component";
 import { InicioAdminComponent } from "./components/sw/user_types/administrador/inicio-admin/inicio-admin.component";
+import { AgregarUsuarioComponent } from "./components/sw/user_types/administrador/funciones/agregar-usuario/agregar-usuario.component";
+import { ListaUsuariosComponent } from "./components/sw/user_types/administrador/funciones/lista-usuarios/lista-usuarios.component";
+import { EditarUsuarioComponent } from "./components/sw/user_types/administrador/funciones/editar-usuario/editar-usuario.component";
 
 // SUPERVISOR
 import { SideNavSupervisorComponent } from "./components/sw/user_types/supervisor/side-nav-supervisor/side-nav-supervisor.component";
 import { InicioSupervisorComponent } from "./components/sw/user_types/supervisor/inicio-supervisor/inicio-supervisor.component";
-
-// VENDEDOR
-import { SidenavVendedorComponent } from "./components/sw/user_types/vendedor/sidenav-vendedor/sidenav-vendedor.component";
-import { IniciovendedorComponent } from "./components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component";
-import { AgregarUsuarioComponent } from "./components/sw/user_types/administrador/funciones/agregar-usuario/agregar-usuario.component";
-import { ListaUsuariosComponent } from "./components/sw/user_types/administrador/funciones/lista-usuarios/lista-usuarios.component";
-import { ErrorNoExistePaginaComponent } from "./components/errors/error-no-existe-pagina/error-no-existe-pagina.component";
-import { EditarUsuarioComponent } from "./components/sw/user_types/administrador/funciones/editar-usuario/editar-usuario.component";
 import { TablehoverDirective } from "./directivas/tablehover.directive";
 import { ListarAutosComponent } from "./components/sw/user_types/supervisor/funciones/autosFunciones/listar-autos/listar-autos.component";
 import { AgregarAutoComponent } from "./components/sw/user_types/supervisor/funciones/autosFunciones/agregar-auto/agregar-auto.component";
@@ -75,7 +72,14 @@ import { EditarAutoComponent } from "./components/sw/user_types/supervisor/funci
 import { AgregarAutoTanqueComponent } from "./components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/agregar-auto-tanque/agregar-auto-tanque.component";
 import { ListarAutoTanqueComponent } from "./components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/listar-auto-tanque/listar-auto-tanque.component";
 import { EditarAutoTanqueComponent } from "./components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/editar-auto-tanque/editar-auto-tanque.component";
-import { VerInformacionAutoTanqueComponent } from './components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/ver-informacion-auto-tanque/ver-informacion-auto-tanque.component';
+import { VerInformacionAutoTanqueComponent } from "./components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/ver-informacion-auto-tanque/ver-informacion-auto-tanque.component";
+import { ReportesVentasComponent } from "./components/sw/user_types/supervisor/funciones/reportes-ventas/reportes-ventas.component";
+import { BuscarVentasRVComponent } from "./components/sw/user_types/supervisor/funciones/reportes-ventas/buscar-ventas-rv/buscar-ventas-rv.component";
+import { AgregarVentaRVComponent } from "./components/sw/user_types/supervisor/funciones/reportes-ventas/agregar-venta-rv/agregar-venta-rv.component";
+
+// VENDEDOR
+import { SidenavVendedorComponent } from "./components/sw/user_types/vendedor/sidenav-vendedor/sidenav-vendedor.component";
+import { IniciovendedorComponent } from "./components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component";
 
 @NgModule({
   declarations: [
@@ -109,6 +113,9 @@ import { VerInformacionAutoTanqueComponent } from './components/sw/user_types/su
     ListarAutoTanqueComponent,
     EditarAutoTanqueComponent,
     VerInformacionAutoTanqueComponent,
+    ReportesVentasComponent,
+    BuscarVentasRVComponent,
+    AgregarVentaRVComponent,
   ],
   imports: [
     BrowserModule,

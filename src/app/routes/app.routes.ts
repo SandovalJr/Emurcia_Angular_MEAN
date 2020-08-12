@@ -32,6 +32,11 @@ import { AgregarAutoTanqueComponent } from "../components/sw/user_types/supervis
 import { EditarAutoTanqueComponent } from "../components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/editar-auto-tanque/editar-auto-tanque.component";
 import { ListarAutoTanqueComponent } from "../components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/listar-auto-tanque/listar-auto-tanque.component";
 import { VerInformacionAutoTanqueComponent } from "../components/sw/user_types/supervisor/funciones/AutoTanqueFuncion/ver-informacion-auto-tanque/ver-informacion-auto-tanque.component";
+// reportes de ventas
+import { ReportesVentasComponent } from "../components/sw/user_types/supervisor/funciones/reportes-ventas/reportes-ventas.component";
+import { AgregarVentaRVComponent } from "../components/sw/user_types/supervisor/funciones/reportes-ventas/agregar-venta-rv/agregar-venta-rv.component";
+import { BuscarVentasRVComponent } from "../components/sw/user_types/supervisor/funciones/reportes-ventas/buscar-ventas-rv/buscar-ventas-rv.component";
+
 
 // VENDEDOR
 import { IniciovendedorComponent } from "../components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component";
