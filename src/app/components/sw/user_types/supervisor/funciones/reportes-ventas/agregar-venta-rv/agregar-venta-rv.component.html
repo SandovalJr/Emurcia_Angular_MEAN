@@ -17,6 +17,7 @@
             type="text"
             class="form-control text-center"
             name="marca"
+            disabled
             formControlName="marca"
             [(ngModel)]="credentialsRV.marca"
             [ngClass]="{
@@ -39,6 +40,7 @@
             type="text"
             class="form-control text-center"
             name="region"
+            disabled
             formControlName="region"
             [(ngModel)]="credentialsRV.region"
             [ngClass]="{
@@ -59,6 +61,7 @@
           </div>
           <input
             type="text"
+            disabled
             class="form-control text-center"
             value="{{ fecha }}"
           />
