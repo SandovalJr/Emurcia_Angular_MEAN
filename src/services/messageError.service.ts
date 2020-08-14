@@ -26,7 +26,9 @@ export class MessageErrorsService {
         message = "Tienes que ingresar un valor numerico";
         break;
 
-
+      case errorRecibido.hasOwnProperty("alpha"):
+        message = "Tienes que ingresar texto";
+        break;
     }
     return {
       message,

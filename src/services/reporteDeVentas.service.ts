@@ -45,6 +45,6 @@ export interface ReporteVentasLoad {
 }
 
 @Injectable()
-export class autosService {
+export class ReporteDeVentasService {
   baseUrl = "http://localhost:3000/api/Reportes_Ventas/";
 }

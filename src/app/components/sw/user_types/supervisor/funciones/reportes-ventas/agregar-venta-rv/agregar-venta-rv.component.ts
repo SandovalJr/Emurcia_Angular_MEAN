@@ -6,6 +6,11 @@ import {
   ReactiveFormConfig,
   NumericValueType,
 } from "@rxweb/reactive-form-validators";
+import {
+  ReporteVentasDetails,
+  ReporteVentasLoad,
+  ReporteDeVentasService,
+} from "../.././../../../../../../services/reporteDeVentas.service";
 import { MessageErrorsService } from "../../../../../../../../services/messageError.service";
 @Component({
   selector: "app-agregar-venta-rv",
@@ -14,19 +19,24 @@ import { MessageErrorsService } from "../../../../../../../../services/messageEr
 })
 export class AgregarVentaRVComponent implements OnInit {
   public formulario: FormGroup;
-  // credentialsRV: AutosLoad = {
-  //   id_auto: 0,
-  //   Num_eco: null,
-  //   anio: null,
-  //   ubicacion: "",
-  //   num_serie: "",
-  //   marca_auto: "",
-  //   modelo: "",
-  //   placas: "",
-  //   chofer_ruta: "",
-  //   cilindros_piezas: null,
-  //   marca: "",
-  // };
+  credentialsRV: ReporteVentasLoad = {
+    id_RV: 0,
+    marca: "",
+    region: "",
+    auto: "",
+    Venta_Kilos: 0,
+    Precio_Prom: 0,
+    Importe_Liquidar: 0,
+    Recibe_caja_efectivo: 0,
+    credito_cilindro: 0,
+    Importe_credito: 0,
+    Cel_Tel_Cliente: "",
+    Litros_Consumo: 0,
+    INV_CIL: 0,
+    Equiv_KG: 0,
+    Comentarios: "",
+    Cilidros_Vacios: 0,
+  };
 
   constructor(
     private activatedRouter: ActivatedRoute,
@@ -43,9 +53,9 @@ export class AgregarVentaRVComponent implements OnInit {
 
   public creatForm() {
     this.formulario = new FormGroup({
-      Num_eco: new FormControl(null, [
+      marca: new FormControl(null, [
         RxwebValidators.required(),
-        RxwebValidators.numeric(),
+        RxwebValidators.alpha(),
       ]),
     });
   }

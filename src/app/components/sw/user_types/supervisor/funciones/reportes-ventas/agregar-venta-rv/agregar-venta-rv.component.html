@@ -8,9 +8,28 @@
 <div class="container mt-5">
   <form class="login100-form validate-form">
     <ng-container [formGroup]="formulario">
-
-
-
+      <div class="row md-form">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            name="marca"
+            placeholder="Numero Eco"
+            formControlName="marca"
+            [(ngModel)]="credentialsRV.marca"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('marca').error == false,
+              'is-invalid': ValidarFormulario('marca').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('marca').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("marca").message }}
+          </div>
+        </div>
+      </div>
     </ng-container>
   </form>
 </div>
