@@ -129,7 +129,7 @@ const routes: Routes = [
         canActivate: [AuthGuardService],
       },
       {
-        path: "AgregarVentaRVComponent/:marca/:region/:createdAt",
+        path: "AgregarVentaRVComponent",
         component: AgregarVentaRVComponent,
         canActivate: [AuthGuardService],
       },

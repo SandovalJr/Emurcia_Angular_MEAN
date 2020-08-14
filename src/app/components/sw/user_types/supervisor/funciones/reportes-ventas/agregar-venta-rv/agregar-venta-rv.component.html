@@ -10,11 +10,13 @@
     <ng-container [formGroup]="formulario">
       <div class="row md-form">
         <div class="col">
+          <div class="text-center d-block">
+            Grupo al que perteneces
+          </div>
           <input
             type="text"
-            class="form-control"
+            class="form-control text-center"
             name="marca"
-            placeholder="Numero Eco"
             formControlName="marca"
             [(ngModel)]="credentialsRV.marca"
             [ngClass]="{
@@ -28,6 +30,38 @@
           >
             {{ ValidarFormulario("marca").message }}
           </div>
+        </div>
+        <div class="col">
+          <div class="text-center d-block">
+            Ubicación
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="region"
+            formControlName="region"
+            [(ngModel)]="credentialsRV.region"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('region').error == false,
+              'is-invalid': ValidarFormulario('region').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('region').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("region").message }}
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-center d-block">
+            Fecha
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            value="{{ fecha }}"
+          />
         </div>
       </div>
     </ng-container>

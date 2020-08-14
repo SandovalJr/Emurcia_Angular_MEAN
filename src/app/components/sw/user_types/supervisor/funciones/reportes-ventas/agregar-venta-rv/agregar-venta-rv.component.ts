@@ -7,6 +7,10 @@ import {
   NumericValueType,
 } from "@rxweb/reactive-form-validators";
 import {
+  AuthenticationService,
+  UserDetails,
+} from "../../../../../../../../services/authentication.service";
+import {
   ReporteVentasDetails,
   ReporteVentasLoad,
   ReporteDeVentasService,
@@ -19,6 +23,12 @@ import { MessageErrorsService } from "../../../../../../../../services/messageEr
 })
 export class AgregarVentaRVComponent implements OnInit {
   public formulario: FormGroup;
+  details: UserDetails;
+  public fecha;
+  // public marca = this.activatedRouter.snapshot.paramMap.get("marca");
+  // public region = this.activatedRouter.snapshot.paramMap.get("region");
+  // public createdAt = this.activatedRouter.snapshot.paramMap.get("createdAt");
+
   credentialsRV: ReporteVentasLoad = {
     id_RV: 0,
     marca: "",
@@ -41,23 +51,46 @@ export class AgregarVentaRVComponent implements OnInit {
   constructor(
     private activatedRouter: ActivatedRoute,
     private router: Router,
-    private MessageErrorSvr: MessageErrorsService
+    private MessageErrorSvr: MessageErrorsService,
+    private auth: AuthenticationService
   ) {}
 
   ngOnInit(): void {
     this.creatForm();
+    this.informacionUsuario();
+  }
 
-    // console.log(` la fecha de parametro es:ARV ${createdAt}`);
-    // console.log(` la marca de parametro es:ARV ${marca} y la region es ${region}`);
+  informacionUsuario() {
+    this.auth.profile().subscribe(
+      (user) => {
+        this.details = user;
+        this.credentialsRV.marca = this.details.marca;
+        this.credentialsRV.region = this.details.region;
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
 
   public creatForm() {
+    var f = new Date();
+    let año = f.getFullYear();
+    let mes = f.getMonth();
+    let dia = f.getDate();
+    // LA FECHA SOLO SE MUESTRA NO SE MANDA AL BACK
+    if (mes > 0 && mes < 10) {
+      this.fecha = `${dia}-0${mes}-${año}`;
+    } else {
+      this.fecha = `${dia}-${mes}-${año}`;
+    }
+
     this.formulario = new FormGroup({
-      marca: new FormControl(null, [
-        RxwebValidators.required(),
-        RxwebValidators.alpha(),
-      ]),
+      marca: new FormControl(null, []),
+      region: new FormControl(null, []),
     });
+
+    // console.log(this.formulario.valid);
   }
 
   public ValidarFormulario(control: string) {
@@ -67,9 +100,5 @@ export class AgregarVentaRVComponent implements OnInit {
     );
   }
 
-  AgregarVenta() {
-    const marca = this.activatedRouter.snapshot.paramMap.get("marca");
-    const region = this.activatedRouter.snapshot.paramMap.get("region");
-    const createdAt = this.activatedRouter.snapshot.paramMap.get("createdAt");
-  }
+  AgregarVenta() {}
 }
