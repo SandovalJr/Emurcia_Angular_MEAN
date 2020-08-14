@@ -76,7 +76,7 @@ export class SideNavSupervisorComponent implements OnInit {
     ]);
   }
 
-  GoToReportesVenta(marca: any, region: any) {
+  GoToReportesVentaAutos(marca: any, region: any) {
     var f = new Date();
     let año = f.getFullYear();
     let mes = f.getMonth();
