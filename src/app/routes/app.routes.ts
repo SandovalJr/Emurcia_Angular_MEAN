@@ -128,6 +128,11 @@ const routes: Routes = [
         component: ReportesVentasComponent,
         canActivate: [AuthGuardService],
       },
+      {
+        path: "AgregarVentaRVComponent/:marca/:region/:createdAt",
+        component: AgregarVentaRVComponent,
+        canActivate: [AuthGuardService],
+      },
     ],
   },
   // VENDEDOR
