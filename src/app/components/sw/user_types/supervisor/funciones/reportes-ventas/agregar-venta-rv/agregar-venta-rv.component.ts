@@ -34,6 +34,7 @@ export class AgregarVentaRVComponent implements OnInit {
     marca: "",
     region: "",
     auto: "",
+    Cilidros_Vacios: null,
     Venta_Kilos: 0,
     Precio_Prom: 0,
     Importe_Liquidar: 0,
@@ -45,7 +46,6 @@ export class AgregarVentaRVComponent implements OnInit {
     INV_CIL: 0,
     Equiv_KG: 0,
     Comentarios: "",
-    Cilidros_Vacios: 0,
   };
 
   constructor(
@@ -88,6 +88,12 @@ export class AgregarVentaRVComponent implements OnInit {
     this.formulario = new FormGroup({
       marca: new FormControl(null, []),
       region: new FormControl(null, []),
+      auto: new FormControl(null, [
+        RxwebValidators.alpha(),
+        RxwebValidators.required(),
+      ]),
+      Cilidros_Vacios: new FormControl(null, [RxwebValidators.numeric()]),
+      Venta_Kilos: new FormControl(null, [RxwebValidators.numeric()]),
     });
 
     // console.log(this.formulario.valid);

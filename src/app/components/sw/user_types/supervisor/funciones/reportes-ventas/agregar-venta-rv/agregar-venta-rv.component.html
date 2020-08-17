@@ -67,6 +67,78 @@
           />
         </div>
       </div>
+      <div class="row md-form">
+        <div class="col">
+          <div class="text-center d-block">
+            Auto
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="auto"
+            placeholder="Ingresa El Auto"
+            formControlName="auto"
+            [(ngModel)]="credentialsRV.auto"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('auto').error == false,
+              'is-invalid': ValidarFormulario('auto').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('auto').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("auto").message }}
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-center d-block">
+            Cilindros Vacios
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="Cilidros_Vacios"
+            placeholder="Ingresa Los Cilindros Vacios"
+            formControlName="Cilidros_Vacios"
+            [(ngModel)]="credentialsRV.Cilidros_Vacios"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('Cilidros_Vacios').error == false,
+              'is-invalid': ValidarFormulario('Cilidros_Vacios').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('Cilidros_Vacios').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("Cilidros_Vacios").message }}
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-center d-block">
+            Venta Por Kilos
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="Venta_Kilos"
+            placeholder="Ingresa Los Cilindros Vacios"
+            formControlName="Venta_Kilos"
+            disabled
+            [(ngModel)]="credentialsRV.Venta_Kilos"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('Venta_Kilos').error == false,
+              'is-invalid': ValidarFormulario('Venta_Kilos').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('Venta_Kilos').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("Venta_Kilos").message }}
+          </div>
+        </div>
+      </div>
     </ng-container>
   </form>
 </div>
