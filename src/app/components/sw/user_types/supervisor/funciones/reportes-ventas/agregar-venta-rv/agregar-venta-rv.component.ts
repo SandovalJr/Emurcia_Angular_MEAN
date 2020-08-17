@@ -36,11 +36,12 @@ export class AgregarVentaRVComponent implements OnInit {
     auto: "",
     Cilidros_Vacios: null,
     Venta_Kilos: 0,
-    Precio_Prom: 0,
+    Precio_Prom: null,
     Importe_Liquidar: 0,
     Recibe_caja_efectivo: 0,
     credito_cilindro: 0,
     Importe_credito: 0,
+
     Cel_Tel_Cliente: "",
     Litros_Consumo: 0,
     INV_CIL: 0,
@@ -94,6 +95,12 @@ export class AgregarVentaRVComponent implements OnInit {
       ]),
       Cilidros_Vacios: new FormControl(null, [RxwebValidators.numeric()]),
       Venta_Kilos: new FormControl(null, [RxwebValidators.numeric()]),
+      Precio_Prom: new FormControl(null, [RxwebValidators.required()]),
+      Importe_Liquidar: new FormControl(null, []),
+      Recibe_caja_efectivo: new FormControl(null, []),
+      credito_cilindro: new FormControl(null, []),
+      Importe_credito: new FormControl(null, []),
+      Cel_Tel_Cliente: new FormControl(null, []),
     });
 
     // console.log(this.formulario.valid);
