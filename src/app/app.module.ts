@@ -39,6 +39,7 @@ import { AuthGuardService } from "../services/auth-guard.service";
 import { AuthenticationService } from "../services/authentication.service";
 import { autosService } from "../services/autos.service";
 import { auto_Tanques_Service } from "../services/auto_tanque.service";
+import { ReporteDeVentasService } from "../services/reporteDeVentas.service";
 
 // validator RXJS
 import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
@@ -155,6 +156,7 @@ import { IniciovendedorComponent } from "./components/sw/user_types/vendedor/ini
     AuthGuardService,
     autosService,
     auto_Tanques_Service,
+    ReporteDeVentasService,
   ],
   bootstrap: [AppComponent],
 })

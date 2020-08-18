@@ -47,4 +47,13 @@ export interface ReporteVentasLoad {
 @Injectable()
 export class ReporteDeVentasService {
   baseUrl = "http://localhost:3000/api/Reportes_Ventas/";
+
+  constructor(private http: HttpClient, private router: Router) {}
+
+  // ADD RV
+  public registerAuto(rv: any): Observable<any> {
+    console.log("llego");
+    console.log(rv);
+    return this.http.post(`${this.baseUrl}/AgregarVentaAlReporte`, rv);
+  }
 }

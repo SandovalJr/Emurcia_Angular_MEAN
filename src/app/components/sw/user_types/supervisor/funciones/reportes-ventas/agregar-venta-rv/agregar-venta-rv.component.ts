@@ -11,7 +11,6 @@ import {
   UserDetails,
 } from "../../../../../../../../services/authentication.service";
 import {
-  ReporteVentasDetails,
   ReporteVentasLoad,
   ReporteDeVentasService,
 } from "../.././../../../../../../services/reporteDeVentas.service";
@@ -52,7 +51,8 @@ export class AgregarVentaRVComponent implements OnInit {
     private activatedRouter: ActivatedRoute,
     private router: Router,
     private MessageErrorSvr: MessageErrorsService,
-    private auth: AuthenticationService
+    private auth: AuthenticationService,
+    private RVService: ReporteDeVentasService
   ) {}
 
   ngOnInit(): void {
@@ -116,5 +116,16 @@ export class AgregarVentaRVComponent implements OnInit {
     );
   }
 
-  AgregarVenta() {}
+  AgregarVenta() {
+    this.RVService.registerAuto(this.credentialsRV).subscribe(
+      () => {
+        this.router.navigateByUrl(
+          `/SupervisorProfile/ReportesVentas/${this.details.marca}/${this.details.region}/${this.fecha}`
+        );
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
+  }
 }

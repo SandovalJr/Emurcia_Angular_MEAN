@@ -54,6 +54,7 @@ export class auto_Tanques_Service {
       auto
     );
   }
+
   // DELETE AUTO TANQUE
   public EliminarAutoTanque(id: any): Observable<any> {
     console.log(id);
