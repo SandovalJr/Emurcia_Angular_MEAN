@@ -24,6 +24,8 @@ export class AgregarVentaRVComponent implements OnInit {
   public formulario: FormGroup;
   details: UserDetails;
   public fecha;
+  // Constante para convertir venta por kilos
+  public VK = 30;
   // public marca = this.activatedRouter.snapshot.paramMap.get("marca");
   // public region = this.activatedRouter.snapshot.paramMap.get("region");
   // public createdAt = this.activatedRouter.snapshot.paramMap.get("createdAt");

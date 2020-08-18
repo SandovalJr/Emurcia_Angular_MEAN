@@ -52,8 +52,6 @@ export class ReporteDeVentasService {
 
   // ADD RV
   public registerAuto(rv: any): Observable<any> {
-    console.log("llego");
-    console.log(rv);
     return this.http.post(`${this.baseUrl}/AgregarVentaAlReporte`, rv);
   }
 }
