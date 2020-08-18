@@ -356,6 +356,33 @@
           </div>
         </div>
       </div>
+
+      <div class="col-12 md-form">
+        <textarea
+          class="form-control"
+          name="Comentarios"
+          formControlName="Comentarios"
+          [(ngModel)]="credentialsRV.Comentarios"
+          [ngClass]="{
+            'is-valid': ValidarFormulario('Comentarios').error == false,
+            'is-invalid': ValidarFormulario('Comentarios').error == true
+          }"
+          cols="30"
+          rows="5"
+          placeholder=" Escribe tus Comentarios"
+        ></textarea>
+        <div
+          *ngIf="ValidarFormulario('Comentarios').error"
+          class="text-center invalid-feedback d-block"
+        >
+          {{ ValidarFormulario("Comentarios").message }}
+        </div>
+      </div>
     </ng-container>
+    <div class="boton">
+      <button type="submit" class="btn agregarUser">
+        Agregar Venta
+      </button>
+    </div>
   </form>
 </div>

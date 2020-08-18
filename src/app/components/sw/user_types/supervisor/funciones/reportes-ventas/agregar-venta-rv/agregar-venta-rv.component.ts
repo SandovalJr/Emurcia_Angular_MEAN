@@ -103,7 +103,7 @@ export class AgregarVentaRVComponent implements OnInit {
       Litros_Consumo: new FormControl(null, []),
       INV_CIL: new FormControl(null, []),
       Equiv_KG: new FormControl(null, []),
-      Comentarios: new FormControl(null, []),
+      Comentarios: new FormControl(null, [RxwebValidators.alpha()]),
     });
 
     // console.log(this.formulario.valid);
