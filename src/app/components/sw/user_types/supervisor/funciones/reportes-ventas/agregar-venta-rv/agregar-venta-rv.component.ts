@@ -41,10 +41,10 @@ export class AgregarVentaRVComponent implements OnInit {
     Recibe_caja_efectivo: 0,
     credito_cilindro: 0,
     Importe_credito: 0,
-
     Cel_Tel_Cliente: "",
     Litros_Consumo: 0,
     INV_CIL: 0,
+
     Equiv_KG: 0,
     Comentarios: "",
   };
@@ -101,6 +101,7 @@ export class AgregarVentaRVComponent implements OnInit {
       credito_cilindro: new FormControl(null, []),
       Importe_credito: new FormControl(null, []),
       Cel_Tel_Cliente: new FormControl(null, []),
+      Litros_Consumo: new FormControl(null, []),
     });
 
     // console.log(this.formulario.valid);
