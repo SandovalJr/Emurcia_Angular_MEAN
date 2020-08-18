@@ -115,6 +115,7 @@
             {{ ValidarFormulario("Cilidros_Vacios").message }}
           </div>
         </div>
+
         <div class="col">
           <div class="text-center d-block">
             Venta Por Kilos
@@ -126,6 +127,7 @@
             placeholder="Ingresa Los Cilindros Vacios"
             formControlName="Venta_Kilos"
             [(ngModel)]="credentialsRV.Venta_Kilos"
+            value="{{ credentialsRV.Cilidros_Vacios * 30 }}"
             [ngClass]="{
               'is-valid': ValidarFormulario('Venta_Kilos').error == false,
               'is-invalid': ValidarFormulario('Venta_Kilos').error == true

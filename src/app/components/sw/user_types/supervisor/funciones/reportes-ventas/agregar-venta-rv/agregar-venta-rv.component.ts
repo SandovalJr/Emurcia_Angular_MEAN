@@ -25,7 +25,6 @@ export class AgregarVentaRVComponent implements OnInit {
   details: UserDetails;
   public fecha;
   // Constante para convertir venta por kilos
-  public VK = 30;
   // public marca = this.activatedRouter.snapshot.paramMap.get("marca");
   // public region = this.activatedRouter.snapshot.paramMap.get("region");
   // public createdAt = this.activatedRouter.snapshot.paramMap.get("createdAt");
@@ -91,7 +90,7 @@ export class AgregarVentaRVComponent implements OnInit {
       marca: new FormControl(null, []),
       region: new FormControl(null, []),
       auto: new FormControl(null, [
-        RxwebValidators.alpha(),
+        RxwebValidators.alphaNumeric(),
         RxwebValidators.required(),
       ]),
       Cilidros_Vacios: new FormControl(null, [RxwebValidators.numeric()]),
@@ -105,10 +104,8 @@ export class AgregarVentaRVComponent implements OnInit {
       Litros_Consumo: new FormControl(null, []),
       INV_CIL: new FormControl(null, []),
       Equiv_KG: new FormControl(null, []),
-      Comentarios: new FormControl(null, [RxwebValidators.alpha()]),
+      Comentarios: new FormControl(null, [RxwebValidators.alphaNumeric()]),
     });
-
-    // console.log(this.formulario.valid);
   }
 
   public ValidarFormulario(control: string) {
@@ -119,15 +116,18 @@ export class AgregarVentaRVComponent implements OnInit {
   }
 
   AgregarVenta() {
-    this.RVService.registerAuto(this.credentialsRV).subscribe(
-      () => {
-        this.router.navigateByUrl(
-          `/SupervisorProfile/ReportesVentas/${this.details.marca}/${this.details.region}/${this.fecha}`
-        );
-      },
-      (err) => {
-        console.error(err);
-      }
-    );
+    this.credentialsRV.Equiv_KG = this.credentialsRV.Cilidros_Vacios * 30;
+    console.log(this.credentialsRV);
+    console.log(this.formulario.valid);
+    // this.RVService.registerAuto(this.credentialsRV).subscribe(
+    //   () => {
+    //     this.router.navigateByUrl(
+    //       `/SupervisorProfile/ReportesVentas/${this.details.marca}/${this.details.region}/${this.fecha}`
+    //     );
+    //   },
+    //   (err) => {
+    //     console.error(err);
+    //   }
+    // );
   }
 }
