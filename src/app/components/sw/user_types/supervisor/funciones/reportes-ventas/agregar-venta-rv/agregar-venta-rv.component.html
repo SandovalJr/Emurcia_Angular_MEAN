@@ -127,6 +127,7 @@
             placeholder="Ingresa Los Cilindros Vacios"
             formControlName="Venta_Kilos"
             [(ngModel)]="credentialsRV.Venta_Kilos"
+            disabled
             value="{{ credentialsRV.Cilidros_Vacios * 30 }}"
             [ngClass]="{
               'is-valid': ValidarFormulario('Venta_Kilos').error == false,
@@ -177,12 +178,12 @@
             placeholder="Ingresa el importe a liquidar"
             formControlName="Importe_Liquidar"
             [(ngModel)]="credentialsRV.Importe_Liquidar"
+            disabled
             value="{{
               credentialsRV.Cilidros_Vacios * 30 * credentialsRV.Precio_Prom -
                 credentialsRV.Recibe_caja_efectivo -
-                credentialsRV.Importe_credito | number:'1.2-2'
+                credentialsRV.Importe_credito | number: '1.2-2'
             }}"
-
             [ngClass]="{
               'is-valid': ValidarFormulario('Importe_Liquidar').error == false,
               'is-invalid': ValidarFormulario('Importe_Liquidar').error == true
@@ -276,20 +277,20 @@
           <input
             type="text"
             class="form-control text-center"
-            name="Equiv_KG"
+            name="Cel_Tel_Cliente"
             placeholder="Ingresa el equivalente en kg"
-            formControlName="Equiv_KG"
-            [(ngModel)]="credentialsRV.Equiv_KG"
+            formControlName="Cel_Tel_Cliente"
+            [(ngModel)]="credentialsRV.Cel_Tel_Cliente"
             [ngClass]="{
-              'is-valid': ValidarFormulario('Equiv_KG').error == false,
-              'is-invalid': ValidarFormulario('Equiv_KG').error == true
+              'is-valid': ValidarFormulario('Cel_Tel_Cliente').error == false,
+              'is-invalid': ValidarFormulario('Cel_Tel_Cliente').error == true
             }"
           />
           <div
-            *ngIf="ValidarFormulario('Equiv_KG').error"
+            *ngIf="ValidarFormulario('Cel_Tel_Cliente').error"
             class="text-center invalid-feedback d-block"
           >
-            {{ ValidarFormulario("Equiv_KG").message }}
+            {{ ValidarFormulario("Cel_Tel_Cliente").message }}
           </div>
         </div>
       </div>
@@ -326,6 +327,7 @@
             type="text"
             class="form-control text-center"
             name="INV_CIL"
+            placeholder="Ingresa Inv Cil"
             formControlName="INV_CIL"
             [(ngModel)]="credentialsRV.INV_CIL"
             [ngClass]="{
@@ -347,20 +349,20 @@
           <input
             type="text"
             class="form-control text-center"
-            name="Cel_Tel_Cliente"
-            placeholder="Ingresa El Cel/Tel"
-            formControlName="Cel_Tel_Cliente"
-            [(ngModel)]="credentialsRV.Cel_Tel_Cliente"
+            name="Equiv_KG"
+            placeholder="Ingresa el equiv en KG"
+            formControlName="Equiv_KG"
+            [(ngModel)]="credentialsRV.Equiv_KG"
             [ngClass]="{
-              'is-valid': ValidarFormulario('Cel_Tel_Cliente').error == false,
-              'is-invalid': ValidarFormulario('Cel_Tel_Cliente').error == true
+              'is-valid': ValidarFormulario('Equiv_KG').error == false,
+              'is-invalid': ValidarFormulario('Equiv_KG').error == true
             }"
           />
           <div
-            *ngIf="ValidarFormulario('Cel_Tel_Cliente').error"
+            *ngIf="ValidarFormulario('Equiv_KG').error"
             class="text-center invalid-feedback d-block"
           >
-            {{ ValidarFormulario("Cel_Tel_Cliente").message }}
+            {{ ValidarFormulario("Equiv_KG").message }}
           </div>
         </div>
       </div>

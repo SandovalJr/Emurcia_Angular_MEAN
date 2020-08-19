@@ -15,6 +15,11 @@ import {
   ReporteDeVentasService,
 } from "../.././../../../../../../services/reporteDeVentas.service";
 import { MessageErrorsService } from "../../../../../../../../services/messageError.service";
+
+// SWEETALERT 2
+// declarar variable de esta manera para que no marque err
+declare var require: any;
+const Swal = require("sweetalert2");
 @Component({
   selector: "app-agregar-venta-rv",
   templateUrl: "./agregar-venta-rv.component.html",
@@ -43,8 +48,8 @@ export class AgregarVentaRVComponent implements OnInit {
     Importe_credito: 0,
     Cel_Tel_Cliente: "",
     Litros_Consumo: null,
-    INV_CIL: 0,
-    Equiv_KG: 0,
+    INV_CIL: null,
+    Equiv_KG: null,
     Comentarios: "",
   };
 
@@ -128,14 +133,30 @@ export class AgregarVentaRVComponent implements OnInit {
     if (this.formulario.valid) {
       this.RVService.registerAuto(this.credentialsRV).subscribe(
         () => {
+          Swal.fire(
+            "Se Agrego Correctamente",
+            "Presiona para continuar..",
+            "success"
+          );
           this.router.navigateByUrl(
             `/SupervisorProfile/ReportesVentas/${this.details.marca}/${this.details.region}/${this.fecha}`
           );
         },
         (err) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Ya registraste esta venta",
+          });
           console.error(err);
         }
       );
+    } else {
+      Swal.fire({
+        title: "Campos Incompletos!",
+        text: "completa los necesarios para continuar",
+        icon: "warning",
+      });
     }
   }
 }
