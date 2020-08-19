@@ -125,15 +125,17 @@ export class AgregarVentaRVComponent implements OnInit {
 
     console.log(this.credentialsRV);
     console.log(this.formulario.valid);
-    // this.RVService.registerAuto(this.credentialsRV).subscribe(
-    //   () => {
-    //     this.router.navigateByUrl(
-    //       `/SupervisorProfile/ReportesVentas/${this.details.marca}/${this.details.region}/${this.fecha}`
-    //     );
-    //   },
-    //   (err) => {
-    //     console.error(err);
-    //   }
-    // );
+    if (this.formulario.valid) {
+      this.RVService.registerAuto(this.credentialsRV).subscribe(
+        () => {
+          this.router.navigateByUrl(
+            `/SupervisorProfile/ReportesVentas/${this.details.marca}/${this.details.region}/${this.fecha}`
+          );
+        },
+        (err) => {
+          console.error(err);
+        }
+      );
+    }
   }
 }
