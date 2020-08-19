@@ -38,11 +38,11 @@ export class AgregarVentaRVComponent implements OnInit {
     Venta_Kilos: 0,
     Precio_Prom: null,
     Importe_Liquidar: 0,
-    Recibe_caja_efectivo: 0,
+    Recibe_caja_efectivo: null,
     credito_cilindro: 0,
     Importe_credito: 0,
     Cel_Tel_Cliente: "",
-    Litros_Consumo: 0,
+    Litros_Consumo: null,
     INV_CIL: 0,
     Equiv_KG: 0,
     Comentarios: "",
@@ -90,15 +90,18 @@ export class AgregarVentaRVComponent implements OnInit {
       marca: new FormControl(null, []),
       region: new FormControl(null, []),
       auto: new FormControl(null, [RxwebValidators.required()]),
-      Cilidros_Vacios: new FormControl(null, [RxwebValidators.numeric()]),
+      Cilidros_Vacios: new FormControl(null, [
+        RxwebValidators.numeric(),
+        RxwebValidators.required(),
+      ]),
       Venta_Kilos: new FormControl(null, [RxwebValidators.numeric()]),
       Precio_Prom: new FormControl(null, [RxwebValidators.required()]),
       Importe_Liquidar: new FormControl(null, []),
-      Recibe_caja_efectivo: new FormControl(null, []),
+      Recibe_caja_efectivo: new FormControl(null, [RxwebValidators.required()]),
       credito_cilindro: new FormControl(null, []),
       Importe_credito: new FormControl(null, []),
       Cel_Tel_Cliente: new FormControl(null, []),
-      Litros_Consumo: new FormControl(null, []),
+      Litros_Consumo: new FormControl(null, [RxwebValidators.numeric()]),
       INV_CIL: new FormControl(null, []),
       Equiv_KG: new FormControl(null, []),
       Comentarios: new FormControl(null, [RxwebValidators.alphaNumeric()]),
@@ -114,6 +117,12 @@ export class AgregarVentaRVComponent implements OnInit {
 
   AgregarVenta() {
     this.credentialsRV.Equiv_KG = this.credentialsRV.Cilidros_Vacios * 30;
+
+    this.credentialsRV.Importe_Liquidar =
+      this.credentialsRV.Equiv_KG * this.credentialsRV.Precio_Prom -
+      this.credentialsRV.Recibe_caja_efectivo -
+      this.credentialsRV.Importe_credito;
+
     console.log(this.credentialsRV);
     console.log(this.formulario.valid);
     // this.RVService.registerAuto(this.credentialsRV).subscribe(
