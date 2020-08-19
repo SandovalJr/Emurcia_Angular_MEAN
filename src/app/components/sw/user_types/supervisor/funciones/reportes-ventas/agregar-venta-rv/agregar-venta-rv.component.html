@@ -177,6 +177,11 @@
             placeholder="Ingresa el importe a liquidar"
             formControlName="Importe_Liquidar"
             [(ngModel)]="credentialsRV.Importe_Liquidar"
+            value="{{
+              credentialsRV.Cilidros_Vacios * 30 * credentialsRV.Precio_Prom -
+                credentialsRV.Recibe_caja_efectivo -
+                credentialsRV.Importe_credito
+            }}"
             [ngClass]="{
               'is-valid': ValidarFormulario('Importe_Liquidar').error == false,
               'is-invalid': ValidarFormulario('Importe_Liquidar').error == true

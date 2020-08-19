@@ -89,10 +89,7 @@ export class AgregarVentaRVComponent implements OnInit {
     this.formulario = new FormGroup({
       marca: new FormControl(null, []),
       region: new FormControl(null, []),
-      auto: new FormControl(null, [
-        RxwebValidators.alphaNumeric(),
-        RxwebValidators.required(),
-      ]),
+      auto: new FormControl(null, [RxwebValidators.required()]),
       Cilidros_Vacios: new FormControl(null, [RxwebValidators.numeric()]),
       Venta_Kilos: new FormControl(null, [RxwebValidators.numeric()]),
       Precio_Prom: new FormControl(null, [RxwebValidators.required()]),
