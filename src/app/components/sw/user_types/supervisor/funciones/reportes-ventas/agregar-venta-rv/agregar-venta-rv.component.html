@@ -180,8 +180,9 @@
             value="{{
               credentialsRV.Cilidros_Vacios * 30 * credentialsRV.Precio_Prom -
                 credentialsRV.Recibe_caja_efectivo -
-                credentialsRV.Importe_credito
+                credentialsRV.Importe_credito | number:'1.2-2'
             }}"
+
             [ngClass]="{
               'is-valid': ValidarFormulario('Importe_Liquidar').error == false,
               'is-invalid': ValidarFormulario('Importe_Liquidar').error == true
