@@ -121,4 +121,27 @@ export class VerInfoDeVentasComponent implements OnInit {
       this.formulario.controls[control].errors
     );
   }
+
+  public RegresarListado() {
+    var f = new Date();
+    let año = f.getFullYear();
+    let mes = f.getMonth() + 1;
+    let dia = f.getDate();
+    console.log(mes);
+
+    if (mes > 0 && mes < 10) {
+      console.log("entre 0");
+
+      let fechaCom = `${año}-0${mes}-${dia}`;
+      this.router.navigate([
+        `/SupervisorProfile/ReportesVentas/${this.InfoVR.marca}/${this.InfoVR.region}/${fechaCom}`,
+      ]);
+    } else {
+      console.log("entre sin 0");
+      let fechaCom = `${año}-${mes}-${dia}`;
+      this.router.navigate([
+        `/SupervisorProfile/ReportesVentas/${this.InfoVR.marca}/${this.InfoVR.region}/${fechaCom}`,
+      ]);
+    }
+  }
 }
