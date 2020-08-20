@@ -27,6 +27,9 @@ const Swal = require("sweetalert2");
 })
 export class EditarVentasComponent implements OnInit {
   public formulario: FormGroup;
+  public id = this.activatedRouter.snapshot.paramMap.get("id");
+  public InfoVR = [];
+
   credentialsRV: ReporteVentasLoad = {
     id_RV: 0,
     marca: "",
@@ -56,6 +59,21 @@ export class EditarVentasComponent implements OnInit {
 
   ngOnInit(): void {
     this.creatForm();
+    this.RegresarInfoDeLaVenta();
+  }
+
+  public RegresarInfoDeLaVenta() {
+    console.log("id:" + this.id);
+    this.InfoVR = [];
+    this.RVService.ObtenerInfoId(this.id).subscribe(
+      (data) => {
+        this.InfoVR = data;
+        console.log(this.InfoVR);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   public creatForm() {
@@ -87,7 +105,4 @@ export class EditarVentasComponent implements OnInit {
       this.formulario.controls[control].errors
     );
   }
-
-
-
 }
