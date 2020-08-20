@@ -28,7 +28,7 @@ const Swal = require("sweetalert2");
 export class EditarVentasComponent implements OnInit {
   public formulario: FormGroup;
   public id = this.activatedRouter.snapshot.paramMap.get("id");
-  public InfoVR = [];
+  public InfoVR: ReporteVentasLoad;
 
   credentialsRV: ReporteVentasLoad = {
     id_RV: 0,
@@ -64,11 +64,25 @@ export class EditarVentasComponent implements OnInit {
 
   public RegresarInfoDeLaVenta() {
     console.log("id:" + this.id);
-    this.InfoVR = [];
     this.RVService.ObtenerInfoId(this.id).subscribe(
       (data) => {
         this.InfoVR = data;
         console.log(this.InfoVR);
+        this.credentialsRV.marca = this.InfoVR.marca;
+        this.credentialsRV.region = this.InfoVR.region;
+        this.credentialsRV.auto = this.InfoVR.auto;
+        this.credentialsRV.Cilidros_Vacios = this.InfoVR.Cilidros_Vacios;
+        this.credentialsRV.Venta_Kilos = this.InfoVR.Venta_Kilos;
+        this.credentialsRV.Precio_Prom = this.InfoVR.Precio_Prom;
+        this.credentialsRV.Importe_Liquidar = this.InfoVR.Importe_Liquidar;
+        this.credentialsRV.Recibe_caja_efectivo = this.InfoVR.Recibe_caja_efectivo;
+        this.credentialsRV.credito_cilindro = this.InfoVR.credito_cilindro;
+        this.credentialsRV.Importe_credito = this.credentialsRV.Importe_credito;
+        this.credentialsRV.Cel_Tel_Cliente = this.InfoVR.Cel_Tel_Cliente;
+        this.credentialsRV.Litros_Consumo = this.InfoVR.Litros_Consumo;
+        this.credentialsRV.INV_CIL = this.InfoVR.INV_CIL;
+        this.credentialsRV.Equiv_KG = this.InfoVR.Equiv_KG;
+        this.credentialsRV.Comentarios = this.InfoVR.Comentarios;
       },
       (err) => {
         console.log(err);
