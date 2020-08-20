@@ -81,6 +81,8 @@ import { AgregarVentaRVComponent } from "./components/sw/user_types/supervisor/f
 // VENDEDOR
 import { SidenavVendedorComponent } from "./components/sw/user_types/vendedor/sidenav-vendedor/sidenav-vendedor.component";
 import { IniciovendedorComponent } from "./components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component";
+import { EditarVentasComponent } from './components/sw/user_types/supervisor/funciones/reportes-ventas/editar-ventas/editar-ventas.component';
+import { VerInfoDeVentasComponent } from './components/sw/user_types/supervisor/funciones/reportes-ventas/ver-info-de-ventas/ver-info-de-ventas.component';
 
 @NgModule({
   declarations: [
@@ -117,6 +119,8 @@ import { IniciovendedorComponent } from "./components/sw/user_types/vendedor/ini
     ReportesVentasComponent,
     BuscarVentasRVComponent,
     AgregarVentaRVComponent,
+    EditarVentasComponent,
+    VerInfoDeVentasComponent,
   ],
   imports: [
     BrowserModule,

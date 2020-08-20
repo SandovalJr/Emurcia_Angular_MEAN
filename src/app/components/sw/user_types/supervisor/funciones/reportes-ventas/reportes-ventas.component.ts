@@ -69,5 +69,8 @@ export class ReportesVentasComponent implements OnInit {
     );
   }
 
+  public EditarVenta(id: any) {
+
+  }
 
 }
