@@ -36,7 +36,8 @@ import { VerInformacionAutoTanqueComponent } from "../components/sw/user_types/s
 import { ReportesVentasComponent } from "../components/sw/user_types/supervisor/funciones/reportes-ventas/reportes-ventas.component";
 import { AgregarVentaRVComponent } from "../components/sw/user_types/supervisor/funciones/reportes-ventas/agregar-venta-rv/agregar-venta-rv.component";
 import { BuscarVentasRVComponent } from "../components/sw/user_types/supervisor/funciones/reportes-ventas/buscar-ventas-rv/buscar-ventas-rv.component";
-
+import { VerInfoDeVentasComponent } from "../components/sw/user_types/supervisor/funciones/reportes-ventas/ver-info-de-ventas/ver-info-de-ventas.component";
+import { EditarVentasComponent } from "../components/sw/user_types/supervisor/funciones/reportes-ventas/editar-ventas/editar-ventas.component";
 // VENDEDOR
 import { IniciovendedorComponent } from "../components/sw/user_types/vendedor/iniciovendedor/iniciovendedor.component";
 
@@ -131,6 +132,16 @@ const routes: Routes = [
       {
         path: "AgregarVentaRVComponent",
         component: AgregarVentaRVComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: "Editar_Venta/:id",
+        component: EditarVentasComponent,
+        canActivate: [AuthGuardService],
+      },
+      {
+        path: "Ver_Venta/:id",
+        component: VerInfoDeVentasComponent,
         canActivate: [AuthGuardService],
       },
     ],
