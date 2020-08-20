@@ -1,1 +1,393 @@
-<p>ver-info-de-ventas works!</p>
+<p class="titulos">Ver Informacio De La Venta</p>
+
+<div class="lineas">
+  <div class="LA"></div>
+  <div class="LR"></div>
+</div>
+
+<div class="container mt-5">
+  <form class="login100-form validate-form">
+    <ng-container [formGroup]="formulario">
+      <div class="row md-form">
+        <div class="col">
+          <div class="text-center d-block">
+            Grupo al que perteneces
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="marca"
+            disabled
+            formControlName="marca"
+            [(ngModel)]="credentialsRV.marca"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('marca').error == false,
+              'is-invalid': ValidarFormulario('marca').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('marca').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("marca").message }}
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-center d-block">
+            Ubicación
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="region"
+            disabled
+            formControlName="region"
+            [(ngModel)]="credentialsRV.region"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('region').error == false,
+              'is-invalid': ValidarFormulario('region').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('region').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("region").message }}
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-center d-block">
+            Fecha
+          </div>
+          <input type="text" disabled class="form-control text-center" />
+        </div>
+      </div>
+
+      <div class="row md-form">
+        <div class="col">
+          <div class="text-center d-block">
+            Auto
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="auto"
+            placeholder="Ingresa El Auto"
+            formControlName="auto"
+            [(ngModel)]="credentialsRV.auto"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('auto').error == false,
+              'is-invalid': ValidarFormulario('auto').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('auto').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("auto").message }}
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-center d-block">
+            Cilindros Vacios
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="Cilidros_Vacios"
+            placeholder="Ingresa Los Cilindros Vacios"
+            formControlName="Cilidros_Vacios"
+            [(ngModel)]="credentialsRV.Cilidros_Vacios"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('Cilidros_Vacios').error == false,
+              'is-invalid': ValidarFormulario('Cilidros_Vacios').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('Cilidros_Vacios').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("Cilidros_Vacios").message }}
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="text-center d-block">
+            Venta Por Kilos
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="Venta_Kilos"
+            placeholder="Ingresa Los Cilindros Vacios"
+            formControlName="Venta_Kilos"
+            [(ngModel)]="credentialsRV.Venta_Kilos"
+            disabled
+            value="{{ credentialsRV.Cilidros_Vacios * 30 }}"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('Venta_Kilos').error == false,
+              'is-invalid': ValidarFormulario('Venta_Kilos').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('Venta_Kilos').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("Venta_Kilos").message }}
+          </div>
+        </div>
+      </div>
+
+      <div class="row md-form">
+        <div class="col">
+          <div class="text-center d-block">
+            Precio Prom
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="Precio_Prom"
+            placeholder="Ingresa el precio"
+            formControlName="Precio_Prom"
+            [(ngModel)]="credentialsRV.Precio_Prom"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('Precio_Prom').error == false,
+              'is-invalid': ValidarFormulario('Precio_Prom').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('Precio_Prom').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("Precio_Prom").message }}
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-center d-block">
+            Importe a liquidar
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="Importe_Liquidar"
+            placeholder="Ingresa el importe a liquidar"
+            formControlName="Importe_Liquidar"
+            [(ngModel)]="credentialsRV.Importe_Liquidar"
+            disabled
+            value="{{
+              credentialsRV.Cilidros_Vacios * 30 * credentialsRV.Precio_Prom -
+                credentialsRV.Recibe_caja_efectivo -
+                credentialsRV.Importe_credito | number: '1.2-2'
+            }}"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('Importe_Liquidar').error == false,
+              'is-invalid': ValidarFormulario('Importe_Liquidar').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('Importe_Liquidar').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("Importe_Liquidar").message }}
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-center d-block">
+            Recibe caja efectivo
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="Recibe_caja_efectivo"
+            placeholder="Ingresa lo que recibe en efectivo"
+            formControlName="Recibe_caja_efectivo"
+            [(ngModel)]="credentialsRV.Recibe_caja_efectivo"
+            [ngClass]="{
+              'is-valid':
+                ValidarFormulario('Recibe_caja_efectivo').error == false,
+              'is-invalid':
+                ValidarFormulario('Recibe_caja_efectivo').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('Recibe_caja_efectivo').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("Recibe_caja_efectivo").message }}
+          </div>
+        </div>
+      </div>
+
+      <div class="row md-form">
+        <div class="col">
+          <div class="text-center d-block">
+            Credito Cilindro
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="credito_cilindro"
+            placeholder="Ingresa el credito cilindro"
+            formControlName="credito_cilindro"
+            [(ngModel)]="credentialsRV.credito_cilindro"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('credito_cilindro').error == false,
+              'is-invalid': ValidarFormulario('credito_cilindro').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('credito_cilindro').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("credito_cilindro").message }}
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-center d-block">
+            Importe de credito
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="Importe_credito"
+            placeholder="Ingresa el importe de credito"
+            formControlName="Importe_credito"
+            [(ngModel)]="credentialsRV.Importe_credito"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('Importe_credito').error == false,
+              'is-invalid': ValidarFormulario('Importe_credito').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('Importe_credito').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("Importe_credito").message }}
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-center d-block">
+            Cel/Tel Cliente
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="Cel_Tel_Cliente"
+            placeholder="Ingresa el equivalente en kg"
+            formControlName="Cel_Tel_Cliente"
+            [(ngModel)]="credentialsRV.Cel_Tel_Cliente"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('Cel_Tel_Cliente').error == false,
+              'is-invalid': ValidarFormulario('Cel_Tel_Cliente').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('Cel_Tel_Cliente').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("Cel_Tel_Cliente").message }}
+          </div>
+        </div>
+      </div>
+
+      <div class="row md-form">
+        <div class="col">
+          <div class="text-center d-block">
+            Litros Consumo
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="Litros_Consumo"
+            placeholder="Ingresa los litros en consumo"
+            formControlName="Litros_Consumo"
+            [(ngModel)]="credentialsRV.Litros_Consumo"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('Litros_Consumo').error == false,
+              'is-invalid': ValidarFormulario('Litros_Consumo').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('Litros_Consumo').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("Litros_Consumo").message }}
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-center d-block">
+            INV CIL
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="INV_CIL"
+            placeholder="Ingresa Inv Cil"
+            formControlName="INV_CIL"
+            [(ngModel)]="credentialsRV.INV_CIL"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('INV_CIL').error == false,
+              'is-invalid': ValidarFormulario('INV_CIL').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('INV_CIL').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("INV_CIL").message }}
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-center d-block">
+            Equiv KG
+          </div>
+          <input
+            type="text"
+            class="form-control text-center"
+            name="Equiv_KG"
+            placeholder="Ingresa el equiv en KG"
+            formControlName="Equiv_KG"
+            [(ngModel)]="credentialsRV.Equiv_KG"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('Equiv_KG').error == false,
+              'is-invalid': ValidarFormulario('Equiv_KG').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('Equiv_KG').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("Equiv_KG").message }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 md-form">
+        <textarea
+          class="form-control"
+          name="Comentarios"
+          formControlName="Comentarios"
+          [(ngModel)]="credentialsRV.Comentarios"
+          [ngClass]="{
+            'is-valid': ValidarFormulario('Comentarios').error == false,
+            'is-invalid': ValidarFormulario('Comentarios').error == true
+          }"
+          cols="30"
+          rows="5"
+          placeholder=" Escribe tus Comentarios"
+        ></textarea>
+        <div
+          *ngIf="ValidarFormulario('Comentarios').error"
+          class="text-center invalid-feedback d-block"
+        >
+          {{ ValidarFormulario("Comentarios").message }}
+        </div>
+      </div>
+    </ng-container>
+    <div class="boton">
+      <button type="submit" class="btn agregarUser">
+        Regresar
+      </button>
+    </div>
+  </form>
+</div>
