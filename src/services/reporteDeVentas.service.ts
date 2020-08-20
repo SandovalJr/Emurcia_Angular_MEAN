@@ -43,6 +43,25 @@ export interface ReporteVentasLoad {
   Comentarios: string;
   Cilidros_Vacios: number;
 }
+export interface ReporteVentasLoad2 {
+  id_RV: number;
+  marca: string;
+  region: string;
+  auto: string;
+  Venta_Kilos: number;
+  Precio_Prom: number;
+  Importe_Liquidar: number;
+  Recibe_caja_efectivo: number;
+  credito_cilindro: number;
+  Importe_credito: number;
+  Cel_Tel_Cliente: string;
+  Litros_Consumo: number;
+  INV_CIL: number;
+  Equiv_KG: number;
+  Comentarios: string;
+  Cilidros_Vacios: number;
+  createdAt: string;
+}
 
 @Injectable()
 export class ReporteDeVentasService {

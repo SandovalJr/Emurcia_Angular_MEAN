@@ -59,7 +59,14 @@
           <div class="text-center d-block">
             Fecha
           </div>
-          <input type="text" disabled class="form-control text-center" />
+          <input
+            type="text"
+            name="createdAt"
+            disabled
+            class="form-control text-center"
+            formControlName="createdAt"
+            [(ngModel)]="this.credentialsRV.createdAt"
+          />
         </div>
       </div>
 
@@ -72,6 +79,7 @@
             type="text"
             class="form-control text-center"
             name="auto"
+            disabled
             placeholder="Ingresa El Auto"
             formControlName="auto"
             [(ngModel)]="credentialsRV.auto"
@@ -93,6 +101,7 @@
           </div>
           <input
             type="text"
+            disabled
             class="form-control text-center"
             name="Cilidros_Vacios"
             placeholder="Ingresa Los Cilindros Vacios"
@@ -149,6 +158,7 @@
             name="Precio_Prom"
             placeholder="Ingresa el precio"
             formControlName="Precio_Prom"
+            disabled
             [(ngModel)]="credentialsRV.Precio_Prom"
             [ngClass]="{
               'is-valid': ValidarFormulario('Precio_Prom').error == false,
@@ -202,6 +212,7 @@
             placeholder="Ingresa lo que recibe en efectivo"
             formControlName="Recibe_caja_efectivo"
             [(ngModel)]="credentialsRV.Recibe_caja_efectivo"
+            disabled
             [ngClass]="{
               'is-valid':
                 ValidarFormulario('Recibe_caja_efectivo').error == false,
@@ -230,6 +241,7 @@
             placeholder="Ingresa el credito cilindro"
             formControlName="credito_cilindro"
             [(ngModel)]="credentialsRV.credito_cilindro"
+            disabled
             [ngClass]="{
               'is-valid': ValidarFormulario('credito_cilindro').error == false,
               'is-invalid': ValidarFormulario('credito_cilindro').error == true
@@ -250,6 +262,7 @@
             type="text"
             class="form-control text-center"
             name="Importe_credito"
+            disabled
             placeholder="Ingresa el importe de credito"
             formControlName="Importe_credito"
             [(ngModel)]="credentialsRV.Importe_credito"
@@ -273,7 +286,8 @@
             type="text"
             class="form-control text-center"
             name="Cel_Tel_Cliente"
-            placeholder="Ingresa el equivalente en kg"
+            disabled
+            placeholder="Ingresa el cel/tel de el cliente"
             formControlName="Cel_Tel_Cliente"
             [(ngModel)]="credentialsRV.Cel_Tel_Cliente"
             [ngClass]="{
@@ -299,6 +313,7 @@
             type="text"
             class="form-control text-center"
             name="Litros_Consumo"
+            disabled
             placeholder="Ingresa los litros en consumo"
             formControlName="Litros_Consumo"
             [(ngModel)]="credentialsRV.Litros_Consumo"
@@ -320,6 +335,7 @@
           </div>
           <input
             type="text"
+            disabled
             class="form-control text-center"
             name="INV_CIL"
             placeholder="Ingresa Inv Cil"
@@ -345,7 +361,8 @@
             type="text"
             class="form-control text-center"
             name="Equiv_KG"
-            placeholder="Ingresa el equiv en KG"
+            disabled
+            placeholder="No existe esta informacion"
             formControlName="Equiv_KG"
             [(ngModel)]="credentialsRV.Equiv_KG"
             [ngClass]="{
@@ -367,6 +384,7 @@
           class="form-control"
           name="Comentarios"
           formControlName="Comentarios"
+          disabled
           [(ngModel)]="credentialsRV.Comentarios"
           [ngClass]="{
             'is-valid': ValidarFormulario('Comentarios').error == false,
@@ -374,7 +392,7 @@
           }"
           cols="30"
           rows="5"
-          placeholder=" Escribe tus Comentarios"
+          placeholder="No hay ningun comentario"
         ></textarea>
         <div
           *ngIf="ValidarFormulario('Comentarios').error"

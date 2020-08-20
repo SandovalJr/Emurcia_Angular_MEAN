@@ -1,4 +1,4 @@
-<p class="titulos">Actualizar Venta</p>
+<p class="titulos">Ver Informacio De La Venta</p>
 
 <div class="lineas">
   <div class="LA"></div>
@@ -59,7 +59,14 @@
           <div class="text-center d-block">
             Fecha
           </div>
-          <input type="text" disabled class="form-control text-center" />
+          <input
+            type="text"
+            name="createdAt"
+            disabled
+            class="form-control text-center"
+            formControlName="createdAt"
+            [(ngModel)]="this.credentialsRV.createdAt"
+          />
         </div>
       </div>
 
@@ -273,7 +280,7 @@
             type="text"
             class="form-control text-center"
             name="Cel_Tel_Cliente"
-            placeholder="Ingresa el equivalente en kg"
+            placeholder="Ingresa el cel/tel de el cliente"
             formControlName="Cel_Tel_Cliente"
             [(ngModel)]="credentialsRV.Cel_Tel_Cliente"
             [ngClass]="{
@@ -386,7 +393,7 @@
     </ng-container>
     <div class="boton">
       <button type="submit" class="btn agregarUser">
-        Actualizar Venta
+        Regresar
       </button>
     </div>
   </form>
