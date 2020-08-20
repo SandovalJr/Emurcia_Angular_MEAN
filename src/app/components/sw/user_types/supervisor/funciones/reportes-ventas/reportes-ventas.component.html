@@ -7,12 +7,85 @@
 
 <div class="container">
   <div class="row">
-    <button mdbBtn type="button" class="colorbtn" (click)="AgregarVenta()" mdbWavesEffect>
+    <button
+      mdbBtn
+      type="button"
+      class="colorbtn"
+      (click)="AgregarVenta()"
+      mdbWavesEffect
+    >
       Agregar Venta
     </button>
 
     <button mdbBtn type="button" class="colorbtn" mdbWavesEffect>
       Buscar Reportes De Venta
     </button>
+  </div>
+</div>
+
+<div class="contenedorInput">
+  <div class="form-inline md-form form-sm centrar">
+    <span class="iconColor">
+      <mdb-icon
+        fas
+        icon="search"
+        style="color: white;"
+        aria-hidden="true"
+      ></mdb-icon>
+    </span>
+
+    <input
+      [(ngModel)]="serach_VRhoy"
+      class="form-control form-control-sm ml-3 w-75"
+      type="text"
+      placeholder="Buscar"
+      aria-describedby="helpId"
+      aria-label="Search"
+      mdbInput
+    />
+  </div>
+</div>
+
+<div class="contenedor">
+  <p class="titulosVenta">Venta Actual</p>
+
+  <div class="table-responsive mt-3">
+    <table class="table">
+      <thead>
+        <tr class="ttabla">
+          <th>Auto</th>
+          <th>Cilindros Vacios</th>
+          <th>Ventas Kilos</th>
+          <th>P.Prom</th>
+          <th>Importe a Liquidar</th>
+          <th>Recibe Caja / Efectivo</th>
+          <th>OPERACIONES</th>
+        </tr>
+      </thead>
+      <tbody hover="true">
+
+        <tr appTablehover *ngFor="let hoyVenta of VentaAct">
+          <td class="tc">{{hoyVenta.auto}}</td>
+          <td class="operaciones">
+            <button class="btn btn-outline-danger">
+              <mat-icon>delete_forever</mat-icon>
+            </button>
+            <button class="btn btn-outline-warning">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button class="btn btn-outline-info">
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="mt-4 float-right">
+      <pagination-controls
+        (pageChange)="pageActual = $event"
+        previousLabel="Anterior"
+        nextLabel="Siguiente"
+      ></pagination-controls>
+    </div>
   </div>
 </div>

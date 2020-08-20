@@ -79,8 +79,9 @@ export class SideNavSupervisorComponent implements OnInit {
   GoToReportesVentaAutos(marca: any, region: any) {
     var f = new Date();
     let año = f.getFullYear();
-    let mes = f.getMonth();
+    let mes = f.getMonth() + 1;
     let dia = f.getDate();
+    console.log(mes);
 
     if (mes > 0 && mes < 10) {
       console.log("entre 0");

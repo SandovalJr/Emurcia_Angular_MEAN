@@ -7,7 +7,14 @@
   margin-top: 20px;
   margin-bottom: 0;
 }
-
+.titulosVenta {
+  text-align: center;
+  font-size: 25px;
+  font-family: oswald;
+  color: #41434d;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
 .lineas {
   display: flex;
   justify-content: center;
@@ -38,4 +45,39 @@
     border: 1px #41434d solid;
     font-family: Roboto;
   }
+}
+
+.iconColor {
+  background: #41434d;
+  padding: 5px;
+  border-radius: 7%;
+  padding-left: 10px;
+  padding-right: 10px;
+  // margin-left: 2px;
+}
+
+.ttabla {
+  // margin-top: 30px;
+  background: #41434d;
+  font-family: oswald;
+  color: white;
+  text-align: center;
+}
+
+.contenedor {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.operaciones {
+  display: flex;
+  justify-content: center;
+}
+
+.contenedorInput {
+  display: flex;
+  justify-content: center;
+}
+.tc {
+  text-align: center;
 }
