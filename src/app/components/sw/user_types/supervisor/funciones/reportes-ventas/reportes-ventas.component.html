@@ -63,7 +63,8 @@
         </tr>
       </thead>
       <tbody hover="true">
-        <tr appTablehover *ngFor="let hoyVenta of VentaAct">
+        <tr appTablehover *ngFor="let hoyVenta of VentaAct  | filter: serach_VRhoy
+        | paginate: { itemsPerPage: 5, currentPage: pageActual }">
           <td class="tc">{{ hoyVenta.auto }}</td>
           <td class="tc">{{ hoyVenta.Cilidros_Vacios }}</td>
           <td class="tc">{{ hoyVenta.Venta_Kilos }}</td>
