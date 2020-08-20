@@ -82,7 +82,7 @@ export class AgregarVentaRVComponent implements OnInit {
   public creatForm() {
     var f = new Date();
     let año = f.getFullYear();
-    let mes = f.getMonth();
+    let mes = f.getMonth() + 1;
     let dia = f.getDate();
     // LA FECHA SOLO SE MUESTRA NO SE MANDA AL BACK
     if (mes > 0 && mes < 10) {
@@ -107,8 +107,8 @@ export class AgregarVentaRVComponent implements OnInit {
       Importe_credito: new FormControl(null, []),
       Cel_Tel_Cliente: new FormControl(null, []),
       Litros_Consumo: new FormControl(null, [RxwebValidators.numeric()]),
-      INV_CIL: new FormControl(null, []),
-      Equiv_KG: new FormControl(null, []),
+      INV_CIL: new FormControl(null, [RxwebValidators.required()]),
+      Equiv_KG: new FormControl(null, [RxwebValidators.required()]),
       Comentarios: new FormControl(null, [RxwebValidators.alphaNumeric()]),
     });
   }
@@ -121,7 +121,7 @@ export class AgregarVentaRVComponent implements OnInit {
   }
 
   AgregarVenta() {
-    this.credentialsRV.Equiv_KG = this.credentialsRV.Cilidros_Vacios * 30;
+    this.credentialsRV.Venta_Kilos = this.credentialsRV.Cilidros_Vacios * 30;
 
     this.credentialsRV.Importe_Liquidar =
       this.credentialsRV.Equiv_KG * this.credentialsRV.Precio_Prom -
