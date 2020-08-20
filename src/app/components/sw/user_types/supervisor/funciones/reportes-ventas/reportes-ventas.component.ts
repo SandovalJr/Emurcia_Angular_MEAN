@@ -74,7 +74,7 @@ export class ReportesVentasComponent implements OnInit {
   }
 
   public VerVentaInfor(id: any) {
-    this.router.navigateByUrl(`Ver_Venta/${id}`);
+    this.router.navigateByUrl(`SupervisorProfile/Ver_Venta/${id}`);
   }
 
 
