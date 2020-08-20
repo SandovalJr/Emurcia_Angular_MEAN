@@ -11,7 +11,7 @@ import {
   UserDetails,
 } from "../../../../../../../../services/authentication.service";
 import {
-  ReporteVentasLoad,
+  ReporteVentasLoad2,
   ReporteDeVentasService,
 } from "../.././../../../../../../services/reporteDeVentas.service";
 import { MessageErrorsService } from "../../../../../../../../services/messageError.service";
@@ -28,9 +28,9 @@ const Swal = require("sweetalert2");
 export class EditarVentasComponent implements OnInit {
   public formulario: FormGroup;
   public id = this.activatedRouter.snapshot.paramMap.get("id");
-  public InfoVR: ReporteVentasLoad;
+  public InfoVR: ReporteVentasLoad2;
 
-  credentialsRV: ReporteVentasLoad = {
+  credentialsRV: ReporteVentasLoad2 = {
     id_RV: 0,
     marca: "",
     region: "",
@@ -46,6 +46,7 @@ export class EditarVentasComponent implements OnInit {
     Litros_Consumo: null,
     INV_CIL: null,
     Equiv_KG: null,
+    createdAt: "",
     Comentarios: "",
   };
 
@@ -74,7 +75,7 @@ export class EditarVentasComponent implements OnInit {
         this.credentialsRV.Cilidros_Vacios = this.InfoVR.Cilidros_Vacios;
         this.credentialsRV.Venta_Kilos = this.InfoVR.Venta_Kilos;
         this.credentialsRV.Precio_Prom = this.InfoVR.Precio_Prom;
-        this.credentialsRV.Importe_Liquidar = this.InfoVR.Importe_Liquidar;
+        // this.credentialsRV.Importe_Liquidar = this.InfoVR.Importe_Liquidar;
         this.credentialsRV.Recibe_caja_efectivo = this.InfoVR.Recibe_caja_efectivo;
         this.credentialsRV.credito_cilindro = this.InfoVR.credito_cilindro;
         this.credentialsRV.Importe_credito = this.credentialsRV.Importe_credito;
@@ -83,6 +84,7 @@ export class EditarVentasComponent implements OnInit {
         this.credentialsRV.INV_CIL = this.InfoVR.INV_CIL;
         this.credentialsRV.Equiv_KG = this.InfoVR.Equiv_KG;
         this.credentialsRV.Comentarios = this.InfoVR.Comentarios;
+        this.credentialsRV.createdAt = this.InfoVR.createdAt;
       },
       (err) => {
         console.log(err);
@@ -110,6 +112,7 @@ export class EditarVentasComponent implements OnInit {
       INV_CIL: new FormControl(null, [RxwebValidators.required()]),
       Equiv_KG: new FormControl(null, [RxwebValidators.required()]),
       Comentarios: new FormControl(null, [RxwebValidators.alphaNumeric()]),
+      createdAt: new FormControl(null, []),
     });
   }
 
