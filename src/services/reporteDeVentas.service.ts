@@ -67,6 +67,10 @@ export class ReporteDeVentasService {
   // Listar info por id
 
   // Eliminar
+  public EliminarVenta(id: any): Observable<any> {
+    console.log(id);
+    return this.http.get(`${this.baseUrl}EliminarVenta/${id}`);
+  }
 
   // Actualizar
 }

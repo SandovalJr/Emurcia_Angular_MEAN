@@ -16,6 +16,7 @@ export class ReportesVentasComponent implements OnInit {
   public marca = this.activatedRouter.snapshot.paramMap.get("marca");
   public region = this.activatedRouter.snapshot.paramMap.get("region");
   public createdAt = this.activatedRouter.snapshot.paramMap.get("createdAt");
+
   constructor(
     private activatedRouter: ActivatedRoute,
     private router: Router,
@@ -55,4 +56,18 @@ export class ReportesVentasComponent implements OnInit {
       }
     );
   }
+
+  public ElimiarVenta(id: any) {
+    this.RVService.EliminarVenta(id).subscribe(
+      () => {
+        window.location.reload();
+        // console.log("Eliminado con exito");
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+
 }

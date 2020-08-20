@@ -72,7 +72,7 @@
           <td class="tc">{{ hoyVenta.Importe_Liquidar | number: '1.2-2' }}</td>
           <td class="tc">{{ hoyVenta.Recibe_caja_efectivo }}</td>
           <td class="operaciones">
-            <button class="btn btn-outline-danger">
+            <button class="btn btn-outline-danger" (click)="ElimiarVenta(hoyVenta.id_RV)">
               <mat-icon>delete_forever</mat-icon>
             </button>
             <button class="btn btn-outline-warning">
