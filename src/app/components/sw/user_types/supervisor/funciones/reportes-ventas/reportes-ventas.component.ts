@@ -70,7 +70,12 @@ export class ReportesVentasComponent implements OnInit {
   }
 
   public EditarVenta(id: any) {
-
+    this.router.navigateByUrl(`SupervisorProfile/Editar_Venta/${id}`);
   }
+
+  public VerVentaInfor(id: any) {
+    this.router.navigateByUrl(`Ver_Venta/${id}`);
+  }
+
 
 }
