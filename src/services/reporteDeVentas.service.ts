@@ -65,6 +65,9 @@ export class ReporteDeVentasService {
   }
 
   // Listar info por id
+  public ObtenerInfoId(id: any): Observable<any> {
+    return this.http.get(`${this.baseUrl}ListarIdRV/${id}`);
+  }
 
   // Eliminar
   public EliminarVenta(id: any): Observable<any> {
