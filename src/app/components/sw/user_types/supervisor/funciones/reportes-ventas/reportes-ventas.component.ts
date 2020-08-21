@@ -13,6 +13,8 @@ export class ReportesVentasComponent implements OnInit {
   serach_VRhoy: any;
   pageActual: number = 1;
   VentaAct = [];
+  loading: boolean = false;
+
   public marca = this.activatedRouter.snapshot.paramMap.get("marca");
   public region = this.activatedRouter.snapshot.paramMap.get("region");
   public createdAt = this.activatedRouter.snapshot.paramMap.get("createdAt");
@@ -48,7 +50,7 @@ export class ReportesVentasComponent implements OnInit {
     ).subscribe(
       (venta) => {
         this.VentaAct = venta;
-        // loading true
+        this.loading = true;
       },
       (err) => {
         console.log(err);
@@ -75,6 +77,4 @@ export class ReportesVentasComponent implements OnInit {
   public VerVentaInfor(id: any) {
     this.router.navigateByUrl(`SupervisorProfile/Ver_Venta/${id}`);
   }
-
-
 }

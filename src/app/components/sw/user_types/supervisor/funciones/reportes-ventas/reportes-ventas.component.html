@@ -23,7 +23,34 @@
   </div>
 </div>
 
-<div class="contenedorInput">
+<div *ngIf="!loading" class="contenedorload">
+  <div class="spinner-grow text-warning" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-danger" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-warning" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-danger" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-warning" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-danger" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-warning" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-danger" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<div class="contenedorInput" *ngIf="loading">
   <div class="form-inline md-form form-sm centrar">
     <span class="iconColor">
       <mdb-icon
@@ -46,7 +73,7 @@
   </div>
 </div>
 
-<div class="contenedor">
+<div class="contenedor" *ngIf="loading">
   <p class="titulosVenta">Venta Actual</p>
 
   <div class="table-responsive mt-3">
