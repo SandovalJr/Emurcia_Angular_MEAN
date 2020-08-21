@@ -48,7 +48,6 @@ export class ReportesVentasComponent implements OnInit {
     ).subscribe(
       (venta) => {
         this.VentaAct = venta;
-        console.log(this.VentaAct);
         // loading true
       },
       (err) => {

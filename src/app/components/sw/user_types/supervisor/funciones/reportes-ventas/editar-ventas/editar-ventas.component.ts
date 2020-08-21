@@ -122,4 +122,49 @@ export class EditarVentasComponent implements OnInit {
       this.formulario.controls[control].errors
     );
   }
+
+  public EditarInformacion() {
+    var f = new Date();
+    let año = f.getFullYear();
+    let mes = f.getMonth() + 1;
+    let dia = f.getDate();
+    console.log(mes);
+
+    if (mes > 0 && mes < 10) {
+      console.log("entre 0");
+
+      let fechaCom = `${año}-0${mes}-${dia}`;
+
+      const id = this.activatedRouter.snapshot.paramMap.get("id");
+      // console.log(id);
+      if (this.formulario.valid) {
+        this.RVService.ActualizarInfoRV(id, this.credentialsRV).subscribe(
+          () => {
+            Swal.fire(
+              "Se Actualizo Correctamente",
+              "Presiona para continuar..",
+              "success"
+            );
+            this.router.navigateByUrl(
+              `/SupervisorProfile/ReportesVentas/${this.InfoVR.marca}/${this.InfoVR.region}/${fechaCom}`
+            );
+          },
+          (err) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Error al actualizar",
+            });
+            console.error(err);
+          }
+        );
+      } else {
+        Swal.fire({
+          title: "Campos Incompletos!",
+          text: "completa todos para continuar",
+          icon: "warning",
+        });
+      }
+    }
+  }
 }

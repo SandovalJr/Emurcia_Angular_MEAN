@@ -75,9 +75,6 @@ export class ReporteDeVentasService {
   }
   // Listar Venta del dia actual
   public ListarRVHoy(marca: any, region: any, createdAt: any): Observable<any> {
-    console.log(
-      `la fecha es ${createdAt} la marca es ${marca} la region es ${region}`
-    );
     return this.http.get(
       `${this.baseUrl}/listarReportesVentas/${marca}/${region}/${createdAt}`
     );
@@ -90,7 +87,6 @@ export class ReporteDeVentasService {
 
   // Eliminar
   public EliminarVenta(id: any): Observable<any> {
-    console.log(id);
     return this.http.get(`${this.baseUrl}EliminarVenta/${id}`);
   }
 
@@ -99,8 +95,6 @@ export class ReporteDeVentasService {
     id: any,
     dataInfo: ReporteVentasLoad2
   ): Observable<any> {
-    console.log(dataInfo);
-    console.log(id);
     return this.http.put(
       `${this.baseUrl}ActualizarIDReporteVentas/${id}`,
       dataInfo
