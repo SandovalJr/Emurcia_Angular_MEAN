@@ -56,7 +56,17 @@ export class VerInfoDeVentasComponent implements OnInit {
     private MessageErrorSvr: MessageErrorsService,
     private auth: AuthenticationService,
     private RVService: ReporteDeVentasService
-  ) {}
+  ) {
+    Swal.fire({
+      title: "<strong>AVISO!</strong>",
+      icon: "info",
+      html: "Solo podras ver la <b>Informacion</b>",
+      showCloseButton: true,
+
+      focusConfirm: false,
+      confirmButtonText: '<i class="fa fa-thumbs-up"></i> OK!',
+    });
+  }
 
   ngOnInit(): void {
     this.creatForm();
