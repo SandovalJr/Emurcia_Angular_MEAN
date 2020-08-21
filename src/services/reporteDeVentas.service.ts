@@ -95,4 +95,15 @@ export class ReporteDeVentasService {
   }
 
   // Actualizar
+  public ActualizarInfoRV(
+    id: any,
+    dataInfo: ReporteVentasLoad2
+  ): Observable<any> {
+    console.log(dataInfo);
+    console.log(id);
+    return this.http.put(
+      `${this.baseUrl}ActualizarIDReporteVentas/${id}`,
+      dataInfo
+    );
+  }
 }
