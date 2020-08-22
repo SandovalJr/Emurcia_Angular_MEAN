@@ -14,7 +14,7 @@ export class ReportesVentasComponent implements OnInit {
   pageActual: number = 1;
   VentaAct = [];
   loading: boolean = false;
-
+  T_Kilos = 0;
   public marca = this.activatedRouter.snapshot.paramMap.get("marca");
   public region = this.activatedRouter.snapshot.paramMap.get("region");
   public createdAt = this.activatedRouter.snapshot.paramMap.get("createdAt");
@@ -43,6 +43,7 @@ export class ReportesVentasComponent implements OnInit {
     let region = this.activatedRouter.snapshot.paramMap.get("region");
     console.log();
     this.VentaAct = [];
+
     this.RVService.ListarRVHoy(
       this.marca,
       this.region,
@@ -51,11 +52,22 @@ export class ReportesVentasComponent implements OnInit {
       (venta) => {
         this.VentaAct = venta;
         this.loading = true;
+        console.log(this.VentaAct);
+        this.RealizarTotales();
       },
       (err) => {
         console.log(err);
       }
     );
+  }
+
+  public RealizarTotales() {
+    if ((this.loading = true)) {
+      for (let i = 0; i < this.VentaAct.length; i++) {
+        this.T_Kilos += this.VentaAct[i].Venta_Kilos;
+      }
+      console.log("El total de kilos es " + this.T_Kilos);
+    }
   }
 
   public ElimiarVenta(id: any) {
