@@ -17,6 +17,12 @@ export class ReportesVentasComponent implements OnInit {
   T_Kilos = 0;
   T_Cil = 0;
   T_RecibeEfectivo = 0;
+  // Credito
+  T_credito_Cil = 0;
+  T_ImporteCredito = 0;
+  // Inv
+  T_INV_CIL = 0;
+  T_EquivKG = 0;
 
   public marca = this.activatedRouter.snapshot.paramMap.get("marca");
   public region = this.activatedRouter.snapshot.paramMap.get("region");
@@ -70,12 +76,19 @@ export class ReportesVentasComponent implements OnInit {
         this.T_Kilos += this.VentaAct[i].Venta_Kilos;
         this.T_Cil += this.VentaAct[i].Importe_Liquidar;
         this.T_RecibeEfectivo += this.VentaAct[i].Recibe_caja_efectivo;
+        this.T_credito_Cil += this.VentaAct[i].credito_cilindro;
+        this.T_ImporteCredito += this.VentaAct[i].Importe_credito;
+        this.T_INV_CIL += this.VentaAct[i].INV_CIL;
+        this.T_EquivKG += this.VentaAct[i].Equiv_KG;
       }
       console.log("El total de kilos es " + this.T_Kilos);
       console.log("El total  de cil  " + this.T_Cil);
       console.log(
         "El total  de recibe caja y efectivo  " + this.T_RecibeEfectivo
       );
+      console.log("Total credito total cilindro:  " + this.T_credito_Cil);
+      console.log("Total inv cil:  " + this.T_INV_CIL);
+      console.log("Total equiv kg:  " + this.T_EquivKG);
     }
   }
 
