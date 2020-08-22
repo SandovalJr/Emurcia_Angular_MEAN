@@ -15,6 +15,9 @@ export class ReportesVentasComponent implements OnInit {
   VentaAct = [];
   loading: boolean = false;
   T_Kilos = 0;
+  T_Cil = 0;
+  T_RecibeEfectivo = 0;
+
   public marca = this.activatedRouter.snapshot.paramMap.get("marca");
   public region = this.activatedRouter.snapshot.paramMap.get("region");
   public createdAt = this.activatedRouter.snapshot.paramMap.get("createdAt");
@@ -65,8 +68,14 @@ export class ReportesVentasComponent implements OnInit {
     if ((this.loading = true)) {
       for (let i = 0; i < this.VentaAct.length; i++) {
         this.T_Kilos += this.VentaAct[i].Venta_Kilos;
+        this.T_Cil += this.VentaAct[i].Importe_Liquidar;
+        this.T_RecibeEfectivo += this.VentaAct[i].Recibe_caja_efectivo;
       }
       console.log("El total de kilos es " + this.T_Kilos);
+      console.log("El total  de cil  " + this.T_Cil);
+      console.log(
+        "El total  de recibe caja y efectivo  " + this.T_RecibeEfectivo
+      );
     }
   }
 
