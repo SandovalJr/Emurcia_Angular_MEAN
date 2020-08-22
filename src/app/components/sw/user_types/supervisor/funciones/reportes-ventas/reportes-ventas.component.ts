@@ -39,7 +39,7 @@ export class ReportesVentasComponent implements OnInit {
   ngOnInit(): void {}
 
   public AgregarVenta() {
-    this.router.navigateByUrl(`/SupervisorProfile/AgregarVentaRVComponent`);
+    this.router.navigateByUrl(`/SupervisorProfile/AgregarVentaReporte`);
   }
 
   public ListarInfoVenta() {

@@ -134,6 +134,12 @@ export class EditarVentasComponent implements OnInit {
       console.log("entre 0");
 
       let fechaCom = `${año}-0${mes}-${dia}`;
+      this.credentialsRV.Venta_Kilos = this.credentialsRV.Cilidros_Vacios * 30;
+
+      this.credentialsRV.Importe_Liquidar =
+        this.credentialsRV.Venta_Kilos * this.credentialsRV.Precio_Prom -
+        this.credentialsRV.Recibe_caja_efectivo -
+        this.credentialsRV.Importe_credito;
 
       const id = this.activatedRouter.snapshot.paramMap.get("id");
       // console.log(id);
@@ -145,9 +151,11 @@ export class EditarVentasComponent implements OnInit {
               "Presiona para continuar..",
               "success"
             );
+
             this.router.navigateByUrl(
               `/SupervisorProfile/ReportesVentas/${this.InfoVR.marca}/${this.InfoVR.region}/${fechaCom}`
             );
+            console.log(this.credentialsRV);
           },
           (err) => {
             Swal.fire({

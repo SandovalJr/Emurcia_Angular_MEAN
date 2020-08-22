@@ -130,7 +130,7 @@ const routes: Routes = [
         canActivate: [AuthGuardService],
       },
       {
-        path: "AgregarVentaRVComponent",
+        path: "AgregarVentaReporte",
         component: AgregarVentaRVComponent,
         canActivate: [AuthGuardService],
       },

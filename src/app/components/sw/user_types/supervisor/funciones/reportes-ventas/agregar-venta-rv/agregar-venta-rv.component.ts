@@ -124,7 +124,7 @@ export class AgregarVentaRVComponent implements OnInit {
     this.credentialsRV.Venta_Kilos = this.credentialsRV.Cilidros_Vacios * 30;
 
     this.credentialsRV.Importe_Liquidar =
-      this.credentialsRV.Equiv_KG * this.credentialsRV.Precio_Prom -
+      this.credentialsRV.Venta_Kilos * this.credentialsRV.Precio_Prom -
       this.credentialsRV.Recibe_caja_efectivo -
       this.credentialsRV.Importe_credito;
 

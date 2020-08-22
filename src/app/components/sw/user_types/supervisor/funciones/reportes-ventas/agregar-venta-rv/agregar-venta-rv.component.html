@@ -180,7 +180,7 @@
             [(ngModel)]="credentialsRV.Importe_Liquidar"
             disabled
             value="{{
-              credentialsRV.Cilidros_Vacios * 30 * credentialsRV.Precio_Prom -
+              (credentialsRV.Cilidros_Vacios * 30 ) * credentialsRV.Precio_Prom -
                 credentialsRV.Recibe_caja_efectivo -
                 credentialsRV.Importe_credito | number: '1.2-2'
             }}"
