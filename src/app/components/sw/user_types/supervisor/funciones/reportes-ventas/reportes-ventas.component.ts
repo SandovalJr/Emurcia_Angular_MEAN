@@ -81,12 +81,13 @@ export class ReportesVentasComponent implements OnInit {
         this.T_INV_CIL += this.VentaAct[i].INV_CIL;
         this.T_EquivKG += this.VentaAct[i].Equiv_KG;
       }
-      console.log("El total de kilos es " + this.T_Kilos);
-      console.log("El total  de cil  " + this.T_Cil);
-      console.log(
-        "El total  de recibe caja y efectivo  " + this.T_RecibeEfectivo
-      );
+      // console.log("El total de kilos es " + this.T_Kilos);
+      // console.log("El total  de cil  " + this.T_Cil);
+      // console.log(
+      //   "El total  de recibe caja y efectivo  " + this.T_RecibeEfectivo
+      // );
       console.log("Total credito total cilindro:  " + this.T_credito_Cil);
+      console.log("Total importe credito:  " + this.T_ImporteCredito);
       console.log("Total inv cil:  " + this.T_INV_CIL);
       console.log("Total equiv kg:  " + this.T_EquivKG);
     }
