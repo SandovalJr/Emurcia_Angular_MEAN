@@ -144,6 +144,11 @@ const routes: Routes = [
         component: VerInfoDeVentasComponent,
         canActivate: [AuthGuardService],
       },
+      {
+        path: "Buscar_Ventas/:marca/:region",
+        component: BuscarVentasRVComponent,
+        canActivate: [AuthGuardService],
+      },
     ],
   },
   // VENDEDOR
