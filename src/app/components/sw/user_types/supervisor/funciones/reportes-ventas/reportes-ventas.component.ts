@@ -113,9 +113,9 @@ export class ReportesVentasComponent implements OnInit {
     this.router.navigateByUrl(`SupervisorProfile/Ver_Venta/${id}`);
   }
 
-  public BuscarVenta (){
-
+  public BuscarVenta() {
+    this.router.navigateByUrl(
+      `SupervisorProfile/Buscar_Ventas/${this.marca}/${this.region}`
+    );
   }
-
-
 }
