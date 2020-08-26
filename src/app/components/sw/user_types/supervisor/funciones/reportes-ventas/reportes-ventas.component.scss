@@ -64,11 +64,14 @@
   text-align: center;
 }
 .ttablaTotales {
-  // margin-top: 30px;
-  background: #bbbaba;
+  border: 2px #41434d solid;
   font-family: oswald;
   color: #41434d;
   text-align: center;
+}
+
+.LetraBold{
+font-weight: bold;
 }
 
 .contenedor {

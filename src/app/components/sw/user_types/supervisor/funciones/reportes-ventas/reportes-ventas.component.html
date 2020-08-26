@@ -56,7 +56,7 @@
       <mdb-icon
         fas
         icon="search"
-        style="color: white;"
+        style="color: white"
         aria-hidden="true"
       ></mdb-icon>
     </span>
@@ -125,29 +125,29 @@
             </button>
           </td>
         </tr>
-        <tr class="ttablaTotales">
+        <tr class="ttablaTotales" *ngIf="loading">
           <td class="th"></td>
           <td class="th">Total Kilos:</td>
-          <td class="th">{{ T_Kilos }}</td>
+          <td class="th LetraBold">{{ T_Kilos }}</td>
           <td class="th">Total Cil:</td>
-          <td class="th">{{ T_Cil | number: "1.2-2" }}</td>
-          <td class="th">{{ T_RecibeEfectivo | number: "1.2-2" }}</td>
+          <td class="th LetraBold">{{ T_Cil | number: "1.2-2" }}</td>
+          <td class="th LetraBold">{{ T_RecibeEfectivo | number: "1.2-2" }}</td>
         </tr>
-        <tr class="ttablaTotales">
+        <tr class="ttablaTotales" *ngIf="loading">
           <td class="th"></td>
           <td class="th">Credito Cilindro:</td>
-          <td class="th">{{ T_credito_Cil }}</td>
+          <td class="th LetraBold">{{ T_credito_Cil }}</td>
           <td class="th"></td>
           <td class="th">Importe Credito:</td>
-          <td class="th">{{ T_ImporteCredito }}</td>
+          <td class="th LetraBold">{{ T_ImporteCredito }}</td>
         </tr>
-        <tr class="ttablaTotales">
+        <tr class="ttablaTotales" *ngIf="loading">
           <td class="th"></td>
           <td class="th">Total Inv Cil:</td>
-          <td class="th">{{ T_INV_CIL }}</td>
+          <td class="th LetraBold">{{ T_INV_CIL }}</td>
           <td class="th"></td>
           <td class="th">Total Equiv KG:</td>
-          <td class="th">{{ T_EquivKG }}</td>
+          <td class="th LetraBold">{{ T_EquivKG }}</td>
         </tr>
       </tbody>
     </table>

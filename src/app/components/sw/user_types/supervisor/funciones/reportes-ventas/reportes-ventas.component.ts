@@ -112,4 +112,10 @@ export class ReportesVentasComponent implements OnInit {
   public VerVentaInfor(id: any) {
     this.router.navigateByUrl(`SupervisorProfile/Ver_Venta/${id}`);
   }
+
+  public BuscarVenta (){
+
+  }
+
+
 }
