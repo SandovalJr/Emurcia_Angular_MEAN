@@ -85,6 +85,17 @@ export class ReporteDeVentasService {
     return this.http.get(`${this.baseUrl}ListarIdRV/${id}`);
   }
 
+  // Lista Ventas por fecha marca y region
+  public ObtenerInformacionFecha(
+    marca: any,
+    region: any,
+    fecha: any
+  ): Observable<any> {
+    return this.http.get(
+      `${this.baseUrl}/listarReportesVentas/${marca}/${region}/${fecha}`
+    );
+  }
+
   // Eliminar
   public EliminarVenta(id: any): Observable<any> {
     return this.http.get(`${this.baseUrl}EliminarVenta/${id}`);
