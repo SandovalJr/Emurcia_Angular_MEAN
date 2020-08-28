@@ -86,6 +86,7 @@ export class AgregarVentaRVComponent implements OnInit {
     let dia = f.getDate();
     // LA FECHA SOLO SE MUESTRA NO SE MANDA AL BACK
     if (mes > 0 && mes < 10) {
+
       this.fecha = `${año}-0${mes}-${dia}`;
     } else {
       this.fecha = `${año}-${mes}-${dia}`;
