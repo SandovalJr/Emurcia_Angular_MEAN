@@ -50,7 +50,7 @@ export class ReportesVentasComponent implements OnInit {
 
     let marcaempresa = this.activatedRouter.snapshot.paramMap.get("marca");
     let region = this.activatedRouter.snapshot.paramMap.get("region");
-    console.log();
+    // console.log();
     this.VentaAct = [];
 
     this.RVService.ListarRVHoy(
@@ -61,7 +61,7 @@ export class ReportesVentasComponent implements OnInit {
       (venta) => {
         this.VentaAct = venta;
         this.loading = true;
-        console.log(this.VentaAct);
+        // console.log(this.VentaAct);
         this.RealizarTotales();
       },
       (err) => {
@@ -86,10 +86,10 @@ export class ReportesVentasComponent implements OnInit {
       // console.log(
       //   "El total  de recibe caja y efectivo  " + this.T_RecibeEfectivo
       // );
-      console.log("Total credito total cilindro:  " + this.T_credito_Cil);
-      console.log("Total importe credito:  " + this.T_ImporteCredito);
-      console.log("Total inv cil:  " + this.T_INV_CIL);
-      console.log("Total equiv kg:  " + this.T_EquivKG);
+      // console.log("Total credito total cilindro:  " + this.T_credito_Cil);
+      // console.log("Total importe credito:  " + this.T_ImporteCredito);
+      // console.log("Total inv cil:  " + this.T_INV_CIL);
+      // console.log("Total equiv kg:  " + this.T_EquivKG);
     }
   }
 

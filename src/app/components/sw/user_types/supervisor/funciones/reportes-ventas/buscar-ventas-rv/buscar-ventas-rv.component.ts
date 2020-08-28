@@ -30,6 +30,7 @@ export class BuscarVentasRVComponent implements OnInit {
   credentialsRV: any = {
     fecha: "",
   };
+
   constructor(
     private activatedRouter: ActivatedRoute,
     private router: Router,
@@ -56,6 +57,22 @@ export class BuscarVentasRVComponent implements OnInit {
   }
 
   public BuscarVentas() {
-    console.log(this.credentialsRV.fecha);
+    let marcaempresa = this.activatedRouter.snapshot.paramMap.get("marca");
+    let region = this.activatedRouter.snapshot.paramMap.get("region");
+    // console.log(marcaempresa + region);
+    // console.log(this.credentialsRV.fecha);
+
+    this.RVService.ObtenerInformacionFecha(
+      marcaempresa,
+      region,
+      this.credentialsRV.fecha
+    ).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 }

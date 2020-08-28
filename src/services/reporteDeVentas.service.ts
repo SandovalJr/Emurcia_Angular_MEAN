@@ -91,6 +91,11 @@ export class ReporteDeVentasService {
     region: any,
     fecha: any
   ): Observable<any> {
+    console.log(marca );
+    console.log(region);
+    console.log(fecha);
+
+
     return this.http.get(
       `${this.baseUrl}/listarReportesVentas/${marca}/${region}/${fecha}`
     );
