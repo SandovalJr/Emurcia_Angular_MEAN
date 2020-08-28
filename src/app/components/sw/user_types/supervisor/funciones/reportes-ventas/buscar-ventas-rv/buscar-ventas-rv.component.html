@@ -4,9 +4,38 @@
   <div class="LA"></div>
   <div class="LR"></div>
 </div>
-<form class="login100-form validate-form">
-  <ng-container [formGroup]="formulario">
 
+<div class="container mt-5">
+  <form class="login100-form validate-form">
+    <ng-container [formGroup]="formulario">
+      <div class="row md-form">
+        <div class="col">
+          <div class="text-center d-block">Grupo al que perteneces</div>
+          <input
+            type="date"
+            class="form-control text-center"
+            name="fecha"
+            formControlName="fecha"
+            [(ngModel)]="credentialsRV.fecha"
+            [ngClass]="{
+              'is-valid': ValidarFormulario('fecha').error == false,
+              'is-invalid': ValidarFormulario('fecha').error == true
+            }"
+          />
+          <div
+            *ngIf="ValidarFormulario('fecha').error"
+            class="text-center invalid-feedback d-block"
+          >
+            {{ ValidarFormulario("fecha").message }}
+          </div>
+        </div>
+      </div>
+    </ng-container>
 
-  </ng-container>
-</form>
+    <div class="boton">
+      <button type="submit" (click)="BuscarVentas()" class="btn agregarUser">
+        Buscar Ventas
+      </button>
+    </div>
+  </form>
+</div>
