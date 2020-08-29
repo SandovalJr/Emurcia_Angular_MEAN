@@ -48,13 +48,12 @@
     <table class="table">
       <thead>
         <tr class="ttabla">
-          <th>Num Eco</th>
-          <th>Año</th>
-          <th>Ubicación</th>
-          <th>Numero de serie</th>
-          <th>Placas</th>
-          <th>Chofer/Ruta</th>
-          <th>Auto Tanque</th>
+          <th>Auto</th>
+          <th>Cilindros Vacios</th>
+          <th>Ventas Kilos</th>
+          <th>P.Prom</th>
+          <th>Importe a Liquidar</th>
+          <th>Recibe Caja / Efectivo</th>
           <th>OPERACIONES</th>
         </tr>
       </thead>
@@ -67,14 +66,12 @@
               | paginate: { itemsPerPage: 5, currentPage: pageActual }
           "
         >
-          <td class="tc">{{ VentaRV.Num_eco }}</td>
-          <td class="tc">{{ VentaRV.anio }}</td>
-          <td class="tc">{{ VentaRV.ubicacion }}</td>
-          <td class="tc">{{ VentaRV.num_serie }}</td>
-
-          <td class="tc">{{ VentaRV.placas }}</td>
-          <td class="tc">{{ VentaRV.chofer_ruta }}</td>
-          <td class="tc">{{ VentaRV.AutoTanque }}</td>
+        <td class="tc">{{ VentaRV.auto }}</td>
+        <td class="tc">{{ VentaRV.Cilidros_Vacios }}</td>
+        <td class="tc">{{ VentaRV.Venta_Kilos }}</td>
+        <td class="tc">{{ VentaRV.Precio_Prom }}</td>
+        <td class="tc">{{ VentaRV.Importe_Liquidar | number: "1.2-2" }}</td>
+        <td class="tc">{{ VentaRV.Recibe_caja_efectivo }}</td>
           <td class="operaciones">
             <button class="btn btn-outline-danger">
               <mat-icon>delete_forever</mat-icon>
