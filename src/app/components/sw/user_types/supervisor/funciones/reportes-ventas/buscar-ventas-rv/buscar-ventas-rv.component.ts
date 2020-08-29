@@ -49,7 +49,7 @@ export class BuscarVentasRVComponent implements OnInit {
 
   public createForm() {
     this.formulario = new FormGroup({
-      fecha: new FormControl(null, []),
+      fecha: new FormControl(null, [RxwebValidators.required()]),
     });
   }
 
@@ -72,7 +72,7 @@ export class BuscarVentasRVComponent implements OnInit {
       this.credentialsRV.fecha
     ).subscribe(
       (data) => {
-        this.VentasData = data
+        this.VentasData = data;
         this.loading = true;
         console.log(data);
       },
