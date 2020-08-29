@@ -30,6 +30,10 @@ export class BuscarVentasRVComponent implements OnInit {
   credentialsRV: any = {
     fecha: "",
   };
+  loading: boolean = false;
+  public VentasData: Array<any> = [];
+  pageActual: number = 1;
+  BuscadorDeVentas: any;
 
   constructor(
     private activatedRouter: ActivatedRoute,
@@ -68,6 +72,8 @@ export class BuscarVentasRVComponent implements OnInit {
       this.credentialsRV.fecha
     ).subscribe(
       (data) => {
+        this.VentasData = data
+        this.loading = true;
         console.log(data);
       },
       (err) => {

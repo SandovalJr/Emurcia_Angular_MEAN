@@ -5,37 +5,96 @@
   <div class="LR"></div>
 </div>
 
-<div class="container mt-5">
-  <form class="login100-form validate-form">
-    <ng-container [formGroup]="formulario">
-      <div class="row md-form">
-        <div class="col">
-          <div class="text-center d-block">Selecciona la fecha</div>
-          <input
-            type="date"
-            class="form-control text-center"
-            name="fecha"
-            formControlName="fecha"
-            [(ngModel)]="credentialsRV.fecha"
-            [ngClass]="{
-              'is-valid': ValidarFormulario('fecha').error == false,
-              'is-invalid': ValidarFormulario('fecha').error == true
-            }"
-          />
-          <div
-            *ngIf="ValidarFormulario('fecha').error"
-            class="text-center invalid-feedback d-block"
-          >
-            {{ ValidarFormulario("fecha").message }}
+
+<div class="container">
+  <div class="buttonContainer">
+    <form class="login100-form validate-form">
+      <ng-container [formGroup]="formulario">
+        <div class="row md-form">
+          <div class="col">
+            <div class="text-center d-block">Selecciona la fecha</div>
+            <input
+              type="date"
+              class="form-control text-center"
+              name="fecha"
+              formControlName="fecha"
+              [(ngModel)]="credentialsRV.fecha"
+              [ngClass]="{
+                'is-valid': ValidarFormulario('fecha').error == false,
+                'is-invalid': ValidarFormulario('fecha').error == true
+              }"
+            />
+            <div
+              *ngIf="ValidarFormulario('fecha').error"
+              class="text-center invalid-feedback d-block"
+            >
+              {{ ValidarFormulario("fecha").message }}
+            </div>
           </div>
         </div>
-      </div>
-    </ng-container>
+      </ng-container>
 
-    <div class="boton">
-      <button type="submit" (click)="BuscarVentas()" class="btn agregarUser">
-        Buscar Ventas
-      </button>
+      <div class="boton">
+        <button type="submit" (click)="BuscarVentas()" class="btn agregarUser">
+          Buscar Ventas
+        </button>
+      </div>
+    </form>
+  </div>
+
+
+<div *ngIf="loading" class="contenedor">
+  <div class="table-responsive mt-5">
+    <table class="table">
+      <thead>
+        <tr class="ttabla">
+          <th>Num Eco</th>
+          <th>Año</th>
+          <th>Ubicación</th>
+          <th>Numero de serie</th>
+          <th>Placas</th>
+          <th>Chofer/Ruta</th>
+          <th>Auto Tanque</th>
+          <th>OPERACIONES</th>
+        </tr>
+      </thead>
+      <tbody hover="true">
+        <tr
+          appTablehover
+          *ngFor="
+            let VentaRV of VentasData
+              | filter: BuscadorDeVentas
+              | paginate: { itemsPerPage: 5, currentPage: pageActual }
+          "
+        >
+          <td class="tc">{{ VentaRV.Num_eco }}</td>
+          <td class="tc">{{ VentaRV.anio }}</td>
+          <td class="tc">{{ VentaRV.ubicacion }}</td>
+          <td class="tc">{{ VentaRV.num_serie }}</td>
+
+          <td class="tc">{{ VentaRV.placas }}</td>
+          <td class="tc">{{ VentaRV.chofer_ruta }}</td>
+          <td class="tc">{{ VentaRV.AutoTanque }}</td>
+          <td class="operaciones">
+            <button class="btn btn-outline-danger">
+              <mat-icon>delete_forever</mat-icon>
+            </button>
+            <button class="btn btn-outline-warning">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button class="btn btn-outline-info">
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="loading" class="mt-4 float-right">
+      <pagination-controls
+        (pageChange)="pageActual = $event"
+        previousLabel="Anterior"
+        nextLabel="Siguiente"
+      ></pagination-controls>
     </div>
-  </form>
+  </div>
 </div>
