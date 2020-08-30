@@ -30,10 +30,10 @@ export class BuscarVentasRVComponent implements OnInit {
   credentialsRV: any = {
     fecha: "",
   };
-  loading: boolean = false;
   public VentasData: Array<any> = [];
   pageActual: number = 1;
   BuscadorDeVentas: any;
+  loading: boolean = false;
 
   constructor(
     private activatedRouter: ActivatedRoute,
@@ -80,5 +80,27 @@ export class BuscarVentasRVComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+
+
+  public ElimiarVenta(id: any) {
+    this.RVService.EliminarVenta(id).subscribe(
+      () => {
+        window.location.reload();
+        // console.log("Eliminado con exito");
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  public EditarVenta(id: any) {
+    this.router.navigateByUrl(`SupervisorProfile/Editar_Venta/${id}`);
+  }
+
+  public VerVentaInfor(id: any) {
+    this.router.navigateByUrl(`SupervisorProfile/Ver_Venta/${id}`);
   }
 }

@@ -67,7 +67,9 @@
       <span class="sr-only">Loading...</span>
     </div>
   </div>
-  <div class="text-center d-block">Debes seleccionar una fecha</div>
+  <div *ngIf="!loading" class="text-center d-block">
+    Debes seleccionar una fecha
+  </div>
 
   <div *ngIf="loading" class="contenedor">
     <div class="table-responsive mt-5">
@@ -99,13 +101,22 @@
             <td class="tc">{{ VentaRV.Importe_Liquidar | number: "1.2-2" }}</td>
             <td class="tc">{{ VentaRV.Recibe_caja_efectivo }}</td>
             <td class="operaciones">
-              <button class="btn btn-outline-danger">
+              <button
+                class="btn btn-outline-danger"
+                (click)="ElimiarVenta(VentaRV.id_RV)"
+              >
                 <mat-icon>delete_forever</mat-icon>
               </button>
-              <button class="btn btn-outline-warning">
+              <button
+                class="btn btn-outline-warning"
+                (click)="EditarVenta(VentaRV.id_RV)"
+              >
                 <mat-icon>edit</mat-icon>
               </button>
-              <button class="btn btn-outline-info">
+              <button
+                class="btn btn-outline-info"
+                (click)="VerVentaInfor(VentaRV.id_RV)"
+              >
                 <mat-icon>visibility</mat-icon>
               </button>
             </td>
