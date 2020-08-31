@@ -34,7 +34,15 @@ export class BuscarVentasRVComponent implements OnInit {
   pageActual: number = 1;
   BuscadorDeVentas: any;
   loading: boolean = false;
-
+  T_Kilos = 0;
+  T_Cil = 0;
+  T_RecibeEfectivo = 0;
+  // Credito
+  T_credito_Cil = 0;
+  T_ImporteCredito = 0;
+  // Inv
+  T_INV_CIL = 0;
+  T_EquivKG = 0;
   constructor(
     private activatedRouter: ActivatedRoute,
     private router: Router,
@@ -74,12 +82,37 @@ export class BuscarVentasRVComponent implements OnInit {
       (data) => {
         this.VentasData = data;
         this.loading = true;
-        console.log(data);
+        this.RealizarTotales();
+        // console.log(data);
       },
       (err) => {
         console.log(err);
       }
     );
+  }
+
+
+  public RealizarTotales() {
+    if ((this.loading = true)) {
+      for (let i = 0; i < this.VentasData.length; i++) {
+        this.T_Kilos += this.VentasData[i].Venta_Kilos;
+        this.T_Cil += this.VentasData[i].Importe_Liquidar;
+        this.T_RecibeEfectivo += this.VentasData[i].Recibe_caja_efectivo;
+        this.T_credito_Cil += this.VentasData[i].credito_cilindro;
+        this.T_ImporteCredito += this.VentasData[i].Importe_credito;
+        this.T_INV_CIL += this.VentasData[i].INV_CIL;
+        this.T_EquivKG += this.VentasData[i].Equiv_KG;
+      }
+      // console.log("El total de kilos es " + this.T_Kilos);
+      // console.log("El total  de cil  " + this.T_Cil);
+      // console.log(
+      //   "El total  de recibe caja y efectivo  " + this.T_RecibeEfectivo
+      // );
+      // console.log("Total credito total cilindro:  " + this.T_credito_Cil);
+      // console.log("Total importe credito:  " + this.T_ImporteCredito);
+      // console.log("Total inv cil:  " + this.T_INV_CIL);
+      // console.log("Total equiv kg:  " + this.T_EquivKG);
+    }
   }
 
 
